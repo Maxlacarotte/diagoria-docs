@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Installer DIAGORIA — DIAGORIA</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="topbar"><div class="row">
+  <a class="brand" href="index.html"><span class="dot"></span> DIAGORIA</a>
+  <span class="spacer"></span>
+  <a class="back" href="index.html">← Centre de doc</a>
+</div></div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">PRODUIT · DISTRIBUTION</div>
+    <h1>Installer DIAGORIA comme un vrai logiciel 💿</h1>
+    <p>Un installeur Windows propre : DIAGORIA s'ajoute au menu Démarrer, avec un désinstalleur — fini le <code>.exe</code> qui traîne sur le bureau.</p>
+  </div>
+
+  <div class="tldr">
+    <div class="lead">⚡ En 30 secondes</div>
+    <p>Télécharge l'<strong>installeur</strong>, clique « Installer », et DIAGORIA apparaît dans ton menu Démarrer (+ désinstalleur dans « Ajout/Suppression de programmes »). Au 1ᵉʳ lancement, il s'ouvre tout seul dans ton navigateur.</p>
+    <p style="margin-top:10px"><a class="btn" href="https://diagoria.com/download/diagoria-setup">⬇️ Télécharger l'installeur (Windows)</a> <a class="btn ghost" href="https://diagoria.com/download/diagoria">Version portable (.exe)</a></p>
+  </div>
+
+  <h2>🧭 Les 3 étapes</h2>
+  <ol class="steps">
+    <li><h3>Télécharge l'installeur</h3><p><code>DIAGORIA-Setup-2.1.0.exe</code> (~13,5 Mo) depuis le bouton ci-dessus ou la vitrine <a href="https://diagoria.com">diagoria.com</a>.</p></li>
+    <li><h3>Lance-le et clique « Installer »</h3><p>Windows peut afficher un avertissement bleu (« éditeur inconnu ») car le logiciel n'est pas encore signé → clique « Informations complémentaires » puis « Exécuter quand même ». <a href="windows-confiance.html">Comment supprimer cet avertissement →</a></p></li>
+    <li><h3>C'est prêt</h3><p>DIAGORIA est dans ton menu Démarrer. Au lancement, le moteur démarre et ton navigateur s'ouvre tout seul sur l'application.</p></li>
+  </ol>
+
+  <div class="callout note">
+    <p class="lead">📍 Où ça s'installe</p>
+    <p>Dans <code>%LOCALAPPDATA%\Programs\DIAGORIA</code> (installation <strong>par utilisateur</strong>, sans mot de passe administrateur). On obtient quand même tout ce qui fait un « vrai logiciel » : entrée menu Démarrer, raccourci bureau (optionnel), <strong>désinstalleur</strong> propre dans « Ajout/Suppression de programmes ».</p>
+  </div>
+
+  <div class="callout warn">
+    <p class="lead">⚙️ Pourquoi pas directement dans « Program Files » ?</p>
+    <p>Parce que DIAGORIA écrit ses fichiers (compte, dossiers patients) <strong>à côté de l'exécutable</strong>, et que « Program Files » est en lecture seule pour un utilisateur normal — l'app ne pourrait pas sauvegarder. Pour une vraie install <em>Program Files</em> (tous utilisateurs, avec admin), il faut d'abord déplacer les données vers <code>%APPDATA%\DIAGORIA</code> — une petite évolution prévue côté logiciel.</p>
+  </div>
+
+  <h2>🍎🐧 Mac & Linux</h2>
+  <div class="callout note">
+    <p>Une <strong>chaîne de compilation automatique</strong> (GitHub Actions) a été mise en place pour produire les versions <strong>macOS</strong> et <strong>Linux</strong> en plus de Windows. Dès qu'elles sont validées, elles seront proposées au téléchargement sur la vitrine. En attendant : « bientôt disponibles ».</p>
+  </div>
+
+  <h2>🗑️ Désinstaller</h2>
+  <p><strong>Paramètres Windows → Applications → DIAGORIA → Désinstaller</strong> (ou via le menu Démarrer). Tes <strong>dossiers patients ne sont pas supprimés</strong> automatiquement (donnée médicale) — tu les enlèves toi-même si tu le souhaites.</p>
+
+  <div class="footer">
+    DIAGORIA · Centre de documentation · installeur Inno Setup · généré dans la nuit du 04→05/06/2026 ·
+    <a href="index.html">retour au sommaire</a>
+  </div>
+</div>
+</body>
+</html>

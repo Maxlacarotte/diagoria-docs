@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Rapport de la nuit — DIAGORIA</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="topbar"><div class="row">
+  <a class="brand" href="index.html"><span class="dot"></span> DIAGORIA</a>
+  <span class="spacer"></span>
+  <a class="back" href="index.html">← Centre de doc</a>
+</div></div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">RAPPORT DE MISSION · NUIT DU 04 → 05/06/2026</div>
+    <h1>Bonjour 👋 Voici ta nuit en un coup d'œil</h1>
+    <p>14 chantiers lancés, dans le bon ordre (fondations → recherche en parallèle → produit → déploiement). Tout est rangé ici, accessible de n'importe quel PC.</p>
+  </div>
+
+  <div class="tldr">
+    <div class="lead">⚡ L'essentiel</div>
+    <ul class="clean">
+      <li><strong>14/14 missions traitées.</strong> Toutes les pages sont dans ce centre de doc.</li>
+      <li><strong>En production</strong> (diagoria.com) : nouvelle <strong>FAQ</strong> + <strong>installeur Windows</strong> téléchargeable. Version <code>v2.2.0</code>, rollback prêt.</li>
+      <li><strong>Découverte importante</strong> : la transcription actuelle envoie l'audio chez Google → <a href="transcription-rgpd.html">à corriger avant tout vrai patient</a>.</li>
+      <li><strong>Quelques décisions t'attendent</strong> (plus bas) : rien d'urgent, juste des choix.</li>
+    </ul>
+  </div>
+
+  <h2>📋 Les 14 missions</h2>
+  <table>
+    <thead><tr><th>#</th><th>Mission</th><th>Résultat</th><th>Voir</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Installeur « vrai logiciel »</td><td><span class="pill green">fait + en prod</span></td><td><a href="install.html">install</a></td></tr>
+      <tr><td>2</td><td>Pérenniser les rapports</td><td><span class="pill green">fait</span> (ce hub)</td><td><a href="index.html">sommaire</a></td></tr>
+      <tr><td>3</td><td>50 logos + 50 slogans</td><td><span class="pill green">fait</span></td><td><a href="logos.html">logos</a> · <a href="slogans.html">slogans</a></td></tr>
+      <tr><td>4</td><td>Parcours dispositif médical</td><td><span class="pill green">fait</span></td><td><a href="dispositif-medical.html">voir 🔒</a></td></tr>
+      <tr><td>5</td><td>Confiance Windows (signature)</td><td><span class="pill green">fait</span></td><td><a href="windows-confiance.html">voir</a></td></tr>
+      <tr><td>6</td><td>Financeurs</td><td><span class="pill green">fait</span></td><td><a href="financement.html">voir 🔒</a></td></tr>
+      <tr><td>7</td><td>Budget marketing de lancement</td><td><span class="pill green">fait</span></td><td><a href="marketing-lancement.html">voir 🔒</a></td></tr>
+      <tr><td>8</td><td>RGPD de la transcription</td><td><span class="pill red">⭐ critique</span></td><td><a href="transcription-rgpd.html">voir 🔒</a></td></tr>
+      <tr><td>9</td><td>Carte des agents / archi</td><td><span class="pill green">fait</span></td><td><a href="architecture-agents.html">voir</a></td></tr>
+      <tr><td>10</td><td>Analyse concurrence</td><td><span class="pill green">fait</span></td><td><a href="concurrence.html">voir 🔒</a></td></tr>
+      <tr><td>11</td><td>FAQ sur le site</td><td><span class="pill green">fait + en prod</span></td><td><a href="https://diagoria.com/#faq">sur le site</a></td></tr>
+      <tr><td>12</td><td>Micro d'ambiance USB</td><td><span class="pill green">fait</span></td><td><a href="micro-ambiance.html">voir</a></td></tr>
+      <tr><td>13</td><td>Versions Mac & Linux</td><td><span class="pill amber">CI prête, à publier</span></td><td><a href="install.html">install</a></td></tr>
+      <tr><td>14</td><td>Ce rapport</td><td><span class="pill green">fait</span></td><td>—</td></tr>
+    </tbody>
+  </table>
+
+  <h2>🚀 Ce qui est passé EN PRODUCTION cette nuit</h2>
+  <div class="callout ok">
+    <p class="lead">Version v2.2.0 — diagoria.com</p>
+    <ul class="clean">
+      <li><strong>Section FAQ</strong> (8 questions) sur la vitrine : matériel, saisie manuelle, données, Mac/Linux, internet, prix, installation, complémentarité.</li>
+      <li><strong>Installeur Windows</strong> téléchargeable (bouton « Télécharger » → installeur ; lien « version portable » conservé).</li>
+      <li><strong>Nouvelle route</strong> <code>/download/diagoria-setup</code> côté serveur.</li>
+      <li>Vérifié : <strong>7/7 pages à 200</strong>. Sauvegarde BDD+secrets faite avant. <strong>Rollback</strong> possible (tag <code>v2.2.0</code> + backup <code>20260605-005048</code>).</li>
+      <li>L'application elle-même n'a pas changé (toujours <code>2.1.0</code>) → aucun bandeau « mise à jour » intempestif.</li>
+    </ul>
+  </div>
+
+  <h2>⏳ À décider / valider à ton réveil</h2>
+  <div class="callout warn">
+    <ul class="clean">
+      <li><strong>Pages confidentielles 🔒 publiques ?</strong> Le hub est public (adresse non-indexée). 5 pages sont sensibles : <em>dispositif médical, financement, marketing, concurrence, RGPD-transcription</em>. Tu choisis : les garder ici, ou les basculer en privé (Notion, ou GitHub Pages privé ~4 €/mois).</li>
+      <li><strong>Signature du logiciel</strong> (supprimer l'alerte Windows) : aucun achat fait. Reco = certificat OV Certum (~69 € la 1ʳᵉ année). Détails : <a href="windows-confiance.html">page confiance Windows</a>.</li>
+      <li><strong>Vraie install « Program Files »</strong> : possible après une petite modif (données vers <code>%APPDATA%</code>). Aujourd'hui l'installeur est par-utilisateur (et fonctionne).</li>
+      <li><strong>Publier Mac & Linux</strong> : la compilation automatique est en place ; reste à mettre les fichiers en téléchargement (~10 min un matin).</li>
+      <li><strong>Choisir ton logo</strong> parmi les 50, et tes slogans préférés.</li>
+    </ul>
+  </div>
+
+  <h2>🧭 Les arbitrages que j'ai faits (tu peux revenir dessus)</h2>
+  <ul class="clean">
+    <li><strong>Hub = dépôt public séparé</strong> <code>diagoria-docs</code> (zéro code/secret dedans) — seule façon d'avoir une adresse fixe gratuite sans rien exposer du code.</li>
+    <li><strong>Installeur par-utilisateur</strong> plutôt que Program Files, pour ne pas casser la sauvegarde des données (voir ci-dessus).</li>
+    <li><strong>Déploiement depuis <code>dev</code></strong> avec vérification + tag ; le merge propre vers <code>main</code> a été fait (un petit conflit de doc résolu).</li>
+    <li><strong>Mac/Linux non bloquant</strong> : j'ai monté la CI et corrigé un bug de build, sans bloquer la nuit dessus.</li>
+  </ul>
+
+  <h2>⭐ Le point à retenir : la transcription</h2>
+  <div class="callout danger">
+    <p class="lead">À traiter avant le 1ᵉʳ vrai patient</p>
+    <p>La transcription passe aujourd'hui par le navigateur, qui <strong>envoie l'audio chez Google</strong> — non conforme pour des données de santé. La solution propre : une transcription <strong>locale</strong> (l'audio ne quitte jamais le PC). Tout est expliqué, avec la config et les alternatives, dans <a href="transcription-rgpd.html">la page dédiée 🔒</a>.</p>
+  </div>
+
+  <div class="footer">
+    DIAGORIA · Rapport de la nuit du 04 → 05/06/2026 · <a href="index.html">retour au sommaire</a>
+  </div>
+</div>
+</body>
+</html>
