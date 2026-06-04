@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="DIAGORIA — Croix tendre">
+<title>DIAGORIA — Croix tendre</title>
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0EA5A6"/><stop offset="1" stop-color="#16A34A"/></linearGradient></defs>
+<rect x="48" y="18" width="24" height="84" rx="12" fill="url(#g)"/>
+<rect x="18" y="48" width="84" height="24" rx="12" fill="url(#g)"/>
+</svg>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="DIAGORIA — Feuille-soin">
+<title>DIAGORIA — Feuille-soin</title>
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0EA5A6"/><stop offset="1" stop-color="#16A34A"/></linearGradient></defs>
+<path d="M28 92 C28 44 68 26 96 24 C96 70 64 92 28 92 Z" fill="url(#g)"/>
+<path d="M40 80 C56 60 76 44 90 34" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".85"/>
+</svg>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="DIAGORIA — Bulle qui parle">
+<title>DIAGORIA — Bulle qui parle</title>
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0EA5A6"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+<path d="M24 22 h72 a14 14 0 0 1 14 14 v34 a14 14 0 0 1 -14 14 H52 l-18 18 v-18 H24 a14 14 0 0 1 -14 -14 V36 a14 14 0 0 1 14 -14 Z" fill="url(#g)"/>
+<path d="M34 53 q7 -16 14 0 t14 0 t14 0" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="DIAGORIA — Bouclier nuit (negatif)">
+<title>DIAGORIA — Bouclier nuit (negatif)</title>
+<rect x="0" y="0" width="120" height="120" rx="22" fill="#0F172A"/>
+<path d="M60 12 L102 28 V62 C102 88 84 102 60 110 C36 102 18 88 18 62 V28 Z" fill="none" stroke="#33d6d6" stroke-width="8"/>
+<path d="M40 60 l13 14 26 -28" fill="none" stroke="#34d399" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

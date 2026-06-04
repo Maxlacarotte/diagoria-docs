@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 120" role="img" aria-label="DIAGORIA — i-diagnostic">
+<title>DIAGORIA — i-diagnostic</title>
+<text x="14" y="74" font-family="Fredoka, Poppins, sans-serif" font-weight="600" font-size="32" letter-spacing="1" fill="#0F172A">D</text>
+<text x="40" y="74" font-family="Fredoka, Poppins, sans-serif" font-weight="600" font-size="32" letter-spacing="1" fill="#0F172A">AGORIA</text>
+<line x1="33" y1="58" x2="33" y2="74" stroke="#0F172A" stroke-width="6" stroke-linecap="round"/>
+<circle cx="33" cy="44" r="8" fill="#0EA5A6"/>
+<circle cx="33" cy="44" r="14" fill="none" stroke="#2563EB" stroke-width="3" opacity=".55"/>
+</svg>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Transcription & RGPD — nos données médicales sortent-elles du cadre ? — DIAGORIA</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="topbar"><div class="row">
+  <a class="brand" href="index.html"><span class="dot"></span> DIAGORIA</a>
+  <span class="spacer"></span>
+  <a class="back" href="index.html">← Centre de doc</a>
+</div></div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">SÉCURITÉ · RGPD · TRANSCRIPTION</div>
+    <h1>Notre transcription envoie-t-elle les données médicales hors du cadre RGPD&nbsp;?</h1>
+    <p>Réponse courte&nbsp;: <strong>oui, en l'état</strong>. Voici pourquoi, et les deux seules voies propres&nbsp;: le tout-local, ou le cloud européen sous contrat. Avec les configs réelles.</p>
+  </div>
+
+  <div class="confidential">🔒 Document confidentiel — analyse interne, ne pas partager.</div>
+
+  <div class="tldr">
+    <div class="lead">⚡ En 30 secondes</div>
+    <p><strong>Le problème.</strong> Aujourd'hui DIAGORIA transcrit via l'<strong>API Web Speech du navigateur</strong> (la brique de reconnaissance vocale de Chrome/Edge). Par défaut, cette brique <strong>envoie l'audio de la consultation aux serveurs de Google</strong> (Apple pour Safari) — donc <strong>hors de ta machine, possiblement hors de l'UE</strong>. Or cet audio = voix + contenu médical = <strong>donnée de santé</strong> (RGPD art.&nbsp;9) + <strong>secret médical</strong>. <span class="pill red">Non-conforme</span> dès la 1ʳᵉ vraie consultation.</p>
+    <p><strong>Tant qu'on teste avec des données FICTIVES, le risque est nul.</strong> Ça devient bloquant le jour où un vrai patient parle dans le micro.</p>
+    <p><strong>La reco.</strong> Pour de la donnée de santé, le plus propre est <strong>le tout-local</strong> (l'audio ne quitte jamais le PC) avec <strong>faster-whisper, modèle «&nbsp;small&nbsp;» (ou «&nbsp;medium&nbsp;»)</strong>. <span class="pill green">Zéro sortie = zéro transfert</span> → on supprime à la racine le problème RGPD, HDS et hors-UE.</p>
+  </div>
+
+  <h2>🧭 De quoi on parle (les sigles, en clair)</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="ico">🗣️</div>
+      <h3>STT</h3>
+      <p><em>Speech-to-Text</em> = «&nbsp;parole vers texte&nbsp;». Le moteur qui écoute le micro et écrit ce qui est dit. C'est la brique en cause ici.</p>
+    </div>
+    <div class="card">
+      <div class="ico">🌐</div>
+      <h3>API Web Speech</h3>
+      <p>La reconnaissance vocale <em>intégrée au navigateur</em> (<code>SpeechRecognition</code>). Pratique et gratuite — mais sous Chrome/Edge, <strong>elle passe par le cloud de Google</strong>.</p>
+    </div>
+    <div class="card">
+      <div class="ico">⚖️</div>
+      <h3>RGPD art.&nbsp;9</h3>
+      <p>Règlement européen sur les données personnelles. L'<strong>art.&nbsp;9</strong> couvre les <strong>données de santé</strong> = catégorie ultra-protégée, traitement interdit sauf exception.</p>
+    </div>
+    <div class="card">
+      <div class="ico">🏥</div>
+      <h3>HDS</h3>
+      <p><em>Hébergeur de Données de Santé</em>. Certification française obligatoire dès qu'un <strong>tiers héberge</strong> des données de santé (cloud). Pas requise en 100&nbsp;% local.</p>
+    </div>
+    <div class="card">
+      <div class="ico">📝</div>
+      <h3>DPA</h3>
+      <p><em>Data Processing Agreement</em> = contrat de sous-traitance (RGPD art.&nbsp;28). Obligatoire avec tout prestataire qui touche les données (Google, OVH…).</p>
+    </div>
+    <div class="card">
+      <div class="ico">🤫</div>
+      <h3>Secret médical</h3>
+      <p>Code de la santé publique art.&nbsp;L1110-4. La voix d'un patient qui décrit ses symptômes en relève. L'envoyer à un tiers non encadré = manquement.</p>
+    </div>
+  </div>
+
+  <h2>🚨 1. Le constat&nbsp;: oui, en l'état, ça sort du cadre</h2>
+
+  <div class="callout danger">
+    <p class="lead">⛔ Ce que fait vraiment le code aujourd'hui</p>
+    <p>Dans <code>templates/index.html</code>, la transcription utilise <code>window.SpeechRecognition || window.webkitSpeechRecognition</code> (langue <code>fr-FR</code>, mode continu). Sous <strong>Chrome et Edge</strong>, cette API <strong>capture l'audio du micro et l'envoie aux serveurs de Google</strong> pour le transformer en texte. Sous <strong>Safari</strong>, c'est chez Apple. <strong>Ce n'est PAS du traitement local.</strong></p>
+    <p>L'audio contient la <strong>voix du patient</strong> et le <strong>contenu clinique</strong> de la consultation. C'est une <strong>donnée de santé</strong> (RGPD art.&nbsp;9) couverte par le <strong>secret médical</strong>. Elle part chez un tiers américain, sans contrat, sans garantie de localisation UE.</p>
+  </div>
+
+  <div class="callout note">
+    <p class="lead">🧩 Petite mise au point technique (pour être exact)</p>
+    <p>Tu parlais de «&nbsp;Whisper de Google&nbsp;». En réalité <strong>Whisper est un modèle d'OpenAI</strong>, pas de Google. Et ce que DIAGORIA utilise aujourd'hui n'est <strong>ni l'un ni l'autre</strong>&nbsp;: c'est la reconnaissance vocale <strong>du navigateur</strong>, qui chez Google passe par <em>leur</em> moteur cloud maison. <strong>Le fond du problème est identique</strong>&nbsp;: l'audio quitte la machine.</p>
+  </div>
+
+  <h3>Pourquoi c'est une non-conformité — point par point</h3>
+  <table>
+    <thead>
+      <tr><th>Brique légale</th><th>Le problème concret</th><th>Texte</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Donnée de santé</strong></td>
+        <td>L'audio d'une consultation = donnée de santé «&nbsp;par catégorie particulière&nbsp;». Traitement interdit par principe sauf exception (soins, ou consentement explicite). Ici, aucune base solide n'est posée pour l'envoi à Google.</td>
+        <td><span class="pill red">RGPD art.&nbsp;9</span></td>
+      </tr>
+      <tr>
+        <td><strong>Base légale / consentement</strong></td>
+        <td>Le patient n'a jamais consenti à ce que sa voix parte chez Google. Pas d'information (art.&nbsp;13), pas de recueil de consentement.</td>
+        <td><span class="pill red">art.&nbsp;9.2.a / 13</span></td>
+      </tr>
+      <tr>
+        <td><strong>Secret médical</strong></td>
+        <td>Transmettre le contenu d'une consultation à un tiers non autorisé = atteinte au secret. Risque pénal (art.&nbsp;226-13 Code pénal&nbsp;: 1&nbsp;an + 15&nbsp;000&nbsp;€).</td>
+        <td><span class="pill red">CSP L1110-4</span></td>
+      </tr>
+      <tr>
+        <td><strong>Sous-traitance sans DPA</strong></td>
+        <td>Google devient de fait un sous-traitant qui traite la donnée. Sans <strong>contrat de sous-traitance (DPA)</strong> signé encadrant cet usage, c'est une faute.</td>
+        <td><span class="pill red">RGPD art.&nbsp;28</span></td>
+      </tr>
+      <tr>
+        <td><strong>HDS manquant</strong></td>
+        <td>Dès qu'un tiers «&nbsp;héberge/traite&nbsp;» de la donnée de santé, il faut un prestataire <strong>certifié HDS</strong>. Le moteur vocal de Chrome n'est pas dans un cadre HDS pour cet usage.</td>
+        <td><span class="pill red">CSP L1111-8</span></td>
+      </tr>
+      <tr>
+        <td><strong>Transfert hors-UE</strong></td>
+        <td>Les serveurs de reconnaissance Google peuvent traiter hors UE → transfert international de données sensibles sans garanties (art.&nbsp;44+).</td>
+        <td><span class="pill red">RGPD art.&nbsp;44+</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout ok">
+    <p class="lead">✅ La nuance qui rassure (phase actuelle)</p>
+    <p><strong>En phase de TEST avec des données fictives</strong> (Maximilien qui se parle à lui-même, faux patients), <strong>il n'y a aucune donnée de santé réelle → risque nul</strong>. Le problème n'existe pas tant qu'aucun vrai patient n'a parlé dans le micro.</p>
+    <p>👉 La règle&nbsp;: <strong>basculer le moteur de transcription AVANT la 1ʳᵉ vraie consultation</strong>. C'est la ligne à ne pas franchir.</p>
+  </div>
+
+  <div class="callout warn">
+    <p class="lead">⚠️ Un piège à ne PAS croire</p>
+    <p>Chrome&nbsp;139 (août&nbsp;2025) a ajouté un <strong>mode «&nbsp;on-device&nbsp;»</strong> optionnel pour la Web Speech API (transcription locale, sans envoi serveur). <strong>Mais&nbsp;:</strong> il n'est <strong>pas activé par défaut</strong>, son support est partiel et dépend du navigateur/OS/langue, et notre code <strong>ne le demande pas</strong>. On ne peut donc <strong>pas</strong> miser dessus pour la conformité&nbsp;: on ne contrôle ni la version du navigateur du praticien, ni le fait que le local soit réellement utilisé. <strong>Trop fragile pour de la donnée de santé.</strong></p>
+  </div>
+
+  <h2>💻 2. Alternative A — STT LOCAL (le plus propre)</h2>
+
+  <div class="callout ok">
+    <p class="lead">🛡️ L'idée maîtresse</p>
+    <p>Le moteur de transcription tourne <strong>sur le PC du praticien</strong>. <strong>L'audio ne quitte JAMAIS la machine.</strong> Résultat&nbsp;: <strong>plus de transfert, plus de tiers, plus de HDS, plus de hors-UE</strong>. On supprime le problème <em>à la racine</em>, pas avec un contrat — avec l'architecture.</p>
+  </div>
+
+  <h3>Les 3 moteurs locaux possibles</h3>
+  <table>
+    <thead>
+      <tr><th>Moteur</th><th>C'est quoi</th><th>Pour DIAGORIA</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>faster-whisper</strong><br><small>(CTranslate2)</small></td>
+        <td>Réimplémentation optimisée de Whisper (OpenAI). <strong>~4× plus rapide</strong> et moins gourmande en mémoire que le Whisper original, à qualité égale.</td>
+        <td><span class="pill green">Recommandé</span> Meilleur compromis qualité FR / vitesse / simplicité. C'est le standard 2026.</td>
+      </tr>
+      <tr>
+        <td><strong>whisper.cpp</strong></td>
+        <td>Whisper réécrit en C/C++ pur. Tourne <strong>partout sans Python ni CUDA</strong> (du Raspberry Pi au PC Windows). Très léger à embarquer.</td>
+        <td><span class="pill blue">Bon plan «&nbsp;exe&nbsp;»</span> Idéal pour empaqueter dans l'app desktop sans dépendances lourdes.</td>
+      </tr>
+      <tr>
+        <td><strong>Vosk</strong></td>
+        <td>Moteur STT ultra-léger (modèles ~50&nbsp;Mo), conçu pour le <strong>temps réel sur petites machines</strong>. Qualité en deçà de Whisper.</td>
+        <td><span class="pill amber">Secours</span> Pour PC très modestes / vrai streaming mot-à-mot, mais qualité FR inférieure.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>📊 Les modèles Whisper&nbsp;: lequel choisir&nbsp;?</h3>
+  <p>Plus le modèle est gros, plus il est précis… et plus il demande de RAM et de puissance. Voici la grille pour un usage <strong>français</strong>. (RTF = <em>Real-Time Factor</em>&nbsp;: &lt;&nbsp;1 = plus rapide que le temps réel ✅.)</p>
+  <table>
+    <thead>
+      <tr><th>Modèle</th><th class="center">Taille</th><th class="center">RAM/VRAM</th><th class="center">Vitesse CPU</th><th class="center">Vitesse GPU</th><th class="center">Temps réel&nbsp;?</th><th>Qualité en français</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>tiny</strong></td>
+        <td class="center">~75 Mo</td>
+        <td class="center">~1 Go</td>
+        <td class="center">Très rapide</td>
+        <td class="center">Instantané</td>
+        <td class="center">✅ même sur CPU</td>
+        <td>Faible — beaucoup d'erreurs sur le vocabulaire médical FR. À éviter.</td>
+      </tr>
+      <tr>
+        <td><strong>base</strong></td>
+        <td class="center">~145 Mo</td>
+        <td class="center">~1 Go</td>
+        <td class="center">Rapide</td>
+        <td class="center">Instantané</td>
+        <td class="center">✅ même sur CPU</td>
+        <td>Moyenne basse — correct pour du texte simple, fragile en médical.</td>
+      </tr>
+      <tr>
+        <td><strong>small</strong></td>
+        <td class="center">~480 Mo</td>
+        <td class="center">~2 Go</td>
+        <td class="center">Correcte</td>
+        <td class="center">Très rapide</td>
+        <td class="center">✅ CPU (léger différé)</td>
+        <td><strong>Bonne</strong> (~3,4&nbsp;% d'erreur). <span class="pill green">Le bon départ sans GPU.</span></td>
+      </tr>
+      <tr>
+        <td><strong>medium</strong></td>
+        <td class="center">~1,5 Go</td>
+        <td class="center">~5 Go</td>
+        <td class="center">Lente sur CPU</td>
+        <td class="center">Rapide</td>
+        <td class="center">⚠️ CPU&nbsp;: en différé · ✅ GPU</td>
+        <td><strong>Très bonne</strong> (~2,9&nbsp;%). Le palier qualité au-dessus de small.</td>
+      </tr>
+      <tr>
+        <td><strong>large-v3</strong></td>
+        <td class="center">~3 Go</td>
+        <td class="center">~8–10 Go</td>
+        <td class="center">Trop lente</td>
+        <td class="center">Correcte</td>
+        <td class="center">❌ CPU · ✅ GPU costaud</td>
+        <td><strong>Excellente</strong> (~2,1&nbsp;%). Demande un vrai GPU. Surdimensionné pour un cabinet.</td>
+      </tr>
+      <tr>
+        <td><strong>large-v3-turbo</strong></td>
+        <td class="center">~1,6 Go</td>
+        <td class="center">~6 Go</td>
+        <td class="center">Moyenne</td>
+        <td class="center">Très rapide (~6×)</td>
+        <td class="center">⚠️ CPU&nbsp;: limite · ✅ GPU</td>
+        <td><strong>Excellente</strong> (~7,7&nbsp;% WER FR mesuré sur RTX&nbsp;3060, le meilleur compromis qualité/vitesse en FR). À viser dès qu'un GPU est dispo.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><small>WER = <em>Word Error Rate</em> (taux de mots erronés)&nbsp;: plus c'est bas, mieux c'est. Chiffres indicatifs sur audio propre&nbsp;; un micro de cabinet correct s'en approche. Le vocabulaire médical FR peut être amélioré ensuite par un lexique/prompt dédié.</small></p>
+
+  <div class="callout note">
+    <p class="lead">🖥️ Config minimale réaliste pour un PC de cabinet (SANS carte graphique)</p>
+    <ul class="clean">
+      <li><strong>PC portable/bureau standard 2026</strong>&nbsp;: processeur récent (4&nbsp;cœurs+), <strong>8&nbsp;Go de RAM</strong>, pas de GPU.</li>
+      <li><strong>Modèle conseillé&nbsp;: <code>small</code></strong> (ou <code>medium</code> si la machine a 16&nbsp;Go et qu'on accepte un léger différé) via <strong>faster-whisper en int8</strong> (compression 8&nbsp;bits qui réduit la RAM et accélère sur CPU).</li>
+      <li><strong>Mode de fonctionnement&nbsp;: transcription par segments</strong> (toutes les quelques secondes) plutôt que mot-à-mot instantané. Pour une consultation, un différé de 1–3&nbsp;s est imperceptible.</li>
+      <li><strong>Avec un GPU</strong> (même modeste, type RTX&nbsp;3050/3060)&nbsp;: <code>medium</code> ou <code>large-v3-turbo</code> en quasi temps réel.</li>
+    </ul>
+  </div>
+
+  <div class="callout ok">
+    <p class="lead">📦 Embarquer ça dans l'app desktop&nbsp;: faisable</p>
+    <p>DIAGORIA est déjà une app locale (Flask + exe). Ajouter <strong>faster-whisper</strong> (ou <strong>whisper.cpp</strong> pour zéro dépendance) est réaliste&nbsp;: le modèle <code>small</code> (~480&nbsp;Mo) est <strong>téléchargé une fois</strong> et tourne en local. Pas de CUDA obligatoire (le CPU suffit pour small). C'est un <strong>chantier <code>frontend</code> + <code>transcripteur-stt</code></strong>, pas une refonte.</p>
+    <p>👉 Bonus conformité&nbsp;: l'audio reste un <strong>ring buffer en mémoire, détruit après transcription</strong>, jamais écrit sur disque (règle absolue du projet). Le local rend ça naturel.</p>
+  </div>
+
+  <h2>☁️ 3. Alternative B — STT cloud, mais EUROPÉEN + sous contrat</h2>
+
+  <div class="callout warn">
+    <p class="lead">Quand l'envisager&nbsp;?</p>
+    <p>Si on veut une qualité maximale sans rien installer chez le praticien, ou si le PC est trop faible. <strong>Mais la barre est haute&nbsp;:</strong> hébergement <strong>UE</strong> + <strong>DPA signé</strong> (art.&nbsp;28) + <strong>idéalement certification HDS</strong> + information/consentement patient. <span class="pill amber">Plus lourd que le local.</span></p>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Fournisseur</th><th>Hébergement</th><th>HDS&nbsp;?</th><th>Pour DIAGORIA</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Gladia</strong><br><small>(pépite FR)</small></td>
+        <td>SaaS <strong>hébergé en France</strong> par défaut (provider EU). RGPD, SOC&nbsp;2, ISO&nbsp;27001. N'utilise pas l'audio client pour ré-entraîner. Options on-premise / zéro rétention.</td>
+        <td class="center">⚠️ <small>non confirmé pour la santé — à vérifier</small></td>
+        <td><span class="pill green">Le plus crédible</span> Acteur FR, posture RGPD forte. <strong>Exiger le DPA + clause santé</strong> avant tout audio réel.</td>
+      </tr>
+      <tr>
+        <td><strong>Scaleway</strong><br><small>(FR, Iliad)</small></td>
+        <td>Cloud souverain français. <strong>Certifié HDS depuis 2024</strong>, retenu pour héberger le <strong>Health Data Hub</strong> de l'État (2026).</td>
+        <td class="center">✅ <small>oui (infra)</small></td>
+        <td><span class="pill green">Top souveraineté</span> Pour héberger soi-même un moteur Whisper sur leur GPU en cadre HDS. Demande de l'intégration.</td>
+      </tr>
+      <tr>
+        <td><strong>OVHcloud</strong><br><small>(FR)</small></td>
+        <td>Cloud souverain FR. <strong>Certifié HDS</strong> (depuis 2019) sur certains services. Propose des <em>AI Endpoints</em> dont du speech-to-text.</td>
+        <td class="center">✅ <small>selon le service</small></td>
+        <td><span class="pill blue">Solide</span> Attention&nbsp;: HDS <strong>seulement</strong> sur les offres éligibles (+ Healthcare Addendum). L'<em>AI Endpoint</em> STT doit être vérifié dans le périmètre HDS.</td>
+      </tr>
+      <tr>
+        <td><strong>Azure Speech</strong><br><small>région EU</small></td>
+        <td>En région <strong>France Central / West Europe</strong>, Azure <strong>ne traite ni ne stocke hors de la région</strong> choisie → reste dans l'UE.</td>
+        <td class="center">⚠️ <small>HDS possible, à cadrer</small></td>
+        <td><span class="pill amber">Possible mais US-owned</span> Conforme techniquement si région EU + DPA, mais éditeur américain (sensibilité souveraineté / argument commercial moindre).</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout danger">
+    <p class="lead">⛔ Conditions NON négociables si cloud</p>
+    <ul class="clean">
+      <li><strong>DPA signé</strong> avec le fournisseur (RGPD art.&nbsp;28) — obligatoire, pas optionnel.</li>
+      <li><strong>Hébergement et traitement garantis dans l'UE</strong> (pas seulement «&nbsp;data center en Europe&nbsp;» — vérifier le traitement effectif).</li>
+      <li><strong>Certification HDS</strong> sur le service utilisé (idéal&nbsp;; au minimum un cadre contractuel santé explicite).</li>
+      <li><strong>Information + consentement du patient</strong> que l'audio est transcrit par un prestataire (transparence).</li>
+      <li><strong>Audio détruit après transcription</strong>, zéro rétention côté fournisseur.</li>
+    </ul>
+  </div>
+
+  <h2>🏁 4. Recommandation — quelle voie, et dans quel ordre</h2>
+
+  <div class="verdict win">
+    <h3>🥇 Pour de la donnée de santé&nbsp;: le LOCAL d'abord.</h3>
+    <p>C'est la voie <strong>la plus propre, la moins chère et la plus défendable</strong>. <strong>L'audio ne sort jamais du PC</strong> → on n'a <strong>ni transfert hors-UE, ni HDS, ni DPA de transcription, ni dépendance à un géant US</strong>. C'est aussi le <strong>meilleur argument commercial</strong>&nbsp;: «&nbsp;vos données ne quittent jamais votre ordinateur&nbsp;». Le cloud UE (Alternative B) reste un <strong>plan B</strong> pour les machines trop faibles, sous DPA + HDS.</p>
+    <p><strong>Config conseillée&nbsp;: faster-whisper, modèle <code>small</code> en int8</strong> sur CPU (passer à <code>medium</code> ou <code>large-v3-turbo</code> si GPU). Audio en mémoire, détruit après transcription.</p>
+  </div>
+
+  <h3>Le plan en étapes</h3>
+  <ol class="steps">
+    <li>
+      <h3>🛑 Geler la Web Speech API pour le réel</h3>
+      <p>Tant que le local n'est pas en place&nbsp;: <strong>aucune vraie consultation</strong>. Tests en <strong>données fictives uniquement</strong>. (C'est déjà la règle projet «&nbsp;zéro donnée patient réelle au MVP&nbsp;».)</p>
+    </li>
+    <li>
+      <h3>🧪 Prototyper faster-whisper en local</h3>
+      <p>Tester <code>small</code> puis <code>medium</code> sur le PC cible, mesurer vitesse et qualité FR sur un audio type (toi qui simules une consult). Choisir le modèle selon le différé acceptable.</p>
+    </li>
+    <li>
+      <h3>🔌 Intégrer dans l'app desktop</h3>
+      <p>Remplacer l'appel navigateur par le moteur local (chantier <code>frontend</code> + <code>transcripteur-stt</code> via Sarabi). Audio en <strong>ring buffer mémoire</strong>, jamais sur disque, détruit après transcription.</p>
+    </li>
+    <li>
+      <h3>📄 Mettre à jour les documents</h3>
+      <p>Politique de confidentialité + notice patient&nbsp;: indiquer que <strong>la transcription est 100&nbsp;% locale</strong> (atout RGPD majeur, à faire valider par un avocat santé).</p>
+    </li>
+    <li>
+      <h3>🔁 (Plan B) Si local impossible sur certaines machines</h3>
+      <p>Basculer vers un STT <strong>cloud UE</strong> (Gladia / Scaleway / OVH) <strong>uniquement</strong> avec DPA signé + cadre HDS + consentement patient.</p>
+    </li>
+  </ol>
+
+  <h3>Obligatoire / Conseillé / Facultatif</h3>
+  <div class="cols2">
+    <div class="card">
+      <h3>🔴 OBLIGATOIRE</h3>
+      <ul class="clean">
+        <li>Ne <strong>jamais</strong> transcrire un vrai patient via la Web Speech API (cloud Google) sans cadre.</li>
+        <li>Passer au <strong>STT local</strong> (ou cloud UE sous DPA+HDS) <strong>avant la 1ʳᵉ vraie consultation</strong>.</li>
+        <li><strong>Audio détruit après transcription</strong>, jamais sur disque.</li>
+        <li>Si cloud&nbsp;: <strong>DPA signé</strong> + hébergement UE + info/consentement patient.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🟡 CONSEILLÉ</h3>
+      <ul class="clean">
+        <li><strong>faster-whisper <code>small</code></strong> par défaut&nbsp;; <code>medium</code>/<code>large-v3-turbo</code> si GPU.</li>
+        <li>Lexique médical FR / prompt d'amorçage pour les termes spécialisés.</li>
+        <li>Mentionner «&nbsp;transcription 100&nbsp;% locale&nbsp;» comme argument commercial.</li>
+        <li>Faire valider les textes par un <strong>avocat santé</strong> avant le 1ᵉʳ client payant.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🟢 FACULTATIF</h3>
+      <ul class="clean">
+        <li>Choix multi-modèles selon la puissance détectée du PC.</li>
+        <li>whisper.cpp à la place de faster-whisper pour un exe ultra-léger sans Python.</li>
+        <li>Vosk en repli pour les très vieilles machines.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>⛔ À NE PAS FAIRE</h3>
+      <ul class="clean">
+        <li>Compter sur le mode «&nbsp;on-device&nbsp;» de Chrome&nbsp;139 pour la conformité (non fiable, non contrôlé).</li>
+        <li>DeepSeek ou tout traitement hors-UE avec de la donnée patient réelle.</li>
+        <li>Un simple disclaimer dans les CGU «&nbsp;à la place&nbsp;» d'un vrai changement technique.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout note">
+    <p class="lead">🧠 Cohérence avec la doctrine du projet</p>
+    <p>Cette analyse <strong>complète</strong> la fiche <code>obligations-legales-saas.md</code> (§3.3 HDS, §3.4 non-DM) et la note <code>strategie-non-dispositif-medical.md</code>. La règle de fond y est la même que pour le wording IA&nbsp;: <strong>ce qui protège juridiquement, c'est ce que le produit FAIT, pas ce qu'il en dit</strong>. Un disclaimer ne remplace pas le passage au local. La transcription locale est <strong>l'équivalent technique</strong> de l'alignement destination↔fonction côté juridique.</p>
+  </div>
+
+  <div class="callout warn">
+    <p class="lead">⚖️ Ligne rouge — avocat / vérif obligatoire</p>
+    <p>Tout texte engageant (politique de confidentialité, notice patient) doit être <strong>validé par un avocat spécialisé en droit de la santé</strong> avant publication. Et avant tout recours cloud&nbsp;: <strong>vérifier nominativement le périmètre HDS</strong> du service exact retenu — «&nbsp;le fournisseur est certifié HDS&nbsp;» ne suffit pas, c'est <strong>le service précis</strong> qui doit l'être.</p>
+  </div>
+
+  <div class="src">
+    <h2>📚 Sources</h2>
+    <ul class="clean">
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API">MDN — Using the Web Speech API</a> (par défaut, reconnaissance côté serveur&nbsp;; mode on-device optionnel).</li>
+      <li><a href="https://wicg.github.io/speech-api/">W3C/WICG — Web Speech API spec</a> & <a href="https://developer.chrome.com/blog/voice-driven-web-apps-introduction-to-the-web-speech-api/">Chrome for Developers — Web Speech API</a> (Chrome fait la reconnaissance côté serveur).</li>
+      <li><a href="https://medium.com/@roman_fedyskyi/on-device-speech-uis-in-chrome-139-4b9f0397b9c9">On-Device Speech UIs in Chrome 139</a> (mode local optionnel, ajouté août 2025).</li>
+      <li><a href="https://github.com/SYSTRAN/faster-whisper">SYSTRAN — faster-whisper (GitHub)</a> (~4× plus rapide, int8 CPU/GPU).</li>
+      <li><a href="https://www.promptquorum.com/power-local-llm/local-whisper-stt-comparison-2026">PromptQuorum — whisper.cpp vs faster-whisper 2026</a> (benchmarks locaux, RTF, mémoire).</li>
+      <li><a href="https://novascribe.ai/how-accurate-is-whisper">NovaScribe — How Accurate Is Whisper in 2026 (WER par langue)</a> (small ~3,4&nbsp;%, medium ~2,9&nbsp;%, large-v3 ~2,1&nbsp;%).</li>
+      <li><a href="https://northflank.com/blog/best-open-source-speech-to-text-stt-model-in-2026-benchmarks">Northflank — Best open-source STT 2026</a> & <a href="https://huggingface.co/deepdml/faster-whisper-large-v3-turbo-ct2/discussions/3">HuggingFace — large-v3-turbo speed benchmark</a> (turbo ~6× plus rapide, ~7,7&nbsp;% WER FR sur RTX 3060).</li>
+      <li><a href="https://www.sinologic.net/en/2026-05/vosk-vs-whisper-local-the-ultimate-2026-guide-to-self-hosted-speech-recognition-stt.html">Sinologic — Vosk vs Whisper Local 2026</a> (Vosk ~50 Mo, temps réel sur petites machines).</li>
+      <li><a href="https://www.gladia.io/security">Gladia — Security</a> (hébergement France par défaut, RGPD/SOC2/ISO 27001, pas de ré-entraînement, zéro rétention en option).</li>
+      <li><a href="https://www.usine-digitale.fr/article/la-pepite-francaise-gladia-lance-son-modele-speech-to-text-solaria.N2230193">L'Usine Digitale — Gladia (pépite FR, modèle Solaria)</a>.</li>
+      <li><a href="https://www.silicon.fr/cloud-1370/scaleway-health-data-hub-226882">Silicon — Scaleway retenu pour le Health Data Hub</a> & <a href="https://esante.gouv.fr/offres-services/hds/liste-des-hebergeurs-certifies">ANS — Liste des hébergeurs certifiés HDS</a> (Scaleway certifié HDS 2024).</li>
+      <li><a href="https://www.ovhcloud.com/en/compliance/hds/">OVHcloud — HDS certification</a> & <a href="https://help.ovhcloud.com/csm/en-hds-certification?id=kb_article_view&sysparm_article=KB0061194">OVHcloud — produits couverts HDS</a> (HDS selon le service&nbsp;; AI Endpoints speech-to-text).</li>
+      <li><a href="https://learn.microsoft.com/en-us/azure/ai-services/speech-service/regions">Microsoft — Azure Speech regions</a> & <a href="https://learn.microsoft.com/en-us/azure/communication-services/concepts/european-union-data-boundary">Azure — EU Data Boundary</a> (traitement dans la région EU choisie) & <a href="https://learn.microsoft.com/en-us/compliance/regulatory/offering-hds-france">Azure — HDS France</a>.</li>
+      <li><strong>Textes</strong>&nbsp;: RGPD (UE 2016/679) art.&nbsp;9, 13, 28, 44+ · Code de la santé publique L1110-4 (secret), L1111-8 (HDS) · Code pénal 226-13.</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    DIAGORIA · Centre de documentation · analyse référent légal · généré pendant la nuit du 04/06/2026 ·
+    <a href="index.html">retour au sommaire</a>
+  </div>
+</div>
+</body>
+</html>

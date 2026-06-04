@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Carte des agents — DIAGORIA</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  /* --- styles spécifiques à la carte des agents --- */
+  .legend { display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 6px; }
+  .legend span { display:inline-flex; align-items:center; gap:7px; font-size:.85rem; color:var(--ink-soft); font-weight:500; }
+  .legend i { width:14px; height:14px; border-radius:4px; display:inline-block; }
+  .diagram { background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow-sm); overflow-x:auto; margin:18px 0; }
+  .mermaid { display:flex; justify-content:center; }
+
+  /* fiche agent enrichie */
+  .agentcard { position:relative; }
+  .agentcard .ico { font-size:2rem; }
+  .agentcard .role { color:var(--ink-soft); font-size:.95rem; margin:.35em 0 .7em; }
+  .agentcard .owns { font-size:.86rem; color:var(--muted); border-top:1px dashed var(--line); padding-top:10px; margin-top:6px; }
+  .agentcard .owns b { color:var(--ink-soft); font-weight:600; }
+  .agentcard .topline { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .agentcard h3 { margin:0; }
+  .badgewrap { position:absolute; top:16px; right:16px; }
+
+  /* grille dormants — plus discrète */
+  .dormant-grid { display:grid; gap:12px; grid-template-columns:repeat(auto-fill, minmax(220px,1fr)); margin:18px 0; }
+  .dormant { background:#fbfcfe; border:1px dashed #cdd8e3; border-radius:14px; padding:14px 16px; opacity:.92; }
+  .dormant .topline { display:flex; align-items:baseline; gap:8px; }
+  .dormant b { font-family:'Fredoka'; font-weight:600; color:var(--ink-soft); }
+  .dormant .code { font-size:.72rem; color:var(--muted); font-weight:600; }
+  .dormant p { font-size:.84rem; color:var(--muted); margin:.3em 0 0; }
+
+  .model-op { background:#ede9fe; color:#6d28d9; } /* Opus */
+  .model-so { background:#e7efff; color:#1d4ed8; } /* Sonnet */
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="row">
+  <a class="brand" href="index.html"><span class="dot"></span> DIAGORIA</a>
+  <span class="spacer"></span>
+  <a class="back" href="index.html">← Centre de doc</a>
+</div></div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">ARCHITECTURE · QUI FAIT QUOI</div>
+    <h1>La carte des agents 🗺️</h1>
+    <p>DIAGORIA n'est pas construit par une seule IA, mais par une <strong>équipe d'assistants spécialisés</strong>.
+    Cette page montre, d'un coup d'œil, qui s'occupe de quoi — et comment ils évitent de se marcher dessus.</p>
+  </div>
+
+  <div class="tldr">
+    <div class="lead">⚡ En 30 secondes</div>
+    <p><strong>Sarabi</strong> est le chef d'orchestre : il ne code (presque) pas, il découpe le travail et le confie au bon spécialiste.
+    Autour de lui, <strong>8 agents ACTIFS</strong> font tourner le produit live (app, serveur, déploiement, sécurité, légal, data, design),
+    et <strong>~9 agents DORMANTS</strong> attendent leur phase (transcription, IA médicale, dossier patient…).
+    Règle d'or : <strong>« un fichier = un seul propriétaire »</strong> — pour ne plus jamais crasher la prod comme le 03/06.</p>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>🛰️ Le schéma d'ensemble</h2>
+  <p>Sarabi au centre. En <strong style="color:var(--teal-deep)">teal</strong> les agents actifs (le produit d'aujourd'hui),
+  en <strong style="color:#6d28d9">violet pointillé</strong> les agents dormants (les phases futures). Les flèches rouges
+  sont les <strong>règles qui protègent</strong> : un seul agent pousse en prod, un seul a le droit de veto légal.</p>
+
+  <div class="legend">
+    <span><i style="background:#0EA5A6"></i> Actif — tourne aujourd'hui</span>
+    <span><i style="background:#7C3AED"></i> Dormant — phase future</span>
+    <span><i style="background:#E11D48"></i> Règle / garde-fou</span>
+    <span><i style="background:#0e2a3a"></i> Orchestrateur</span>
+  </div>
+
+  <div class="diagram">
+    <pre class="mermaid">
+flowchart TB
+  classDef orch fill:#0e2a3a,stroke:#0e2a3a,color:#fff,font-weight:bold;
+  classDef actif fill:#e6fafa,stroke:#0EA5A6,stroke-width:2px,color:#0B6E72;
+  classDef dormant fill:#f6f3ff,stroke:#7C3AED,stroke-width:1.5px,color:#6d28d9,stroke-dasharray:5 4;
+  classDef garde fill:#fff1f4,stroke:#E11D48,color:#9f1239,font-style:italic;
+
+  S(["🎬 SARABI<br/>orchestrateur"]):::orch
+
+  subgraph ACT [" 🟢 Équipe ACTIVE — le produit live "]
+    direction LR
+    FE["🖥️ frontend<br/><small>app.py · index.html · exe</small>"]:::actif
+    BE["⚙️ backend<br/><small>serveur FastAPI</small>"]:::actif
+    AU["🔑 api-users<br/><small>pool clés Mistral</small>"]:::actif
+    DEP["🚀 deployeur<br/><small>met en ligne (VPS)</small>"]:::actif
+    SEC["🛡️ securite<br/><small>crypto · secrets</small>"]:::actif
+    LEG["⚖️ referent-legal<br/><small>RGPD · MDR · CGU</small>"]:::actif
+    DAT["📊 data-manager<br/><small>analytics PostHog</small>"]:::actif
+    DES["🎨 designer<br/><small>logo · charte</small>"]:::actif
+  end
+
+  subgraph DOR [" 💤 Dormants — réveillés à leur phase "]
+    direction LR
+    A1["🏛️ architecte-systeme<br/><small>A1 · ADR stack</small>"]:::dormant
+    A3["🎙️ transcripteur-stt<br/><small>A3 · speech-to-text</small>"]:::dormant
+    A4["🧠 ia-medicale<br/><small>A4 · suggestions</small>"]:::dormant
+    A6["📁 dossier-patient<br/><small>A6 · FHIR · PDF</small>"]:::dormant
+    A7["🖼️ interface-desktop<br/><small>A7 · UI cible</small>"]:::dormant
+    PRO["🏭 provisionnement<br/><small>crée les clés Mistral</small>"]:::dormant
+    A2["🎚️ capture-audio<br/><small>A2 · micro</small>"]:::dormant
+    A5["📚 base-connaissances<br/><small>A5 · RAG médical</small>"]:::dormant
+    A10["🎧 hardware<br/><small>A10 · micro pro</small>"]:::dormant
+  end
+
+  S --> ACT
+  S -.réveille plus tard.-> DOR
+
+  V1{{"🔴 SEUL à pousser en prod"}}:::garde
+  V2{{"🔴 DROIT DE VETO légal"}}:::garde
+  V3{{"🔴 1 fichier = 1 propriétaire"}}:::garde
+
+  DEP --- V1
+  LEG --- V2
+  S --- V3
+  DES -. fournit assets .-> FE
+  DAT -. fournit trackers .-> FE
+  AU  -. code pool mêlé .-> BE
+    </pre>
+  </div>
+
+  <div class="callout note">
+    <p class="lead">🧭 Comment lire ce schéma</p>
+    <p>Tout part de <strong>Sarabi</strong>. Quand tu lui dis « on bosse sur l'app », il route vers <code>frontend</code> ;
+    « mets en ligne » → <code>deployeur</code> ; « est-ce légal ? » → <code>referent-legal</code>. Les agents ne se parlent pas
+    directement entre eux : ils repassent toujours <strong>par Sarabi</strong>, ce qui évite les collisions.</p>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>🟢 Les 8 agents ACTIFS (le produit d'aujourd'hui)</h2>
+  <p>Chaque carte = un spécialiste qui travaille en ce moment sur le produit. <span class="pill">Sonnet</span> = modèle rapide/éco,
+  <span class="pill violet">Opus</span> = modèle le plus costaud (réservé aux sujets sensibles : sécurité, droit).</p>
+
+  <div class="grid">
+
+    <div class="card agentcard">
+      <div class="badgewrap"><span class="pill green">● ACTIF</span></div>
+      <div class="topline"><span class="ico">🎬</span><h3>Sarabi</h3></div>
+      <div class="role">Le <strong>chef d'orchestre</strong>. Découpe les demandes, choisit le bon agent, recolle les résultats. Ne code que le trivial.</div>
+      <div class="owns"><b>Possède :</b> <code>ARCHITECTURE.md</code>, <code>README.md</code>, <code>CLAUDE.md</code>, <code>OWNERSHIP.md</code> · doc transverse</div>
+      <div class="badges"><span class="pill gray">orchestrateur</span></div>
+    </div>
+
+    <div class="card agentcard">
+      <div class="badgewrap"><span class="pill green">● ACTIF</span></div>
+      <div class="topline"><span class="ico">🖥️</span><h3>frontend</h3></div>
+      <div class="role">Le <strong>logiciel installé chez le praticien</strong> : l'interface (menu, login, écrans) et la fabrication du <code>.exe</code>.</div>
+      <div class="owns"><b>Possède :</b> <code>app.py</code>, <code>templates/index.html</code>, <code>static/</code>, build de l'exe</div>
+      <div class="badges"><span class="pill blue">Sonnet</span> <span class="pill gray">remplace A7</span></div>
+    </div>
+
+    <div class="card agentcard">
+      <div class="badgewrap"><span class="pill green">● ACTIF</span></div>
+      <div class="topline"><span class="ico">⚙️</span><h3>backend</h3></div>
+      <div class="role">Le <strong>serveur</strong> qui gère licences, comptes praticiens, vitrine publique, back-office admin et e-mails.</div>
+      <div class="owns"><b>Possède :</b> <code>A8_BACKEND-CLOUD/serveur-licence/</code> (FastAPI) — <em>sauf le pool de clés</em></div>
+      <div class="badges"><span class="pill blue">Sonnet</span> <span class="pill gray">remplace A8</span></div>
+    </div>
+
+    <div class="card agentcard">
+      <div class="badgewrap"><span class="pill green">● ACTIF</span></div>
+      <div class="topline"><span class="ico">🔑</span><h3>api-users</h3></div>
+      <div class="role">Gère le <strong>pool de clés Mistral</strong> (1 clé par client) : chiffrement, assignation à l'inscription, livraison, watchdog conso.</div>
+      <div class="owns"><b>Possède :</b> <code>GESTION-API-UTILISATEURS/</code> + le code « pool » du serveur (<code>/api/credentials</code>, <code>/admin/pool</code>)</div>
+      <div class="badges"><span class="pill blue">Sonnet</span></div>
+    </div>
+
+    <div class="card agentcard">
+      <div class="badgewrap"><span class="pill green">● ACTIF</span></div>
+      <div class="topline"><span class="ico">🚀</span><h3>deployeur</h3></div>
+      <div class="role"><strong>Le SEUL</strong> autorisé à mettre en ligne (local → VPS). Il livre, il ne développe pas. Toujours <code>git status</code> avant de pousser.</div>
+      <div class="owns"><b>Possède :</b> <code>DEPLOY/</code> · tout push ssh/scp/docker vers la prod · upload de l'exe</div>
+      <div class="badges"><span class="pill blue">Sonnet</span> <span class="pill red">🔴 seul en prod</span></div>
+    </div>
+
+    <div class="card agentcard">
+      <div class="badgewrap"><span class="pill green">● ACTIF</span></div>
+      <div class="topline"><span class="ico">🛡️</span><h3>securite</h3></div>
+      <div class="role">Le <strong>volet technique</strong> de la sécurité : chiffrement, secrets, durcissement infra, 2FA admin, audit, rotation de clés.</div>
+      <div class="owns"><b>Possède :</b> <code>A9_SECURITE-RGPD-LEGAL/</code> (côté technique) · co-occupe A9</div>
+      <div class="badges"><span class="pill violet">Opus</span></div>
+    </div>
+
+    <div class="card agentcard">
+      <div class="badgewrap"><span class="pill green">● ACTIF</span></div>
+      <div class="topline"><span class="ico">⚖️</span><h3>referent-legal</h3></div>
+      <div class="role">Le <strong>conseil juridique interne</strong> : RGPD, secret médical, dispositif médical (MDR), AI Act, CGU/DPA. <strong>Droit de veto</strong> sur tout ce qui touche au patient.</div>
+      <div class="owns"><b>Possède :</b> <code>A9_SECURITE-RGPD-LEGAL/</code> (côté juridique) · co-occupe A9</div>
+      <div class="badges"><span class="pill violet">Opus</span> <span class="pill red">🔴 veto légal</span></div>
+    </div>
+
+    <div class="card agentcard">
+      <div class="badgewrap"><span class="pill green">● ACTIF</span></div>
+      <div class="topline"><span class="ico">📊</span><h3>data-manager</h3></div>
+      <div class="role">Pose les <strong>trackers</strong> (PostHog hébergé UE) pour décider avec la data, pas à l'instinct. <strong>Zéro donnée patient</strong>, jamais.</div>
+      <div class="owns"><b>Possède :</b> <code>DATA/</code> (plan de tracking, funnels, snippets) · fournit, n'intègre pas lui-même</div>
+      <div class="badges"><span class="pill blue">Sonnet</span></div>
+    </div>
+
+    <div class="card agentcard">
+      <div class="badgewrap"><span class="pill green">● ACTIF</span></div>
+      <div class="topline"><span class="ico">🎨</span><h3>designer</h3></div>
+      <div class="role">Le <strong>directeur artistique</strong> : logos, charte, palette, typo, visuels. Produit des SVG propres ; <code>frontend</code>/<code>backend</code> les intègrent.</div>
+      <div class="owns"><b>Possède :</b> <code>A_DESIGN/</code> (charte, logos sources, moodboards)</div>
+      <div class="badges"><span class="pill blue">Sonnet</span></div>
+    </div>
+
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>💤 Les agents DORMANTS (phases futures)</h2>
+  <p>Ils décrivent le <strong>produit cible</strong> (transcription live, IA médicale, dossier FHIR…). Ils ne tournent
+  <strong>pas aujourd'hui</strong> : on en réveillera un à chaque nouvelle phase. Trois d'entre eux n'ont même pas encore
+  de fiche écrite — ils existent seulement comme intention.</p>
+
+  <div class="dormant-grid">
+    <div class="dormant"><div class="topline"><b>🏛️ architecte-systeme</b><span class="code">A1</span></div><p>Tech Lead : tranche la stack (LLM, STT, UI…) via un ADR argumenté. Le fil rouge.</p></div>
+    <div class="dormant"><div class="topline"><b>🎚️ capture-audio</b><span class="code">A2 · à créer</span></div><p>Capture micro en streaming, ring buffer. L'audio ne touche jamais le disque.</p></div>
+    <div class="dormant"><div class="topline"><b>🎙️ transcripteur-stt</b><span class="code">A3</span></div><p>Speech-to-Text temps réel + séparation praticien / patient + vocabulaire médical FR.</p></div>
+    <div class="dormant"><div class="topline"><b>🧠 ia-medicale</b><span class="code">A4</span></div><p>Le cerveau LLM : structure le transcript, suggère anamnèse, Dx différentiels, examens.</p></div>
+    <div class="dormant"><div class="topline"><b>📚 base-connaissances</b><span class="code">A5 · à créer</span></div><p>Référentiel médical RAG (CIM-10, SNOMED-CT, recommandations HAS).</p></div>
+    <div class="dormant"><div class="topline"><b>📁 dossier-patient</b><span class="code">A6</span></div><p>Schéma de données (FHIR), stockage local chiffré, génération PDF, historique.</p></div>
+    <div class="dormant"><div class="topline"><b>🖼️ interface-desktop</b><span class="code">A7</span></div><p>L'UI praticien <em>cible</em> (transcription live, suggestions). Remplacée pour l'instant par <code>frontend</code>.</p></div>
+    <div class="dormant"><div class="topline"><b>🎧 hardware</b><span class="code">A10 · à créer</span></div><p>Sélection d'un micro pro + intégration au KIT.</p></div>
+    <div class="dormant"><div class="topline"><b>🏭 provisionnement-mistral</b><span class="code">utilitaire</span></div><p>Crée les workspaces + clés Mistral du pool. Lancé <em>en contexte principal</em>, pas comme sous-agent.</p></div>
+  </div>
+
+  <div class="callout warn">
+    <p class="lead">⚠️ Pourquoi cette règle « un fichier = un propriétaire » ?</p>
+    <p>Le <strong>3 juin 2026</strong>, deux agents (<code>backend</code> et <code>api-users</code>) ont édité le même fichier
+    <code>main.py</code> en même temps → un import manquant → le serveur en boucle de crash, tout le site en 404.
+    Depuis : <strong>un seul orchestrateur</strong> (Sarabi), <strong>un seul propriétaire par fichier</strong>, et
+    <strong><code>git status</code> obligatoire avant chaque mise en ligne</strong>. La carte complète est dans <code>OWNERSHIP.md</code>.</p>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>🖥️ Comment VOIR qui travaille, dans Claude Code Desktop</h2>
+  <p>Tu travailles sur <strong>Claude Code Desktop</strong> (l'application, pas le terminal noir). Tu nous as dit que
+  <code>/workflows</code> ne te suffit pas et que <code>/agents</code> ne s'ouvre pas chez toi. Voici, <strong>honnêtement</strong>,
+  ce qui existe vraiment en juin 2026 — et ce que ça vaut.</p>
+
+  <table>
+    <thead>
+      <tr><th>Option</th><th>Ça montre quoi</th><th>En direct ?</th><th>Verdict honnête</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>Cette page</b> 🗺️</td>
+        <td>Qui fait quoi, qui possède quoi, les règles</td>
+        <td class="center">❌ statique</td>
+        <td>La meilleure pour <b>COMPRENDRE</b> l'organisation. Ne bouge pas — c'est voulu.</td>
+      </tr>
+      <tr>
+        <td><b>La liste de tâches</b> (panneau de l'app)</td>
+        <td>Les étapes cochées au fil du travail (✓ fait / en cours / à faire)</td>
+        <td class="center">🟡 semi-live</td>
+        <td>Déjà visible chez toi. Montre <b>l'avancement</b>, pas « quel agent » précisément.</td>
+      </tr>
+      <tr>
+        <td><b>La status line</b> (bas de l'écran)</td>
+        <td>Contexte utilisé, tokens, modèle</td>
+        <td class="center">✅ live</td>
+        <td>Un <b>compteur de sous-agents actifs</b> est <b>demandé mais pas encore livré</b> (juin 2026).</td>
+      </tr>
+      <tr>
+        <td><code>/workflows</code></td>
+        <td>Le déroulé en cours</td>
+        <td class="center">✅ live</td>
+        <td>Live mais <b>générique</b> — tu l'as jugé insuffisant, à raison.</td>
+      </tr>
+      <tr>
+        <td><b>Agent View</b> (officiel Anthropic)</td>
+        <td><b>Toutes</b> tes sessions dans un seul tableau : en cours / en attente / terminé, qui a besoin de toi</td>
+        <td class="center">✅ live</td>
+        <td>⭐ <b>LA solution officielle pour voir l'activité.</b> Sorti en <em>research preview</em> en mai 2026. À activer.</td>
+      </tr>
+      <tr>
+        <td><b>Dashboards tiers</b> (communauté)</td>
+        <td>Tableau de bord web temps réel via les <em>hooks</em> (activité, outils, sous-agents)</td>
+        <td class="center">✅ live</td>
+        <td>Puissant mais <b>à installer/maintenir soi-même</b>. Pour plus tard, pas pour débuter.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="verdict win">
+    <h3>✅ Ma reco concrète</h3>
+    <p style="margin:.4em 0"><strong>Pour COMPRENDRE l'archi</strong> (qui fait quoi, qui possède quoi) → <strong>cette page</strong>.
+    Garde-la en favori, elle ne périme pas.</p>
+    <p style="margin:.4em 0"><strong>Pour voir l'activité EN DIRECT</strong> → active <strong>Agent View</strong>
+    (la fonctionnalité officielle d'Anthropic, mai 2026) : un seul tableau qui liste toutes tes sessions, leur état
+    (en cours / en attente / terminé) et celles qui réclament une réponse. C'est exactement « qui travaille, là, maintenant ».</p>
+    <p style="margin:.4em 0; opacity:.92"><strong>À savoir (limites honnêtes)</strong> : Agent View est en <em>research preview</em>,
+    donc encore jeune ; le compteur d'agents dans la status line n'existe pas encore ; et les dashboards de la communauté
+    sont plus riches mais demandent une installation technique. Pour ton usage <strong>débutant</strong>, le duo
+    <em>cette page + Agent View + la liste de tâches</em> couvre 100 % du besoin.</p>
+  </div>
+
+  <div class="callout note">
+    <p class="lead">💡 Astuce</p>
+    <p>« Agent View » s'appelle aussi <strong>la vue des agents</strong> / « manage agents ». Si <code>/agents</code> ne s'ouvre
+    pas chez toi, c'est probablement une question de <strong>version de l'app</strong> ou de fonctionnalité à activer
+    (research preview) : une mise à jour de Claude Code Desktop suffit en général à la débloquer.</p>
+  </div>
+
+  <p class="src">
+    <strong>Sources (recherche web, juin 2026)</strong> :
+    <a href="https://code.claude.com/docs/en/sub-agents">Claude Code Docs — Subagents</a> ·
+    <a href="https://www.cloudzero.com/blog/claude-code-agents/">CloudZero — Claude Code Agents in 2026 (Agent View)</a> ·
+    <a href="https://www.buildfastwithai.com/blogs/claude-code-agent-view-guide">BuildFastWithAI — Agent View guide</a> ·
+    <a href="https://github.com/anthropics/claude-code/issues/27916">GitHub issue #27916 — compteur de sous-agents dans la status line (demandé)</a> ·
+    <a href="https://github.com/disler/claude-code-hooks-multi-agent-observability">disler — multi-agent observability (dashboard tiers)</a> ·
+    <a href="https://www.datadoghq.com/blog/claude-code-monitoring/">Datadog — AI Agents Console (preview)</a>.
+    Sources internes : <code>CLAUDE.md</code>, <code>OWNERSHIP.md</code>, <code>.claude/agents/*.md</code>.
+  </p>
+
+  <div class="footer">
+    DIAGORIA / Kalos santé · Centre de documentation interne · carte des agents générée le 04/06/2026 ·
+    <a href="index.html">retour au sommaire</a>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    securityLevel: 'loose',
+    flowchart: { curve: 'basis', useMaxWidth: true, htmlLabels: true },
+    themeVariables: {
+      fontFamily: 'Inter, system-ui, sans-serif',
+      fontSize: '14px',
+      primaryColor: '#e6fafa',
+      primaryBorderColor: '#0EA5A6',
+      primaryTextColor: '#0B6E72',
+      lineColor: '#94a3b8',
+      clusterBkg: '#f8fbfd',
+      clusterBorder: '#cbd5e1'
+    }
+  });
+</script>
+</body>
+</html>

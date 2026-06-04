@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="DIAGORIA — Goutte fluide">
+<title>DIAGORIA — Goutte fluide</title>
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0EA5A6"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+<path d="M60 14 C92 14 108 40 100 66 C92 92 64 110 40 100 C14 90 8 56 24 34 C34 20 44 14 60 14 Z" fill="url(#g)"/>
+<circle cx="54" cy="56" r="13" fill="#fff"/>
+</svg>

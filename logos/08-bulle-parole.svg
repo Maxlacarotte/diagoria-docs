@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 120" role="img" aria-label="DIAGORIA — Bulle + parole">
+<title>DIAGORIA — Bulle + parole</title>
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B6E72"/><stop offset="1" stop-color="#0EA5A6"/></linearGradient></defs>
+<path d="M14 24 h74 a13 13 0 0 1 13 13 v30 a13 13 0 0 1 -13 13 H46 l-16 16 v-16 H14 a13 13 0 0 1 -13 -13 V37 a13 13 0 0 1 13 -13 Z" fill="none" stroke="url(#g)" stroke-width="8"/>
+<circle cx="36" cy="52" r="5" fill="#0EA5A6"/><circle cx="54" cy="52" r="5" fill="#2563EB"/><circle cx="72" cy="52" r="5" fill="#F59E0B"/>
+<text x="118" y="72" font-family="Fredoka, Poppins, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#0F172A">DIAGORIA</text>
+</svg>
