@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     DIAGORIA — Compte de résultat SASU (50 abonnés) + calcul coût API
+     Généré le 12/06/2026 — confidentiel interne
+     ============================================================ -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Compte de résultat — 50 abonnés — DIAGORIA</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  table.pl td.r,table.pl th.r{text-align:right;white-space:nowrap}
+  table.pl tr.tot td{font-weight:700;border-top:2px solid #cbd5e1}
+  table.pl tr.sub td{background:#f8fafc}
+  .pos{color:#16a34a;font-weight:700}
+  .neg{color:#b91c1c}
+  .mini{font-size:.82rem;color:#64748b}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="row">
+  <a class="brand" href="index.html"><span class="dot"></span> DIAGORIA</a>
+  <span class="spacer"></span>
+  <a class="back" href="index.html">← Centre de doc</a>
+</div></div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">STRATÉGIE &amp; FINANCES</div>
+    <h1>Compte de résultat — 50 abonnés à 30&nbsp;€/mois</h1>
+    <p>Ce que rapporte <em>vraiment</em> DIAGORIA en <strong>SASU</strong> (Société par Actions Simplifiée Unipersonnelle) une fois toutes les charges et taxes payées — et comment se calcule le coût API de 18&nbsp;€/mois.</p>
+  </div>
+
+  <div class="confidential">🔒 Document confidentiel — chiffres internes, ne pas partager.</div>
+
+  <div class="tldr">
+    <div class="lead">⚡ En 30 secondes</div>
+    <p>À <strong>50 abonnés</strong> (30&nbsp;€ TTC/mois), DIAGORIA fait <strong>18&nbsp;000&nbsp;€ de chiffre d'affaires</strong> mais seulement <strong>~3&nbsp;630&nbsp;€ de résultat net/an</strong> (~210&nbsp;€/mois dans ta poche en dividendes). <strong>L'API mange 60&nbsp;% du prix de vente</strong> — c'est le seul vrai levier. Bonne nouvelle&nbsp;: les <strong>18&nbsp;€/mois d'API sont un majorant volontaire</strong> ; en usage réaliste ostéo, c'est plutôt <strong>~10&nbsp;€</strong> → ta marge réelle est meilleure que ce tableau.</p>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="num">18 000 €</div><div class="lbl">Chiffre d'affaires / an</div></div>
+    <div class="kpi"><div class="num">3 630 €</div><div class="lbl">Résultat net / an (société)</div></div>
+    <div class="kpi"><div class="num">~210 €</div><div class="lbl">Dans ta poche / mois (dividendes)</div></div>
+    <div class="kpi"><div class="num">60 %</div><div class="lbl">Part de l'API dans le prix</div></div>
+  </div>
+
+  <div class="callout note">
+    <strong>Hypothèses.</strong> 50 × 30&nbsp;€ TTC × 12 = <strong>18&nbsp;000&nbsp;€/an</strong>. À ce niveau tu es en <strong>franchise en base de TVA</strong> (Taxe sur la Valeur Ajoutée) car le CA &lt; 37&nbsp;500&nbsp;€ → <strong>tu ne reverses pas de TVA, les 30&nbsp;€ sont à toi</strong> (mais tu ne récupères pas la TVA sur tes achats : tes charges sont en TTC). Président <strong>sans salaire</strong> (le levier clé de la SASU&nbsp;: 0&nbsp;€ de salaire = 0&nbsp;€ de cotisations sociales).
+  </div>
+
+  <h2>🧾 Le compte de résultat (à l'année)</h2>
+  <table class="pl">
+    <thead><tr><th>Poste</th><th class="r">Montant/an</th><th>Détail</th></tr></thead>
+    <tbody>
+      <tr><td><strong>PRODUITS</strong> (chiffre d'affaires)</td><td class="r"><strong>+18 000 €</strong></td><td>50 × 30&nbsp;€ × 12</td></tr>
+      <tr class="sub"><td>Coûts variables</td><td class="r">−11 220 €</td><td></td></tr>
+      <tr><td>· API (Voxtral + Mistral) — 18&nbsp;€/abonné</td><td class="r">−10 800 €</td><td>18 × 50 × 12</td></tr>
+      <tr><td>· Frais d'encaissement CB (Stripe ~1,5&nbsp;% + 0,25&nbsp;€/paiement)</td><td class="r">−420 €</td><td>~2,3&nbsp;% du CA</td></tr>
+      <tr class="tot"><td>= Marge sur coûts variables</td><td class="r">6 780 €</td><td>38&nbsp;% seulement</td></tr>
+      <tr><td>Charges fixes annuelles</td><td class="r">−2 510 €</td><td>voir tableau ci-dessous</td></tr>
+      <tr class="tot"><td>= Résultat avant impôt</td><td class="r">4 270 €</td><td></td></tr>
+      <tr><td>Impôt sur les sociétés (IS, 15&nbsp;%)</td><td class="r">−640 €</td><td>taux réduit PME, bénéfice &lt; 42&nbsp;500&nbsp;€</td></tr>
+      <tr class="tot"><td>= <strong>RÉSULTAT NET (société)</strong></td><td class="r"><span class="pos">3 630 €</span></td><td>≈ 300&nbsp;€/mois</td></tr>
+      <tr><td class="mini">Si versé en dividendes — flat tax 30&nbsp;% (PFU&nbsp;: 12,8&nbsp;% impôt + 17,2&nbsp;% prélèvements sociaux)</td><td class="r mini">−1 090 €</td><td></td></tr>
+      <tr class="tot"><td>= <strong>Dans ta poche</strong></td><td class="r"><span class="pos">~2 540 €</span></td><td>≈ 210&nbsp;€/mois</td></tr>
+    </tbody>
+  </table>
+
+  <h2>📋 Les charges « annexes » que tu n'avais pas listées</h2>
+  <table>
+    <thead><tr><th>Poste</th><th>€/an</th><th>Statut</th><th>C'est quoi</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Expert-comptable</strong> / compta en ligne</td><td>1 200</td><td><span class="pill blue">quasi-obligatoire</span></td><td>Une SASU doit tenir une compta et déposer ses comptes (liasse fiscale). En ligne ~600&nbsp;€, expert-comptable ~1&nbsp;500&nbsp;€.</td></tr>
+      <tr><td><strong>CFE</strong> (Cotisation Foncière des Entreprises)</td><td>250</td><td><span class="pill blue">obligatoire</span></td><td>Taxe locale due même sans local. <em>Exonérée la 1ʳᵉ année.</em></td></tr>
+      <tr><td><strong>Compte bancaire pro</strong></td><td>150</td><td><span class="pill blue">obligatoire</span></td><td>Obligatoire pour une société.</td></tr>
+      <tr><td><strong>Hébergement</strong> (serveur VPS)</td><td>240</td><td><span class="pill blue">obligatoire</span></td><td>~20&nbsp;€/mois.</td></tr>
+      <tr><td><strong>Noms de domaine</strong> (.com + .fr)</td><td>30</td><td><span class="pill blue">obligatoire</span></td><td></td></tr>
+      <tr><td><strong>Assurance RC Pro</strong> (Responsabilité Civile Professionnelle)</td><td>250</td><td><span class="pill amber">conseillé</span></td><td>Vivement recommandé vu le secteur santé.</td></tr>
+      <tr><td><strong>Signature de code</strong> (certificat Azure)</td><td>120</td><td><span class="pill amber">conseillé</span></td><td>Évite l'alerte SmartScreen sur ton .exe.</td></tr>
+      <tr><td><strong>Email pro</strong> (Google Workspace)</td><td>70</td><td><span class="pill amber">conseillé</span></td><td>contact@diagoria.com</td></tr>
+      <tr><td><strong>Outils</strong> (Canva…)</td><td>200</td><td><span class="pill gray">facultatif</span></td><td></td></tr>
+      <tr class="tot"><td><strong>TOTAL charges fixes</strong></td><td><strong>≈ 2 510</strong></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+  <p class="mini">➕ <strong>One-shot année 1</strong> (hors résultat annuel)&nbsp;: création de la SASU ~250–300&nbsp;€ (greffe + annonce légale). &nbsp;➖ <strong>Pas concerné</strong> à ton échelle&nbsp;: CVAE (&gt; 500&nbsp;k€ de CA), taxe sur les salaires (pas de salarié).</p>
+
+  <h2>🎙️ D'où vient le coût API de 18&nbsp;€/mois&nbsp;?</h2>
+  <p>Le coût API est <strong>dominé à ~95&nbsp;% par la transcription</strong> (Voxtral, le « STT » = <em>Speech-To-Text</em>, la reconnaissance vocale). Le LLM (le cerveau IA, <code>mistral-small</code>) ne coûte presque rien. Voici le coût <strong>par heure de consultation</strong>, selon la part réellement parlée (la facturation suit les minutes de parole&nbsp;: les silences sont coupés) :</p>
+
+  <table>
+    <thead><tr><th>Parole effective dans l'heure</th><th>🎙️ Voxtral (STT)</th><th>🧠 LLM <code>mistral-small</code></th><th>Total</th><th>Part du STT</th></tr></thead>
+    <tbody>
+      <tr><td>30&nbsp;% (18&nbsp;min) — consult. très manuelle</td><td>0,046&nbsp;€</td><td>0,003&nbsp;€</td><td><strong>0,049&nbsp;€</strong></td><td>94&nbsp;%</td></tr>
+      <tr><td>50&nbsp;% (30&nbsp;min) — réaliste ostéo</td><td>0,077&nbsp;€</td><td>0,004&nbsp;€</td><td><strong>0,081&nbsp;€</strong></td><td>95&nbsp;%</td></tr>
+      <tr><td>70&nbsp;% (42&nbsp;min) — très bavarde</td><td>0,107&nbsp;€</td><td>0,005&nbsp;€</td><td><strong>0,112&nbsp;€</strong></td><td>96&nbsp;%</td></tr>
+      <tr><td>100&nbsp;% (60&nbsp;min) — plafond théorique</td><td>0,153&nbsp;€</td><td>0,006&nbsp;€</td><td><strong>0,159&nbsp;€</strong></td><td>96&nbsp;%</td></tr>
+    </tbody>
+  </table>
+
+  <p>Pour passer du <strong>coût par heure</strong> au <strong>coût par mois</strong>, on multiplie par le volume d'un praticien <strong>à plein temps&nbsp;: ≈ 120&nbsp;h de consultation/mois</strong> (6&nbsp;h/jour × 20&nbsp;jours)&nbsp;:</p>
+
+  <table>
+    <thead><tr><th>Profil de consultation</th><th>Coût/heure</th><th>Coût/mois (×120&nbsp;h)</th></tr></thead>
+    <tbody>
+      <tr><td>Réaliste ostéo (50&nbsp;% de parole)</td><td>0,081&nbsp;€</td><td><strong>~10&nbsp;€</strong></td></tr>
+      <tr><td>Très bavard (70&nbsp;%)</td><td>0,112&nbsp;€</td><td><strong>~13&nbsp;€</strong></td></tr>
+      <tr><td>Plafond (100&nbsp;% de parole, non-stop)</td><td>0,159&nbsp;€</td><td><strong>~19&nbsp;€</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout ok">
+    <strong>Donc 18&nbsp;€ = hypothèse haute volontaire</strong> (praticien à plein temps + consultations quasi non-stop, proche du plafond). C'est un <strong>majorant prudent</strong>, cohérent avec le <strong>plafond de 15&nbsp;€</strong> que tu poses déjà sur chaque clé Mistral. <strong>En usage réaliste ostéo, compte plutôt ~10&nbsp;€/mois</strong> → le compte de résultat ci-dessus est pessimiste, ta vraie marge est meilleure.
+  </div>
+
+  <h2>🧭 Verdict &amp; recommandations</h2>
+  <div class="verdict win">
+    Sur 30&nbsp;€ encaissés&nbsp;: <strong>~18&nbsp;€ partent en API</strong>, et il te reste <strong>~6&nbsp;€ de bénéfice net</strong>, <strong>~4–5&nbsp;€ dans ta poche</strong> après impôts. 50 abonnés = <strong>seuil de survie, pas de rentabilité</strong>.
+  </div>
+
+  <ol class="steps">
+    <li><h3>1. Attaque le coût API en priorité</h3><p>C'est ton levier n°1. Passer de 18&nbsp;€ → 9&nbsp;€/abonné (transcription locale, modèle moins cher, cap à 15&nbsp;€) <strong>double quasiment ton résultat net</strong>. Chaque euro gagné sur l'API tombe direct dans le résultat.</p></li>
+    <li><h3>2. Reste président sans salaire</h3><p>Tant que le CA est faible → <strong>0 cotisation sociale</strong>, et paie-toi en <strong>dividendes (flat tax 30&nbsp;%)</strong>. Un salaire, c'est ~+80&nbsp;% de charges dessus.</p></li>
+    <li><h3>3. Anticipe le passage à la TVA</h3><p>Tu restes en franchise jusqu'à ~<strong>104 abonnés</strong> (37&nbsp;500&nbsp;€ de CA). Au-delà&nbsp;: soit tu absorbes 20&nbsp;% (net/abonné → 25&nbsp;€), soit tu montes à ~36&nbsp;€ TTC. À intégrer dans le pricing <strong>maintenant</strong>.</p></li>
+    <li><h3>4. La SASU est le bon choix (vs micro-entreprise)</h3><p>En micro, tu paierais ~24&nbsp;% de cotisations sur les <strong>18&nbsp;000&nbsp;€ bruts sans déduire les 10&nbsp;800&nbsp;€ d'API</strong> → tu perdrais de l'argent. La SASU t'impose seulement sur le <strong>bénéfice réel</strong>. C'est justement le coût API élevé qui rend la société indispensable.</p></li>
+  </ol>
+
+  <div class="callout note">
+    🎚️ Pour jouer avec les hypothèses (clients × prix × coût API), vois le <a href="simulateur-rentabilite.html">simulateur de rentabilité</a>. Pour les pistes de financement, le <a href="kit-candidature.html">kit de candidature</a> et la <a href="financement.html">liste des financements 2026</a>.
+  </div>
+
+  <div class="src">
+    <strong>Sources &amp; méthode</strong>
+    <ul class="clean">
+      <li>Coûts API&nbsp;: barème Voxtral (STT) + <code>mistral-small</code>, calculés par minute de parole effective (silences coupés).</li>
+      <li>Chiffres fiscaux 2026&nbsp;: <a href="https://www.indy.fr/blog/unification-seuils-tva-2026/" target="_blank">seuil franchise TVA 37&nbsp;500&nbsp;€ (services)</a> · <a href="https://www.compta-online.com/taux-is-impot-sur-les-societes-ao2921" target="_blank">IS taux réduit 15&nbsp;% jusqu'à 42&nbsp;500&nbsp;€</a> · flat tax 30&nbsp;% (PFU).</li>
+      <li><em>Estimations indicatives, pas un avis comptable — à valider avec un expert-comptable avant de t'engager.</em></li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    DIAGORIA · Centre de documentation · compte de résultat SASU (50 abonnés) · généré le 12 juin 2026 ·
+    <a href="index.html">retour au sommaire</a>
+  </div>
+</div>
+</body>
+</html>
