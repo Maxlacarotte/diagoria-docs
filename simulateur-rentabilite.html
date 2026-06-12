@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Simulateur de rentabilité — DIAGORIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#0EA5A6; --teal-deep:#0B6E72; --blue:#2563EB; --ink:#0F172A;
+    --amber:#F59E0B; --green:#16A34A; --mist:#F4F8FB; --white:#fff; --red:#E11D48;
+    --grad:linear-gradient(135deg,#0B6E72 0%,#0EA5A6 50%,#2563EB 100%);
+    --ink-soft:#475569; --line:#E2E8F0;
+    --shadow:0 10px 30px -12px rgba(15,23,42,.18);
+    --shadow-sm:0 4px 14px -8px rgba(15,23,42,.25);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--mist);
+    line-height:1.55;font-size:15.5px;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:'Fredoka',sans-serif;font-weight:600;line-height:1.2}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+  /* HERO */
+  .hero{background:var(--grad);color:#fff;padding:34px 0 30px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 88% 10%,rgba(255,255,255,.16),transparent 40%)}
+  .hero .wrap{position:relative;z-index:1}
+  .hero h1{font-size:clamp(24px,3.6vw,36px);font-weight:700}
+  .hero p{opacity:.95;margin-top:6px;max-width:80ch;font-size:14.5px}
+  .hero .chips{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+  .hero .chips span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);
+    padding:5px 12px;border-radius:999px;font-size:12.5px;font-weight:600}
+
+  /* LAYOUT */
+  main{padding:26px 0 50px}
+  .cols{display:grid;grid-template-columns:390px 1fr;gap:22px;align-items:start}
+  @media(max-width:980px){.cols{grid-template-columns:1fr}}
+
+  /* PANEL CURSEURS */
+  .panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow);position:sticky;top:14px}
+  @media(max-width:980px){.panel{position:static}}
+  .panel h2{font-size:19px;margin-bottom:4px;color:var(--teal-deep)}
+  .panel .sub{font-size:13px;color:var(--ink-soft);margin-bottom:16px}
+  .ctrl{margin-bottom:18px}
+  .ctrl .lab{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+  .ctrl .lab b{font-size:14px;font-weight:600}
+  .ctrl .val{font-family:'Fredoka';font-weight:700;font-size:19px;color:var(--teal-deep)}
+  input[type=range]{width:100%;height:8px;border-radius:6px;-webkit-appearance:none;appearance:none;
+    background:linear-gradient(90deg,var(--teal) var(--p,50%),#e2e8f0 var(--p,50%));outline:none;cursor:pointer}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;
+    background:#fff;border:4px solid var(--teal);box-shadow:0 2px 6px rgba(15,23,42,.25);cursor:grab}
+  input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:4px solid var(--teal);cursor:grab}
+  .presets{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
+  .presets button{border:1px solid var(--line);background:var(--mist);border-radius:999px;
+    font-size:11.5px;font-weight:600;padding:3px 10px;cursor:pointer;color:var(--ink-soft);font-family:'Inter'}
+  .presets button:hover{border-color:var(--teal);color:var(--teal-deep)}
+  .presets button.mark{background:#ecfeff;border-color:#a5f3fc;color:var(--teal-deep)}
+  details.adv{margin-top:6px;border-top:1px dashed var(--line);padding-top:12px}
+  details.adv summary{cursor:pointer;font-weight:600;font-size:13.5px;color:var(--blue);list-style:none}
+  details.adv summary::before{content:"⚙️ "}
+  .advgrid{margin-top:12px;display:flex;flex-direction:column;gap:13px}
+  .opt{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:13.5px}
+  .opt label{display:flex;align-items:center;gap:8px;cursor:pointer}
+  .opt input[type=checkbox]{width:17px;height:17px;accent-color:var(--teal)}
+  .seg{display:flex;gap:4px}
+  .seg button{border:1px solid var(--line);background:#fff;padding:3px 10px;border-radius:8px;font-size:12px;
+    font-weight:600;cursor:pointer;color:var(--ink-soft);font-family:'Inter'}
+  .seg button.on{background:var(--teal);border-color:var(--teal);color:#fff}
+
+  /* VERDICT */
+  .verdict{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 22px;box-shadow:var(--shadow);margin-bottom:18px}
+  .verdict .duo{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center}
+  @media(max-width:640px){.verdict .duo{grid-template-columns:1fr;text-align:center}}
+  .vbox{text-align:center;padding:10px;border-radius:14px;border:2px solid transparent}
+  .vbox .t{font-size:13px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--ink-soft)}
+  .vbox .n{font-family:'Fredoka';font-weight:700;font-size:clamp(26px,3.4vw,38px);line-height:1.1;margin-top:2px}
+  .vbox .a{font-size:12.5px;color:var(--ink-soft)}
+  .vbox.win{border-color:var(--green);background:#f0fdf4}
+  .vbox.win .badge-win{display:inline-block;margin-top:5px;background:#dcfce7;color:#15803d;font-size:11.5px;font-weight:700;padding:2px 10px;border-radius:999px}
+  .vbox .badge-win{display:none}
+  .vs-circle{width:46px;height:46px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;
+    font-family:'Fredoka';font-weight:700;font-size:15px;margin:auto;box-shadow:var(--shadow-sm)}
+  .goal{margin-top:16px}
+  .goal .glab{display:flex;justify-content:space-between;font-size:12.5px;font-weight:600;color:var(--ink-soft);margin-bottom:5px}
+  .gbar{height:14px;border-radius:999px;background:#e2e8f0;position:relative;overflow:hidden}
+  .gbar .zone{position:absolute;top:0;bottom:0;background:rgba(22,163,74,.18);border-left:2px dashed #16A34A;border-right:2px dashed #16A34A}
+  .gbar .fill{position:absolute;top:0;bottom:0;left:0;background:var(--grad);border-radius:999px;transition:width .25s}
+  .gmsg{font-size:13px;margin-top:6px;font-weight:600}
+
+  /* CARTES STRUCTURES */
+  .duo2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:860px){.duo2{grid-template-columns:1fr}}
+  .scard{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow-sm)}
+  .scard header{padding:13px 20px;color:#fff;display:flex;justify-content:space-between;align-items:center}
+  .scard.micro header{background:#64748b}
+  .scard.sasu header{background:var(--teal-deep)}
+  .scard header h3{font-size:17px}
+  .scard header .tag{font-size:11px;background:rgba(255,255,255,.22);padding:3px 9px;border-radius:999px;font-weight:700}
+  .cascade{padding:14px 20px 18px;font-size:13.8px}
+  .crow{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px dashed #eef2f7}
+  .crow:last-child{border-bottom:none}
+  .crow .l{color:#334155}.crow .l small{display:block;color:#94a3b8;font-size:11.5px}
+  .crow .r{font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .crow.minus .r{color:var(--red)}
+  .crow.plus .r{color:var(--green)}
+  .crow.total{border-top:2px solid var(--ink);margin-top:4px;padding-top:9px}
+  .crow.total .l{font-weight:800}.crow.total .r{font-family:'Fredoka';font-size:19px}
+  .neg{color:var(--red) !important}
+  .warnrow{margin:8px 20px 16px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;
+    font-size:12.5px;border-radius:10px;padding:8px 12px;font-weight:600}
+  .inforow{margin:8px 20px 16px;background:#f0fdfa;border:1px solid #99f6e4;color:#0f766e;
+    font-size:12.5px;border-radius:10px;padding:8px 12px;font-weight:600}
+
+  /* INDICATEURS */
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+  @media(max-width:860px){.kpis{grid-template-columns:repeat(2,1fr)}}
+  .kpi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 15px;box-shadow:var(--shadow-sm)}
+  .kpi .t{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--ink-soft)}
+  .kpi .n{font-family:'Fredoka';font-weight:700;font-size:21px;color:var(--teal-deep);margin-top:2px}
+  .kpi .s{font-size:11.5px;color:#94a3b8}
+
+  /* REPARTITION */
+  .repart{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-top:18px;box-shadow:var(--shadow-sm)}
+  .repart h3{font-size:16px;margin-bottom:10px}
+  .rbar{display:flex;height:30px;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+  .rbar div{transition:width .25s;min-width:0}
+  .rleg{display:flex;flex-wrap:wrap;gap:13px;margin-top:10px;font-size:12.5px;color:var(--ink-soft)}
+  .rleg span{display:inline-flex;align-items:center;gap:6px;font-weight:600}
+  .rdot{width:11px;height:11px;border-radius:3px;display:inline-block}
+
+  /* ALERTES + NOTES */
+  .alerts{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+  .alert{border-radius:12px;padding:10px 14px;font-size:13px;font-weight:600;display:none}
+  .alert.on{display:block}
+  .al-warn{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412}
+  .al-bad{background:#ffe4e6;border:1px solid #fecdd3;color:#be123c}
+  .al-good{background:#f0fdf4;border:1px solid #bbf7d0;color:#15803d}
+  .notes{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 22px;font-size:13px;color:#475569}
+  .notes h3{font-size:15px;color:var(--ink);margin-bottom:8px}
+  .notes ul{margin-left:18px;display:flex;flex-direction:column;gap:5px}
+  footer{text-align:center;color:#94a3b8;font-size:12px;padding:18px 0 30px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>💶 Simulateur de rentabilité DIAGORIA</h1>
+    <p>Joue avec les curseurs : nombre de clients, prix de l'abonnement, coût API… et vois en direct ce qu'il te reste <b>en poche chaque mois</b>, en micro-entreprise comme en SASU (impôts, TVA et charges déduits).</p>
+    <div class="chips">
+      <span>🔬 Coût API mesuré le 11/06 : 8–18 €/mois/praticien (plafonné 15 €)</span>
+      <span>🏷️ Prix marché relevés : Manu 35 € · OSTEO IA 79 € · Doctolib 79 €</span>
+      <span>📐 Fiscalité 2026 France</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="cols">
+
+    <!-- ===== PANNEAU CURSEURS ===== -->
+    <aside class="panel">
+      <h2>🎛️ Tes hypothèses</h2>
+      <div class="sub">Bouge les curseurs ou clique les repères.</div>
+
+      <div class="ctrl">
+        <div class="lab"><b>👥 Clients (praticiens abonnés)</b><span class="val" id="v_clients">50</span></div>
+        <input type="range" id="i_clients" min="0" max="300" step="5" value="50">
+        <div class="presets">
+          <button data-set="i_clients:10">10</button>
+          <button data-set="i_clients:25">25</button>
+          <button data-set="i_clients:50" class="mark">50 (ton objectif)</button>
+          <button data-set="i_clients:100">100</button>
+          <button data-set="i_clients:200">200</button>
+        </div>
+      </div>
+
+      <div class="ctrl">
+        <div class="lab"><b>🏷️ Prix de l'abonnement (€/mois, payé par le client)</b><span class="val" id="v_prix">35 €</span></div>
+        <input type="range" id="i_prix" min="5" max="90" step="1" value="35">
+        <div class="presets">
+          <button data-set="i_prix:21">21 € (Manu promo)</button>
+          <button data-set="i_prix:30">30 €</button>
+          <button data-set="i_prix:35" class="mark">35 € (Manu)</button>
+          <button data-set="i_prix:49">49 €</button>
+          <button data-set="i_prix:79">79 € (Doctolib/OSTEO IA)</button>
+        </div>
+      </div>
+
+      <div class="ctrl">
+        <div class="lab"><b>🤖 Coût API Mistral (€/client/mois)</b><span class="val" id="v_api">13 €</span></div>
+        <input type="range" id="i_api" min="0" max="18" step="0.5" value="13">
+        <div class="presets">
+          <button data-set="i_api:8">8 € (mesure basse)</button>
+          <button data-set="i_api:13" class="mark">13 € (milieu fourchette)</button>
+          <button data-set="i_api:15">15 € (cap du pool)</button>
+          <button data-set="i_api:18">18 € (mesure haute)</button>
+        </div>
+      </div>
+
+      <div class="ctrl">
+        <div class="lab"><b>📣 Budget communication (€/mois)</b><span class="val" id="v_com">150 €</span></div>
+        <input type="range" id="i_com" min="0" max="2000" step="25" value="150">
+        <div class="presets">
+          <button data-set="i_com:0">0 € (organique pur)</button>
+          <button data-set="i_com:150" class="mark">150 €</button>
+          <button data-set="i_com:400">400 €</button>
+          <button data-set="i_com:1000">1 000 €</button>
+        </div>
+      </div>
+
+      <div class="ctrl">
+        <div class="lab"><b>🖥️ Frais techniques (VPS, domaines, outils — €/mois)</b><span class="val" id="v_tech">30 €</span></div>
+        <input type="range" id="i_tech" min="0" max="200" step="5" value="30">
+      </div>
+
+      <details class="adv">
+        <summary>Hypothèses avancées (fiscalité, frais annuels)</summary>
+        <div class="advgrid">
+          <div class="opt">
+            <span><b>TMI</b> (ton taux marginal d'impôt — micro)</span>
+            <span class="seg" id="seg_tmi">
+              <button data-tmi="0">0 %</button>
+              <button data-tmi="0.11" class="on">11 %</button>
+              <button data-tmi="0.30">30 %</button>
+            </span>
+          </div>
+          <div class="opt">
+            <label><input type="checkbox" id="i_vl" checked> Versement libératoire 1,7 % (micro — tu y es éligible)</label>
+          </div>
+          <div class="opt">
+            <label><input type="checkbox" id="i_dist" checked> SASU : je me verse tout en dividendes (flat tax 30 %)</label>
+          </div>
+          <div class="opt">
+            <label><input type="checkbox" id="i_an1" checked> 1ʳᵉ année d'activité (CFE exonérée)</label>
+          </div>
+          <div class="opt">
+            <span>Expert-comptable SASU (€/an)</span>
+            <span class="val" style="font-size:15px" id="v_compta">1 800 €</span>
+          </div>
+          <input type="range" id="i_compta" min="0" max="3000" step="100" value="1800">
+          <div class="opt">
+            <span>Assurance RC pro (€/an, les 2 structures)</span>
+            <span class="val" style="font-size:15px" id="v_rc">400 €</span>
+          </div>
+          <input type="range" id="i_rc" min="0" max="1200" step="50" value="400">
+          <div class="opt">
+            <span>CFE après année 1 (€/an)</span>
+            <span class="val" style="font-size:15px" id="v_cfe">300 €</span>
+          </div>
+          <input type="range" id="i_cfe" min="0" max="800" step="50" value="300">
+          <div class="opt">
+            <span>Seuil franchise TVA services (€/an)</span>
+            <span class="val" style="font-size:15px" id="v_seuil">37 500 €</span>
+          </div>
+          <input type="range" id="i_seuil" min="25000" max="40000" step="500" value="37500">
+        </div>
+      </details>
+    </aside>
+
+    <!-- ===== RÉSULTATS ===== -->
+    <div>
+
+      <div class="verdict">
+        <div class="duo">
+          <div class="vbox" id="box_micro">
+            <div class="t">Micro-entreprise</div>
+            <div class="n" id="r_net_micro">—</div>
+            <div class="a">net en poche / mois</div>
+            <div class="badge-win">✓ Meilleure option ici</div>
+          </div>
+          <div class="vs-circle">VS</div>
+          <div class="vbox" id="box_sasu">
+            <div class="t">SASU (à l'IS)</div>
+            <div class="n" id="r_net_sasu">—</div>
+            <div class="a" id="r_sasu_sub">net en poche / mois (dividendes)</div>
+            <div class="badge-win">✓ Meilleure option ici</div>
+          </div>
+        </div>
+        <div class="goal">
+          <div class="glab"><span>🎯 Ton objectif : 500 – 750 € net/mois</span><span id="g_txt">—</span></div>
+          <div class="gbar">
+            <div class="zone" id="g_zone"></div>
+            <div class="fill" id="g_fill"></div>
+          </div>
+          <div class="gmsg" id="g_msg">—</div>
+          <div class="gmsg" id="g_range" style="font-weight:500;color:#475569">—</div>
+        </div>
+      </div>
+
+      <div class="duo2">
+        <!-- MICRO -->
+        <div class="scard micro">
+          <header><h3>Micro-entreprise (BIC)</h3><span class="tag" id="tva_micro">Franchise TVA</span></header>
+          <div class="cascade" id="casc_micro"></div>
+          <div class="warnrow">⚠️ En micro, cotisations &amp; impôt se calculent sur le <b>chiffre d'affaires</b>, pas sur le bénéfice : tes coûts (API, com…) ne se déduisent pas.</div>
+        </div>
+        <!-- SASU -->
+        <div class="scard sasu">
+          <header><h3>SASU (IS)</h3><span class="tag" id="tva_sasu">Franchise TVA</span></header>
+          <div class="cascade" id="casc_sasu"></div>
+          <div class="inforow">✅ En SASU, l'impôt se calcule sur le <b>bénéfice réel</b> (coûts déduits) — et ta responsabilité est limitée aux apports.</div>
+        </div>
+      </div>
+
+      <div class="kpis">
+        <div class="kpi"><div class="t">Marge brute / client</div><div class="n" id="k_marge">—</div><div class="s">prix − coût API</div></div>
+        <div class="kpi"><div class="t">CA annuel</div><div class="n" id="k_ca">—</div><div class="s" id="k_ca_s">encaissé</div></div>
+        <div class="kpi"><div class="t">Point mort micro</div><div class="n" id="k_pm_micro">—</div><div class="s">clients pour net ≥ 0</div></div>
+        <div class="kpi"><div class="t">Point mort SASU</div><div class="n" id="k_pm_sasu">—</div><div class="s">clients pour net ≥ 0</div></div>
+      </div>
+
+      <div class="repart">
+        <h3>📊 Où va chaque euro encaissé ? <span style="font-weight:400;font-size:12.5px;color:#94a3b8" id="rep_for">(structure la plus favorable)</span></h3>
+        <div class="rbar" id="rbar"></div>
+        <div class="rleg">
+          <span><span class="rdot" style="background:#7c3aed"></span> API Mistral</span>
+          <span><span class="rdot" style="background:#F59E0B"></span> Communication</span>
+          <span><span class="rdot" style="background:#94a3b8"></span> Frais fixes</span>
+          <span><span class="rdot" style="background:#E11D48"></span> État (TVA, cotis., impôts)</span>
+          <span><span class="rdot" style="background:#16A34A"></span> Net pour toi</span>
+        </div>
+      </div>
+
+      <div class="alerts">
+        <div class="alert al-warn" id="al_tva">⚠️ <b>Tu franchis le seuil de franchise de TVA</b> (~37 500 €/an) : 20 % du prix part désormais en TVA (tes clients ostéos ne la récupèrent pas). Pense à lisser le prix ou assumer la bascule.</div>
+        <div class="alert al-bad" id="al_micro_cap">⛔ <b>CA &gt; 77 700 €/an : le régime micro n'est plus possible.</b> À ce niveau, la SASU (ou l'EI au réel) devient obligatoire de fait.</div>
+        <div class="alert al-bad" id="al_marge">⛔ <b>Marge négative</b> : le coût API dépasse le prix de l'abonnement. Monte le prix ou baisse le coût.</div>
+        <div class="alert al-good" id="al_goal">🎉 <b>Objectif atteint</b> avec la meilleure structure : tu es dans (ou au-dessus de) ta cible 500–750 €/mois.</div>
+      </div>
+
+      <div class="notes">
+        <h3>📐 Hypothèses &amp; limites (honnêteté radicale)</h3>
+        <ul>
+          <li><b>Micro-BIC</b> (le SaaS = activité commerciale, distincte de ton BNC ostéo) : cotisations <b>21,2 %</b> du CA + impôt = <b>versement libératoire 1,7 %</b> du CA (tu es éligible, RFR &lt; plafond) ou barème : TMI × (CA × 50 % après abattement). Plafond micro : <b>77 700 €</b> (apprécié avec tes autres activités micro).</li>
+          <li><b>SASU à l'IS</b> : IS <b>15 %</b> jusqu'à 42 500 € de bénéfice puis 25 % ; dividendes taxés à la <b>flat tax 30 %</b> ; pas de cotisations sociales si tu ne te verses pas de salaire ; expert-comptable et CFE paramétrables ci-contre.</li>
+          <li><b>TVA</b> : la <b>franchise en base</b> s'applique aux deux structures sous ~<b>37 500 €</b> de CA annuel de services (seuil 2025 ; la réforme à 25 000 € a été suspendue — seuil ajustable dans les options). Au-delà, le simulateur considère le prix saisi comme TTC (TVA = 1/6 du CA) car tes clients praticiens, exonérés de TVA, ne la récupèrent pas. TVA déductible sur tes achats ignorée (léger pessimisme).</li>
+          <li><b>Coût API</b> : mesure instrumentée du 11/06/2026 (test réel 10 min, prompt de prod) : 0,05–0,11 €/consultation d'1 h selon le % de parole → 8–18 €/mois pour 8 consultations/jour × 20 jours. Le pool actuel plafonne à <b>15 €/mois/praticien</b> (spending limit par workspace).</li>
+          <li>Non modélisés : ACRE (non éligible, activité déjà existante), CSG déductible, frais bancaires pro (~10 €/mois), évolution du churn, impayés, parrainages offerts. Année 1 : CFE exonérée pour les deux structures.</li>
+          <li>Ceci est une <b>estimation grossière d'aide à la décision</b>, pas un conseil fiscal — à valider avec l'expert-comptable avant de trancher la structure.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>DIAGORIA · Simulateur de rentabilité · 11 juin 2026 · Confidentiel</footer>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const fmt=(n,dec=0)=>n.toLocaleString('fr-FR',{minimumFractionDigits:dec,maximumFractionDigits:dec});
+  const eur=(n,dec=0)=>fmt(n,dec)+' €';
+
+  let TMI=0.11;
+
+  const inputs=['i_clients','i_prix','i_api','i_com','i_tech','i_compta','i_rc','i_cfe','i_seuil'];
+  const checks=['i_vl','i_dist','i_an1'];
+
+  function paintRange(el){
+    const min=+el.min,max=+el.max,v=+el.value;
+    el.style.setProperty('--p',((v-min)/(max-min)*100)+'%');
+  }
+
+  function netMicro(clients,prix,api,comY,techY,rcY,cfeY,seuil,vl){
+    const caTTC=clients*prix*12;
+    const assuj=caTTC>seuil;
+    const caHT=assuj?caTTC/1.2:caTTC;
+    const tva=caTTC-caHT;
+    const cotis=caHT*0.212;
+    const ir=vl?caHT*0.017:(caHT*0.5)*TMI;
+    const couts=clients*api*12+comY+techY+rcY+cfeY;
+    return {caTTC,caHT,tva,assuj,cotis,ir,couts,net:caHT-couts-cotis-ir};
+  }
+  function netSasu(clients,prix,api,comY,techY,rcY,cfeY,comptaY,seuil,dist){
+    const caTTC=clients*prix*12;
+    const assuj=caTTC>seuil;
+    const caHT=assuj?caTTC/1.2:caTTC;
+    const tva=caTTC-caHT;
+    const charges=clients*api*12+comY+techY+rcY+cfeY+comptaY;
+    const resultat=caHT-charges;
+    const is=resultat>0?(Math.min(resultat,42500)*0.15+Math.max(0,resultat-42500)*0.25):0;
+    const netSoc=resultat-is;
+    const flat=dist&&netSoc>0?netSoc*0.30:0;
+    const poche=dist?netSoc-flat:0;
+    return {caTTC,caHT,tva,assuj,charges,resultat,is,netSoc,flat,poche,
+            net:dist?poche:netSoc};
+  }
+
+  function pointMort(fn){
+    for(let n=0;n<=2000;n++){ if(fn(n)>=0&&n>0) return n; if(n===0&&fn(0)>=0) return 0; }
+    return null;
+  }
+
+  function row(l,r,cls='',small=''){
+    return `<div class="crow ${cls}"><div class="l">${l}${small?`<small>${small}</small>`:''}</div><div class="r">${r}</div></div>`;
+  }
+
+  function recalc(){
+    const clients=+$('i_clients').value, prix=+$('i_prix').value, api=+$('i_api').value;
+    const com=+$('i_com').value, tech=+$('i_tech').value;
+    const comptaY=+$('i_compta').value, rcY=+$('i_rc').value;
+    const cfeBase=+$('i_cfe').value, seuil=+$('i_seuil').value;
+    const vl=$('i_vl').checked, dist=$('i_dist').checked, an1=$('i_an1').checked;
+    const cfeY=an1?0:cfeBase;
+    const comY=com*12, techY=tech*12;
+
+    $('v_clients').textContent=clients;
+    $('v_prix').textContent=eur(prix);
+    $('v_api').textContent=eur(api,api%1?2:0);
+    $('v_com').textContent=eur(com);
+    $('v_tech').textContent=eur(tech);
+    $('v_compta').textContent=eur(comptaY);
+    $('v_rc').textContent=eur(rcY);
+    $('v_cfe').textContent=eur(cfeBase);
+    $('v_seuil').textContent=eur(seuil);
+    inputs.forEach(id=>paintRange($(id)));
+
+    const m=netMicro(clients,prix,api,comY,techY,rcY,cfeY,seuil,vl);
+    const s=netSasu(clients,prix,api,comY,techY,rcY,cfeY,comptaY,seuil,dist);
+    const mM=m.net/12, sM=s.net/12;
+
+    // Verdict
+    $('r_net_micro').textContent=eur(mM);
+    $('r_net_sasu').textContent=eur(sM);
+    $('r_net_micro').classList.toggle('neg',mM<0);
+    $('r_net_sasu').classList.toggle('neg',sM<0);
+    $('r_sasu_sub').textContent=dist?'net en poche / mois (dividendes)':'net laissé en société / mois (réserve)';
+    const microCapKO=m.caHT>77700;
+    const microWins=!microCapKO&&mM>=sM;
+    $('box_micro').classList.toggle('win',microWins);
+    $('box_sasu').classList.toggle('win',!microWins);
+
+    // Jauge objectif (échelle 0 → 1000 €)
+    const best=Math.max(mM,sM), scale=1000;
+    $('g_zone').style.left=(500/scale*100)+'%';
+    $('g_zone').style.width=((750-500)/scale*100)+'%';
+    $('g_fill').style.width=Math.max(0,Math.min(100,best/scale*100))+'%';
+    $('g_txt').textContent=eur(best)+' / mois (meilleure structure)';
+    const gm=$('g_msg');
+    if(best<0){gm.textContent='🔴 À ces réglages tu perds de l\'argent.';gm.style.color='#be123c';}
+    else if(best<500){gm.textContent=`🟠 Il manque ${eur(500-best)}/mois pour entrer dans ta cible.`;gm.style.color='#b45309';}
+    else if(best<=750){gm.textContent='🟢 En plein dans ta cible 500–750 €/mois !';gm.style.color='#15803d';}
+    else {gm.textContent=`🚀 Au-dessus de ta cible (+${eur(best-750)}/mois au-delà des 750 €).`;gm.style.color='#0f766e';}
+
+    // Fourchette API mesurée 8–18 € (mêmes réglages, meilleure structure à chaque borne)
+    const bestAt=a=>Math.max(
+      netMicro(clients,prix,a,comY,techY,rcY,cfeY,seuil,vl).net,
+      netSasu(clients,prix,a,comY,techY,rcY,cfeY,comptaY,seuil,dist).net)/12;
+    const rLo=bestAt(18), rHi=bestAt(8);
+    $('g_range').innerHTML=`📏 Selon la conso API réelle (fourchette mesurée 8–18 €) : net entre <b>${eur(rLo)}</b> (gros consommateurs) et <b>${eur(rHi)}</b> (consommation basse) par mois.`;
+
+    // Cascades
+    $('tva_micro').textContent=m.assuj?'TVA 20 %':'Franchise TVA';
+    $('tva_sasu').textContent=s.assuj?'TVA 20 %':'Franchise TVA';
+
+    let h='';
+    h+=row('Chiffre d\'affaires encaissé',eur(m.caTTC),'plus',`${clients} clients × ${eur(prix)} × 12`);
+    if(m.assuj) h+=row('TVA reversée à l\'État','− '+eur(m.tva),'minus','au-delà de la franchise');
+    h+=row('Coûts réels payés','− '+eur(m.couts),'minus','API + com + technique + RC pro'+(cfeY?' + CFE':''));
+    h+=row('Cotisations sociales (21,2 % du CA)','− '+eur(m.cotis),'minus','calculées sur le CA, pas le bénéfice');
+    h+=row(vl?'Impôt (versement libératoire 1,7 %)':'Impôt sur le revenu (TMI '+(TMI*100)+'%)','− '+eur(m.ir),'minus');
+    h+=row('<b>Net en poche / an</b>',`<span class="${m.net<0?'neg':''}">${eur(m.net)}</span>`,'total',eur(mM)+' / mois');
+    $('casc_micro').innerHTML=h;
+
+    let g='';
+    g+=row('Chiffre d\'affaires encaissé',eur(s.caTTC),'plus',`${clients} clients × ${eur(prix)} × 12`);
+    if(s.assuj) g+=row('TVA reversée à l\'État','− '+eur(s.tva),'minus','au-delà de la franchise');
+    g+=row('Charges déduites','− '+eur(s.charges),'minus','API + com + technique + RC + compta'+(cfeY?' + CFE':''));
+    g+=row('Bénéfice imposable',`<span class="${s.resultat<0?'neg':''}">${eur(s.resultat)}</span>`,'', 'le vrai résultat de la boîte');
+    g+=row('Impôt sur les sociétés (15 % / 25 %)','− '+eur(s.is),'minus');
+    g+=row('Net conservé par la société',`<span class="${s.netSoc<0?'neg':''}">${eur(s.netSoc)}</span>`,'','trésorerie réinvestissable');
+    if(dist){
+      g+=row('Flat tax sur dividendes (30 %)','− '+eur(s.flat),'minus');
+      g+=row('<b>Net en poche / an</b>',`<span class="${s.poche<0?'neg':''}">${eur(s.poche)}</span>`,'total',eur(sM)+' / mois');
+    } else {
+      g+=row('<b>Net laissé en société / an</b>',`<span class="${s.netSoc<0?'neg':''}">${eur(s.netSoc)}</span>`,'total',eur(sM)+' / mois — 0 € sorti');
+    }
+    $('casc_sasu').innerHTML=g;
+
+    // KPIs
+    const marge=prix-api;
+    $('k_marge').textContent=eur(marge)+ ' /mois';
+    $('k_marge').classList.toggle('neg',marge<0);
+    $('k_ca').textContent=fmt(m.caTTC/1000,m.caTTC<10000?1:0)+' k€';
+    $('k_ca_s').textContent=m.assuj?'dont TVA à reverser':'sous franchise TVA';
+    const pmM=pointMort(n=>netMicro(n,prix,api,comY,techY,rcY,cfeY,seuil,vl).net);
+    const pmS=pointMort(n=>netSasu(n,prix,api,comY,techY,rcY,cfeY,comptaY,seuil,dist).net);
+    $('k_pm_micro').textContent=pmM===null?'jamais':pmM+' clients';
+    $('k_pm_sasu').textContent=pmS===null?'jamais':pmS+' clients';
+
+    // Répartition (meilleure structure)
+    const useMicro=microWins;
+    $('rep_for').textContent=useMicro?'(en micro-entreprise)':'(en SASU)';
+    const ca=m.caTTC||1;
+    const apiY=clients*api*12;
+    const fixesY=techY+rcY+cfeY+(useMicro?0:comptaY);
+    const etat=useMicro?(m.tva+m.cotis+m.ir):(s.tva+s.is+s.flat);
+    const net=Math.max(0,useMicro?m.net:s.net);
+    const tot=apiY+comY+fixesY+etat+net||1;
+    const seg=(v,c)=>`<div style="width:${(v/tot*100)}%;background:${c}" title="${eur(v)}"></div>`;
+    $('rbar').innerHTML=seg(apiY,'#7c3aed')+seg(comY,'#F59E0B')+seg(fixesY,'#94a3b8')+seg(etat,'#E11D48')+seg(net,'#16A34A');
+
+    // Alertes
+    $('al_tva').classList.toggle('on',m.assuj);
+    $('al_micro_cap').classList.toggle('on',microCapKO);
+    $('al_marge').classList.toggle('on',marge<0);
+    $('al_goal').classList.toggle('on',best>=500);
+  }
+
+  inputs.forEach(id=>$(id).addEventListener('input',recalc));
+  checks.forEach(id=>$(id).addEventListener('change',recalc));
+  document.querySelectorAll('.presets button').forEach(b=>{
+    b.addEventListener('click',()=>{
+      const [id,val]=b.dataset.set.split(':');
+      $(id).value=val; recalc();
+    });
+  });
+  document.querySelectorAll('#seg_tmi button').forEach(b=>{
+    b.addEventListener('click',()=>{
+      document.querySelectorAll('#seg_tmi button').forEach(x=>x.classList.remove('on'));
+      b.classList.add('on'); TMI=+b.dataset.tmi; recalc();
+    });
+  });
+
+  recalc();
+})();
+</script>
+</body>
+</html>

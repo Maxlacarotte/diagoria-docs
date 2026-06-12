@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Financer DIAGORIA — Feuille de route 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#0EA5A6; --teal-deep:#0B6E72; --blue:#2563EB; --ink:#0F172A;
+    --amber:#F59E0B; --green:#16A34A; --mist:#F4F8FB; --white:#FFFFFF;
+    --red:#E11D48;
+    --grad:linear-gradient(135deg,#0B6E72 0%,#0EA5A6 50%,#2563EB 100%);
+    --ink-soft:#475569; --line:#E2E8F0;
+    --shadow:0 10px 30px -12px rgba(15,23,42,.18);
+    --shadow-sm:0 4px 14px -8px rgba(15,23,42,.25);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;color:var(--ink);
+    background:var(--mist);line-height:1.62;font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4,.font-display{font-family:'Fredoka',sans-serif;font-weight:600;line-height:1.18}
+  a{color:var(--blue);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+
+  /* ---------- HERO ---------- */
+  .hero{background:var(--grad);color:#fff;padding:64px 0 120px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;inset:0;background:
+     radial-gradient(circle at 85% 15%,rgba(255,255,255,.18),transparent 38%),
+     radial-gradient(circle at 10% 90%,rgba(255,255,255,.10),transparent 40%);}
+  .hero .wrap{position:relative;z-index:1}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.3);padding:6px 14px;border-radius:999px;
+    font-size:13px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;margin-bottom:22px}
+  .hero h1{font-size:clamp(30px,5vw,52px);font-weight:700;max-width:18ch;margin-bottom:18px}
+  .hero p.lead{font-size:clamp(16px,2.3vw,20px);max-width:62ch;opacity:.95;font-weight:400}
+  .hero .meta{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px}
+  .hero .meta span{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);
+    padding:7px 14px;border-radius:10px;font-size:13.5px;font-weight:500}
+
+  /* ---------- NAV ---------- */
+  nav.toc{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.86);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:11px 0}
+  nav.toc .wrap{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+  nav.toc .wrap::-webkit-scrollbar{display:none}
+  nav.toc a{white-space:nowrap;font-size:13.5px;font-weight:600;color:var(--ink-soft);
+    padding:7px 13px;border-radius:9px;transition:.15s}
+  nav.toc a:hover{background:var(--mist);color:var(--teal-deep);text-decoration:none}
+
+  /* ---------- LAYOUT ---------- */
+  main{padding:54px 0 30px}
+  section{margin-bottom:62px;scroll-margin-top:64px}
+  .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .sec-num{flex:none;width:42px;height:42px;border-radius:12px;background:var(--grad);
+    color:#fff;display:grid;place-items:center;font-family:'Fredoka';font-weight:700;font-size:19px;
+    box-shadow:var(--shadow-sm)}
+  .sec-head h2{font-size:clamp(23px,3.3vw,31px);font-weight:600}
+  .sec-sub{color:var(--ink-soft);font-size:16px;margin:0 0 26px 56px;max-width:74ch}
+  @media(max-width:640px){.sec-sub{margin-left:0}}
+
+  .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 28px;
+    box-shadow:var(--shadow);}
+  .grid{display:grid;gap:18px}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:820px){.g2,.g3{grid-template-columns:1fr}}
+
+  /* ---------- BADGES ---------- */
+  .badge{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;
+    padding:4px 11px;border-radius:999px;letter-spacing:.2px;line-height:1.4}
+  .b-now{background:#dcfce7;color:#15803d}
+  .b-cond{background:#fef3c7;color:#b45309}
+  .b-later{background:#f1f5f9;color:#64748b}
+  .b-blue{background:#dbeafe;color:#1d4ed8}
+  .b-red{background:#ffe4e6;color:#be123c}
+  .stars{color:var(--amber);letter-spacing:2px;font-size:14px}
+  .stars .off{color:#e2e8f0}
+
+  /* ---------- DISPOSITIF CARD ---------- */
+  .dispo{background:#fff;border:1px solid var(--line);border-left:5px solid var(--teal);
+    border-radius:14px;padding:20px 22px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:10px}
+  .dispo.now{border-left-color:var(--green)}
+  .dispo.cond{border-left-color:var(--amber)}
+  .dispo.later{border-left-color:#94a3b8}
+  .dispo h4{font-size:18px;display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+  .dispo .who{font-size:13px;color:var(--ink-soft);font-weight:500;margin-top:-4px}
+  .dispo .amount{font-family:'Fredoka';font-weight:600;font-size:22px;color:var(--teal-deep)}
+  .dispo ul{list-style:none;font-size:14.3px;display:flex;flex-direction:column;gap:5px}
+  .dispo ul li{padding-left:20px;position:relative;color:#334155}
+  .dispo ul li::before{content:"›";position:absolute;left:4px;color:var(--teal);font-weight:700}
+  .dispo .foot{margin-top:auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding-top:6px}
+
+  /* ---------- CALLOUT ---------- */
+  .callout{border-radius:14px;padding:18px 22px;display:flex;gap:14px;align-items:flex-start;font-size:15px}
+  .callout .ico{font-size:22px;line-height:1;flex:none;margin-top:2px}
+  .co-key{background:linear-gradient(135deg,#ecfeff,#eff6ff);border:1px solid #bae6fd}
+  .co-warn{background:#fff7ed;border:1px solid #fed7aa}
+  .co-good{background:#f0fdf4;border:1px solid #bbf7d0}
+  .co-info{background:#f8fafc;border:1px solid var(--line)}
+  .callout b{color:var(--ink)}
+
+  /* ---------- PYRAMID ---------- */
+  .pyramid{display:flex;flex-direction:column;gap:7px;margin-top:6px}
+  .rung{border-radius:11px;padding:14px 20px;color:#fff;display:flex;justify-content:space-between;
+    align-items:center;gap:14px;box-shadow:var(--shadow-sm);flex-wrap:wrap}
+  .rung small{opacity:.9;font-weight:500;font-size:13px}
+  .rung b{font-family:'Fredoka';font-weight:600;font-size:16px}
+  .rung .tag{background:rgba(255,255,255,.2);padding:3px 10px;border-radius:8px;font-size:12px;font-weight:600}
+  .r1{background:#15803d;width:62%} .r2{background:#0EA5A6;width:70%}
+  .r3{background:#0B6E72;width:78%} .r4{background:#2563EB;width:86%}
+  .r5{background:#4f46e5;width:94%} .r6{background:#7c3aed;width:100%}
+  @media(max-width:640px){.rung{width:100% !important}}
+
+  /* ---------- TABLE ---------- */
+  .tbl-scroll{overflow-x:auto;border-radius:14px;border:1px solid var(--line);box-shadow:var(--shadow-sm)}
+  table{border-collapse:collapse;width:100%;min-width:720px;background:#fff;font-size:14px}
+  th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--ink);color:#fff;font-family:'Fredoka';font-weight:500;font-size:13.5px;
+    position:sticky;top:0}
+  tbody tr:hover{background:var(--mist)}
+  td .badge{white-space:nowrap}
+  .row-now{border-left:4px solid var(--green)}
+  .row-cond{border-left:4px solid var(--amber)}
+  .row-later{border-left:4px solid #94a3b8}
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{position:relative;margin-left:8px;padding-left:30px}
+  .timeline::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;
+    background:var(--grad);border-radius:3px}
+  .tl-item{position:relative;margin-bottom:24px}
+  .tl-item::before{content:"";position:absolute;left:-37px;top:3px;width:16px;height:16px;
+    border-radius:50%;background:#fff;border:4px solid var(--teal)}
+  .tl-item.amber::before{border-color:var(--amber)}
+  .tl-item.blue::before{border-color:var(--blue)}
+  .tl-item.purple::before{border-color:#7c3aed}
+  .tl-when{font-family:'Fredoka';font-weight:600;font-size:15px;color:var(--teal-deep);margin-bottom:4px}
+  .tl-item.amber .tl-when{color:#b45309}
+  .tl-item.blue .tl-when{color:var(--blue)}
+  .tl-item.purple .tl-when{color:#7c3aed}
+  .tl-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;box-shadow:var(--shadow-sm)}
+  .tl-card ul{margin:6px 0 0 18px;font-size:14.3px;color:#334155}
+  .tl-card ul li{margin-bottom:3px}
+
+  /* ---------- COMPARE ---------- */
+  .vs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+  @media(max-width:820px){.vs{grid-template-columns:1fr}}
+  .vs-col{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm)}
+  .vs-col h4{padding:14px 18px;color:#fff;font-size:17px;display:flex;justify-content:space-between;align-items:center}
+  .vs-ei h4{background:#94a3b8} .vs-sasu h4{background:var(--green)} .vs-eurl h4{background:var(--teal-deep)}
+  .vs-col ul{list-style:none;padding:14px 18px;font-size:14px;display:flex;flex-direction:column;gap:9px}
+  .vs-col li{padding-left:24px;position:relative}
+  .vs-col li.y::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+  .vs-col li.n::before{content:"✗";position:absolute;left:0;color:var(--red);font-weight:700}
+  .vs-col li.m::before{content:"~";position:absolute;left:2px;color:var(--amber);font-weight:700}
+
+  /* ---------- SPLIT (qui fait quoi) ---------- */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:820px){.split{grid-template-columns:1fr}}
+  .split .card h3{display:flex;align-items:center;gap:10px;font-size:19px;margin-bottom:14px}
+  .split ul{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:14.6px}
+  .split ul li{padding-left:26px;position:relative;color:#334155}
+  .me ul li::before{content:"🤖";position:absolute;left:0}
+  .you ul li::before{content:"👤";position:absolute;left:0}
+
+  /* ---------- MISC ---------- */
+  .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  @media(max-width:820px){.stat-row{grid-template-columns:1fr 1fr}}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center;box-shadow:var(--shadow-sm)}
+  .stat .n{font-family:'Fredoka';font-weight:700;font-size:30px;background:var(--grad);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1.1}
+  .stat .l{font-size:13px;color:var(--ink-soft);margin-top:4px;font-weight:500}
+  .legend{display:flex;flex-wrap:wrap;gap:16px;margin:18px 0 0;font-size:13.5px;color:var(--ink-soft)}
+  .legend span{display:inline-flex;align-items:center;gap:7px}
+  .dot{width:13px;height:13px;border-radius:50%;display:inline-block}
+  .glossary{columns:2;column-gap:28px;font-size:14px}
+  @media(max-width:640px){.glossary{columns:1}}
+  .glossary p{break-inside:avoid;margin-bottom:9px}
+  .glossary b{color:var(--teal-deep)}
+  footer{background:var(--ink);color:#cbd5e1;padding:42px 0;font-size:14px;margin-top:30px}
+  footer a{color:#7dd3fc}
+  footer h4{color:#fff;margin-bottom:10px;font-size:16px}
+  .src{font-size:12.5px;color:#94a3b8;word-break:break-word}
+  .divider{height:1px;background:var(--line);margin:34px 0}
+  .big-quote{font-family:'Fredoka';font-weight:500;font-size:clamp(19px,2.6vw,25px);
+    color:var(--teal-deep);line-height:1.4;border-left:5px solid var(--teal);padding:6px 0 6px 22px;margin:6px 0}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">🚀 Stratégie financement · Agent Financements &amp; Partenaires</span>
+    <h1>Financer DIAGORIA sans brader ton projet ni mettre ton patrimoine en danger</h1>
+    <p class="lead">Ta feuille de route 2026 pour aller chercher de l'argent (surtout gratuit), du soutien, et des partenaires — pensée pour ta situation réelle : ostéo solo à Confolens, en zone rurale, avec un produit déjà en ligne.</p>
+    <div class="meta">
+      <span>📅 11 juin 2026</span>
+      <span>👤 Maximilien Vergnaud</span>
+      <span>📍 Confolens (16) · Nouvelle-Aquitaine</span>
+      <span>💻 DIAGORIA v2.4.1 — en bêta</span>
+      <span>📌 Version hub — données personnelles retirées</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ NAV ============ -->
+<nav class="toc">
+  <div class="wrap">
+    <a href="#projet">① Le projet</a>
+    <a href="#profil">② Ton profil</a>
+    <a href="#constat">③ Le déclic</a>
+    <a href="#echelle">④ L'échelle</a>
+    <a href="#argent">⑤ L'argent gratuit</a>
+    <a href="#emprunt">⑥ Emprunter sans risque</a>
+    <a href="#soutien">⑦ Le soutien gratuit</a>
+    <a href="#partenaires">⑧ Les partenaires</a>
+    <a href="#rural">⑨ Bonus rural</a>
+    <a href="#dm">⑩ Le cap "DM"</a>
+    <a href="#structure">⑪ EI vs SASU</a>
+    <a href="#plan">⑫ Plan d'action</a>
+    <a href="#recap">⑬ Tableau récap</a>
+    <a href="#quifaitquoi">⑭ Qui fait quoi</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- ===== 1. LE PROJET ===== -->
+  <section id="projet">
+    <div class="sec-head"><div class="sec-num">1</div><h2>Où en est DIAGORIA aujourd'hui</h2></div>
+    <p class="sec-sub">Avant de parler argent, le point honnête sur le produit — c'est ça que les financeurs vont regarder.</p>
+
+    <div class="card">
+      <div class="big-quote">« Tu consultes, DIAGORIA écoute, transcrit, et prépare le dossier. » Un assistant clinique qui rend du temps au praticien.</div>
+      <div class="divider"></div>
+      <div class="grid g3" style="gap:16px">
+        <div>
+          <h4 style="color:var(--teal-deep);font-size:16px;margin-bottom:8px">✅ Ce qui est fait</h4>
+          <ul style="list-style:none;font-size:14.4px;display:flex;flex-direction:column;gap:7px;color:#334155">
+            <li>🟢 <b>Logiciel en ligne &amp; fonctionnel</b> — v2.4.1 déployée sur diagoria.com</li>
+            <li>🟢 <b>Transcription + structuration</b> du dossier en direct</li>
+            <li>🟢 <b>Conforme RGPD</b> : IA hébergée en UE (Mistral), audio détruit, opt-out entraînement</li>
+            <li>🟢 <b>Cadre légal bêta posé</b> : CGU, mentions, positionnement « aide à la réflexion »</li>
+            <li>🟢 <b>Marque &amp; identité</b> : nom, charte, vitrine, pool de comptes</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color:#b45309;font-size:16px;margin-bottom:8px">🚧 Les chantiers ouverts</h4>
+          <ul style="list-style:none;font-size:14.4px;display:flex;flex-direction:column;gap:7px;color:#334155">
+            <li>🟡 <b>Le marketing</b> — créer la demande chez les praticiens (ton besoin n°1)</li>
+            <li>🟡 <b>Les premiers vrais utilisateurs</b> au-delà de toi (la « traction »)</li>
+            <li>🟡 <b>Le développement légal</b> approfondi (DPA, conformité à l'échelle)</li>
+            <li>🟡 <b>La structure juridique</b> — encore en entreprise individuelle</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color:var(--blue);font-size:16px;margin-bottom:8px">🎯 L'horizon</h4>
+          <ul style="list-style:none;font-size:14.4px;display:flex;flex-direction:column;gap:7px;color:#334155">
+            <li>🔵 <b>Le statut « Dispositif Médical »</b> (marquage CE) — le Graal réglementaire</li>
+            <li>🔵 <b>Le passage B2B</b> : vendre aux cabinets, pas qu'à toi</li>
+            <li>🔵 <b>Le remboursement</b> éventuel par l'Assurance Maladie (très long terme)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout co-key" style="margin-top:18px">
+      <span class="ico">📊</span>
+      <div><b>Où tu te situes dans la vie d'une startup :</b> tu es en phase <b>« amorçage / pré-traction »</b>. Le produit existe et marche, mais il n'a pas encore de clients payants à l'échelle. C'est <b>exactement</b> le stade que visent les prêts d'honneur, les bourses French Tech et les incubateurs santé. Tu n'es ni trop tôt, ni trop tard.</div>
+    </div>
+  </section>
+
+  <!-- ===== 2. TON PROFIL ===== -->
+  <section id="profil">
+    <div class="sec-head"><div class="sec-num">2</div><h2>Ton profil de fondateur — tes cartes en main</h2></div>
+    <p class="sec-sub">Vu de l'extérieur par un financeur. Tes atouts sont réels, et tes points d'attention sont gérables.</p>
+
+    <div class="grid g2">
+      <div class="dispo now">
+        <h4>💪 Tes atouts</h4>
+        <ul>
+          <li><b>Tu es du métier</b> : ostéopathe, tu construis pour tes pairs. Crédibilité immédiate.</li>
+          <li><b>Tu es à l'aise à l'oral et en vidéo</b> : énorme pour pitcher devant un jury ou une caméra.</li>
+          <li><b>Produit déjà live</b> : tu ne vends pas une idée, tu montres un logiciel qui tourne.</li>
+          <li><b>Zone rurale (Confolens)</b> : ça ouvre des dispositifs réservés (French Tech Tremplin, exos fiscales).</li>
+          <li><b>Patrimoine solide</b> : tu inspires confiance aux banques, et tu peux apporter du capital.</li>
+          
+        </ul>
+      </div>
+      <div class="dispo cond">
+        <h4>⚠️ Tes points d'attention</h4>
+        <ul>
+          <li><b>Statut micro-entrepreneur</b> : c'est le frein n°1 — la plupart des aises exigent une société (on règle ça en §11).</li>
+          <li><b>Revenus d'activité encore modestes</b> : peu de marge pour un emprunt « perso » classique.</li>
+          <li><b>Patrimoine immobilier à protéger</b> : il ne doit JAMAIS servir de garantie pour DIAGORIA (on blinde ça en §6).</li>
+          <li><b>Tu es seul</b> : certains dispositifs veulent une équipe ou des embauches (Réseau Entreprendre). Pas grave, d'autres sont faits pour les solos.</li>
+          <li><b>Ton temps est rare</b> : d'où le principe — je monte les dossiers, tu valides.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout co-good" style="margin-top:18px">
+      <span class="ico">🧭</span>
+      <div><b>Le résumé en une phrase :</b> tu as un <b>bon profil de candidat</b> aux financements publics, à une condition près — <b>créer une société dédiée</b> pour DIAGORIA. C'est la clé qui déverrouille presque tout le reste.</div>
+    </div>
+  </section>
+
+  <!-- ===== 3. LE DÉCLIC ===== -->
+  <section id="constat">
+    <div class="sec-head"><div class="sec-num">3</div><h2>Le déclic à comprendre avant tout</h2></div>
+    <p class="sec-sub">Les 4 recherches (national, régional, santé, juridique) sont arrivées <b>toutes les quatre</b> à la même conclusion. La voici.</p>
+
+    <div class="card" style="background:linear-gradient(135deg,#fff,#f0fdfa)">
+      <div class="big-quote" style="border-color:var(--amber)">La micro-entreprise est un plafond de verre. Presque tous les financements « startup » exigent une vraie société. Ce n'est pas une question fiscale : c'est la porte d'entrée.</div>
+      <p style="margin-top:14px;font-size:15.3px;color:#334155">
+        Aujourd'hui DIAGORIA est porté par ton entreprise individuelle d'ostéo. Or la <b>Bourse French Tech</b>, le <b>statut Jeune Entreprise Innovante</b>, le <b>Crédit d'Impôt Innovation</b>, le <b>prêt d'amorçage Bpifrance</b>, les <b>subventions Région</b>… tous attendent une société immatriculée (le plus souvent une <b>SASU</b>).
+      </p>
+      <p style="margin-top:10px;font-size:15.3px;color:#334155">
+        <b>La bonne nouvelle</b> : créer cette société est rapide (48–72 h), peu coûteux (250–400 €), et elle <b>protège ton patrimoine</b> par-dessus le marché. Ton activité d'ostéo, elle, reste totalement à part. On détaille la décision en <a href="#structure">§11</a>.
+      </p>
+    </div>
+
+    <div class="stat-row" style="margin-top:20px">
+      <div class="stat"><div class="n">~5%</div><div class="l">des aides « innovation » accessibles en micro-entreprise</div></div>
+      <div class="stat"><div class="n">≈350€</div><div class="l">pour créer une SASU et tout débloquer</div></div>
+      <div class="stat"><div class="n">3</div><div class="l">leviers d'argent gratuit dès maintenant</div></div>
+      <div class="stat"><div class="n">0€</div><div class="l">de parts à céder sur tout le haut de l'échelle</div></div>
+    </div>
+  </section>
+
+  <!-- ===== 4. L'ÉCHELLE ===== -->
+  <section id="echelle">
+    <div class="sec-head"><div class="sec-num">4</div><h2>L'échelle du financement : le gratuit d'abord</h2></div>
+    <p class="sec-sub">La règle d'or pour garder le contrôle : on épuise le haut de l'échelle (argent qui ne coûte aucune part de ta boîte) <b>avant</b> de descendre vers les investisseurs. Tu es concerné par les 4 premiers barreaux ; les 2 derniers, c'est pour bien plus tard (et seulement si tu le veux).</p>
+
+    <div class="pyramid">
+      <div class="rung r1"><div><b>1 · Tes revenus clients</b><br><small>Les abonnements DIAGORIA = le meilleur des financements</small></div><span class="tag">0 part cédée</span></div>
+      <div class="rung r2"><div><b>2 · Subventions &amp; concours</b><br><small>Bourse French Tech, i-Lab, prêt d'honneur, aides Région — argent gratuit</small></div><span class="tag">0 part cédée</span></div>
+      <div class="rung r3"><div><b>3 · Crédits d'impôt &amp; statut</b><br><small>Crédit d'Impôt Innovation, JEI, exonérations zone rurale</small></div><span class="tag">0 part cédée</span></div>
+      <div class="rung r4"><div><b>4 · Prêts d'honneur &amp; prêts d'amorçage</b><br><small>À rembourser, mais 0 % et sans toucher à ton capital</small></div><span class="tag">0 part cédée</span></div>
+      <div class="rung r5"><div><b>5 · Business angels</b><br><small>Du capital + du réseau, mais on cède des parts — négocier dur</small></div><span class="tag">⚠ dilution</span></div>
+      <div class="rung r6"><div><b>6 · Fonds d'investissement (VC)</b><br><small>En dernier, quand la traction justifie une grosse valorisation</small></div><span class="tag">⚠ dilution</span></div>
+    </div>
+
+    <div class="callout co-info" style="margin-top:18px">
+      <span class="ico">🛡️</span>
+      <div><b>Ta doctrine anti-dilution est déjà écrite.</b> Rester majoritaire (&gt;50 %, idéalement &gt;70 % après un 1ᵉʳ tour), repérer les pièges des contrats d'investisseurs (liquidation preference, full ratchet, droits de veto…). Tant qu'on reste sur les barreaux 1 à 4, <b>tu ne cèdes rien du tout</b>. C'est tout l'objet de ce rapport.</div>
+    </div>
+  </section>
+
+  <!-- ===== 5. L'ARGENT GRATUIT ===== -->
+  <section id="argent">
+    <div class="sec-head"><div class="sec-num">5</div><h2>Priorité 1 — L'argent (bourses &amp; subventions)</h2></div>
+    <p class="sec-sub">Ta priorité n°1 : obtenir des fonds. Voici les dispositifs réels, classés du plus accessible aujourd'hui au plus ambitieux. Note de pertinence sur 5 ⭐.</p>
+
+    <div class="legend">
+      <span><span class="dot" style="background:var(--green)"></span> Accessible maintenant (même en micro)</span>
+      <span><span class="dot" style="background:var(--amber)"></span> Sous condition (société / vérif)</span>
+      <span><span class="dot" style="background:#94a3b8"></span> Pour plus tard</span>
+    </div>
+
+    <div class="grid g2" style="margin-top:18px">
+
+      <div class="dispo now">
+        <h4>🏅 Prêt d'honneur Initiative Charente <span class="stars">★★★★★</span></h4>
+        <div class="who">Initiative Charente · réseau Initiative France · Angoulême</div>
+        <div class="amount">5 000 – 30 000 €</div>
+        <ul>
+          <li><b>Taux 0 %, à toi (pas à la boîte), sans caution ni garantie</b></li>
+          <li>Accessible <b>même en micro-entreprise</b> — le statut n'est pas bloquant</li>
+          <li>Effet de levier : ~7 € de prêt bancaire débloqués pour 1 € de prêt d'honneur</li>
+          <li>Charente Limousine couverte · dossier + passage devant un comité</li>
+          <li>📞 05 45 69 63 00 — au fil de l'eau, pas de date limite</li>
+        </ul>
+        <div class="foot"><span class="badge b-now">✓ Maintenant</span><span class="badge b-blue">Usage libre = marketing OK</span></div>
+      </div>
+
+      <div class="dispo now">
+        <h4>🌾 French Tech Tremplin <span class="stars">★★★★<span class="off">★</span></span></h4>
+        <div class="who">Mission French Tech + Bpifrance + incubateur</div>
+        <div class="amount">≈ 15 000 € <span style="font-size:14px;color:var(--ink-soft)">+ incubateur offert</span></div>
+        <ul>
+          <li>Programme pour fondateurs hors grandes métropoles / freins socio-éco</li>
+          <li><b>Critère « zone rurale » (FRR)</b> : Confolens très probablement éligible ✔ (à vérifier, §9)</li>
+          <li>La bourse est modeste, mais l'<b>entrée en incubateur</b> déverrouille tout le reste</li>
+          <li>Édition 2026 close → viser <b>l'édition 2027</b> (préparer le dossier dès janvier)</li>
+        </ul>
+        <div class="foot"><span class="badge b-now">✓ Si rural</span><span class="badge b-later">Ouverture 2027</span></div>
+      </div>
+
+      <div class="dispo cond">
+        <h4>🧪 Crédit d'Impôt Innovation (CII) <span class="stars">★★★★<span class="off">★</span></span></h4>
+        <div class="who">Administration fiscale · automatique</div>
+        <div class="amount">20 % de tes dépenses</div>
+        <ul>
+          <li><b>CII</b> = on te <b>rembourse 20 %</b> de tes dépenses de conception du logiciel (dev, tests, conformité)</li>
+          <li>Ex : 50 000 € de dépenses → <b>10 000 € récupérés</b>, chaque année</li>
+          <li><b>Sans concours, sans jury</b> : c'est automatique une fois éligible</li>
+          <li>⚠️ Exclu en micro-BNC → nécessite le régime réel (ou une société)</li>
+        </ul>
+        <div class="foot"><span class="badge b-cond">⚠ Société / régime réel</span><span class="badge b-blue">Argent garanti</span></div>
+      </div>
+
+      <div class="dispo cond">
+        <h4>💶 Bourse French Tech <span class="stars">★★★★<span class="off">★</span></span></h4>
+        <div class="who">Bpifrance · subvention</div>
+        <div class="amount">jusqu'à 50 000 €</div>
+        <ul>
+          <li>Subvention pour valider la faisabilité technico-économique</li>
+          <li><b>Non remboursable</b>, 0 part cédée</li>
+          <li>Se dépose au fil de l'eau, idéalement <b>via un incubateur</b> (d'où l'intérêt du Tremplin / Station e-Santé)</li>
+          <li>⚠️ Vise une société de moins d'un an</li>
+        </ul>
+        <div class="foot"><span class="badge b-cond">⚠ Société + incubateur</span></div>
+      </div>
+
+      <div class="dispo cond">
+        <h4>🏆 Concours i-Lab <span class="stars">★★★★<span class="off">★</span></span></h4>
+        <div class="who">Bpifrance + État · concours national</div>
+        <div class="amount">jusqu'à 600 000 €</div>
+        <ul>
+          <li>Le concours de référence pour les projets innovants — santé numérique dans le périmètre</li>
+          <li>Accessible à un porteur de projet qui crée son entreprise</li>
+          <li>Très sélectif (~5 % retenus) mais <b>gros montant</b> et énorme crédibilité</li>
+          <li>📅 29ᵉ édition attendue <b>~novembre 2026</b> → dossier à préparer dès l'été</li>
+        </ul>
+        <div class="foot"><span class="badge b-cond">⚠ Société</span><span class="badge b-later">Nov. 2026</span></div>
+      </div>
+
+      <div class="dispo cond">
+        <h4>🌍 Pass Start-Up Nouvelle-Aquitaine <span class="stars">★★★<span class="off">★★</span></span></h4>
+        <div class="who">Région Nouvelle-Aquitaine · subvention</div>
+        <div class="amount">jusqu'à 50 000 €</div>
+        <ul>
+          <li>Subvention pure pour startup innovante de moins de 5 ans en région</li>
+          <li>⚠️ Demande ~40 000 € de fonds propres + clarifier le statut « éditeur de logiciel »</li>
+          <li>Action simple : un email à la Région pour confirmer ton éligibilité avant d'investir du temps</li>
+        </ul>
+        <div class="foot"><span class="badge b-cond">⚠ Société + fonds propres</span></div>
+      </div>
+
+    </div>
+
+    <div class="callout co-warn" style="margin-top:18px">
+      <span class="ico">🎯</span>
+      <div><b>Vérité sur le « financement marketing » :</b> les subventions « innovation » financent surtout la <b>R&amp;D, la conformité et le marquage DM</b> — rarement la pub pure. Ton budget <b>marketing</b> viendra surtout du <b>prêt d'honneur (usage libre)</b>, de la <b>Bourse French Tech (go-to-market)</b> et plus tard de l'<b>amorçage</b>. C'est pour ça que le prêt d'honneur est ta cible n°1.</div>
+    </div>
+  </section>
+
+  <!-- ===== 6. EMPRUNTER SANS RISQUE ===== -->
+  <section id="emprunt">
+    <div class="sec-head"><div class="sec-num">6</div><h2>Priorité 2 — Emprunter sans mettre ton patrimoine en jeu</h2></div>
+    <p class="sec-sub">Ta crainte : « ne pas me mettre en danger si DIAGORIA ne marche pas ». Réponse nette ci-dessous — c'est le cœur du sujet.</p>
+
+    <div class="card" style="background:linear-gradient(135deg,#fff,#fef2f2)">
+      <div class="big-quote" style="border-color:var(--red)">Règle absolue : ce n'est JAMAIS toi (personne physique) qui empruntes pour DIAGORIA. C'est la société. Et tes biens immobiliers ne servent JAMAIS de garantie.</div>
+      <p style="margin-top:12px;font-size:15.3px;color:#334155">En entreprise individuelle, un emprunt pro = une <b>caution personnelle</b> qui engage tout ton patrimoine (y compris l'immobilier). En <b>SASU</b>, c'est la société qui emprunte : si elle échoue, la banque ne saisit en principe que les actifs de la société, <b>pas tes biens</b>. C'est la raison n°1 de créer la société.</p>
+    </div>
+
+    <h3 style="margin:26px 0 14px;font-size:20px;color:var(--teal-deep)">🔧 Tes outils « zéro caution perso »</h3>
+    <div class="grid g2">
+      <div class="dispo now">
+        <h4>🤝 Prêts d'honneur <span class="stars">★★★★★</span></h4>
+        <div class="who">Initiative France · Réseau Entreprendre</div>
+        <ul>
+          <li><b>0 %, sans aucune garantie ni caution</b>, prêtés à toi personnellement</li>
+          <li>Initiative Charente : 5–30 k€ · Réseau Entreprendre : 15–90 k€ (mais veut une ambition d'embauche)</li>
+          <li>Renforce tes fonds propres → effet de levier bancaire massif</li>
+        </ul>
+        <div class="foot"><span class="badge b-now">✓ Maintenant</span></div>
+      </div>
+      <div class="dispo cond">
+        <h4>🛡️ Garantie Bpifrance / France Active <span class="stars">★★★★<span class="off">★</span></span></h4>
+        <div class="who">Via ta banque</div>
+        <ul>
+          <li>L'organisme garantit <b>60 % (Bpifrance) à 80 % (France Active)</b> du prêt</li>
+          <li>La banque, couverte, <b>abandonne ou réduit la caution personnelle</b></li>
+          <li>Coût faible (0,25–1 %/an) · demande faite par la banque, pas par toi</li>
+        </ul>
+        <div class="foot"><span class="badge b-cond">⚠ Via la SASU</span></div>
+      </div>
+      <div class="dispo cond">
+        <h4>🚀 Prêt d'amorçage Bpifrance <span class="stars">★★★★<span class="off">★</span></span></h4>
+        <div class="who">Bpifrance</div>
+        <div class="amount">50 000 – 100 000 €</div>
+        <ul>
+          <li><b>Aucune garantie sur la société ni sur ton patrimoine</b></li>
+          <li>8 ans, dont 3 ans sans rembourser le capital</li>
+          <li>⚠️ Condition : avoir d'abord reçu une aide innovation (Bourse French Tech ou i-Lab). D'où l'ordre des étapes.</li>
+        </ul>
+        <div class="foot"><span class="badge b-cond">⚠ Après 1ʳᵉ aide</span></div>
+      </div>
+      <div class="dispo later">
+        <h4>⛔ Ce qu'on refuse <span class="stars">—</span></h4>
+        <ul>
+          <li>Signer une <b>caution perso</b> sur tes biens avant d'avoir épuisé les garanties Bpifrance/France Active</li>
+          <li><b>Hypothéquer</b> un bien immobilier personnel pour financer le projet</li>
+          <li>Emprunter <b>en perso</b> pour apporter à la société (double peine si ça échoue)</li>
+        </ul>
+        <div class="foot"><span class="badge b-red">À éviter absolument</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 7. SOUTIEN GRATUIT ===== -->
+  <section id="soutien">
+    <div class="sec-head"><div class="sec-num">7</div><h2>Priorité 3 — Le soutien gratuit (conseil, légal, conformité)</h2></div>
+    <p class="sec-sub">Tu veux de l'aide gratuite (juridique, conseil pour commercialiser). Bonne nouvelle : l'écosystème français est riche, et beaucoup est public et gratuit. À activer dès cette semaine.</p>
+
+    <div class="grid g3">
+      <div class="dispo now">
+        <h4>🧭 G_NIUS <span class="stars">★★★★★</span></h4>
+        <div class="who">Guichet public e-santé (ANS)</div>
+        <ul>
+          <li>La <b>boussole gratuite</b> de la santé numérique en France</li>
+          <li>Te dit si DIAGORIA est/serait un « Dispositif Médical » et te liste les aides adaptées</li>
+          <li>gnius.esante.gouv.fr · innovation@esante.gouv.fr</li>
+        </ul>
+        <div class="foot"><span class="badge b-now">✓ Cette semaine</span></div>
+      </div>
+      <div class="dispo now">
+        <h4>🏥 Station [E]-Santé Bordeaux <span class="stars">★★★★★</span></h4>
+        <div class="who">CHU Bordeaux + France 2030 · Nouvelle-Aquitaine</div>
+        <ul>
+          <li><b>Spécialisé logiciels e-santé</b> (là où d'autres refusent le « tout numérique »)</li>
+          <li>Test en conditions réelles avec de vrais soignants = preuve béton pour les financeurs</li>
+          <li>En région, gratuit, sans prise de capital</li>
+          <li>station.e-sante@chu-bordeaux.fr</li>
+        </ul>
+        <div class="foot"><span class="badge b-now">✓ Premier contact</span></div>
+      </div>
+      <div class="dispo now">
+        <h4>📍 ADI N-A + BGE Confolens <span class="stars">★★★★★</span></h4>
+        <div class="who">Agence régionale + accompagnement local</div>
+        <ul>
+          <li><b>ADI Nouvelle-Aquitaine</b> : référent identifié sur la Charente-Limousin</li>
+          <li><b>BGE</b> physiquement <b>à Confolens</b> — t'aide à monter ton dossier de prêt d'honneur</li>
+          <li>Te disent quelles aides régionales viser avant de déposer</li>
+        </ul>
+        <div class="foot"><span class="badge b-now">✓ Porte d'entrée</span></div>
+      </div>
+      <div class="dispo now">
+        <h4>⚖️ CNIL — accompagnement TPE <span class="stars">★★★★<span class="off">★</span></span></h4>
+        <div class="who">Public · gratuit</div>
+        <ul>
+          <li>Fiches RGPD santé, modèles de registre, MOOC gratuit, autoévaluation</li>
+          <li>Te fait économiser un audit RGPD externe coûteux</li>
+        </ul>
+        <div class="foot"><span class="badge b-now">✓ Maintenant</span></div>
+      </div>
+      <div class="dispo now">
+        <h4>🔎 ANSM — qualification DM <span class="stars">★★★★<span class="off">★</span></span></h4>
+        <div class="who">Guichet Innovation · gratuit</div>
+        <ul>
+          <li>Avis officiel : « mon logiciel est-il un Dispositif Médical ? »</li>
+          <li>Le 1ᵉʳ document à obtenir avant d'engager le parcours DM</li>
+        </ul>
+        <div class="foot"><span class="badge b-now">✓ Avant le cap DM</span></div>
+      </div>
+      <div class="dispo now">
+        <h4>💡 Bpifrance Création + CCI <span class="stars">★★★★<span class="off">★</span></span></h4>
+        <div class="who">Conseil gratuit</div>
+        <ul>
+          <li>Diagnostic gratuit, choix des bons dispositifs, aide aux formalités SASU</li>
+          <li>CCI Angoulême : la plus proche de Confolens</li>
+        </ul>
+        <div class="foot"><span class="badge b-now">✓ Maintenant</span></div>
+      </div>
+    </div>
+
+    <div class="callout co-warn" style="margin-top:18px">
+      <span class="ico">®️</span>
+      <div><b>Action gratuite-mais-urgente : protéger la marque « DIAGORIA » à l'INPI.</b> ≈230 € pour les classes 42 (logiciel) + 44 (santé). À faire <b>avant</b> tout dossier public (i-Lab, presse…), car un dossier rend ta marque visible et attaquable. Je peux préparer le dépôt et la recherche d'antériorité pour toi.</div>
+    </div>
+  </section>
+
+  <!-- ===== 8. PARTENAIRES ===== -->
+  <section id="partenaires">
+    <div class="sec-head"><div class="sec-num">8</div><h2>Priorité 4 — Les partenaires &amp; le réseau santé</h2></div>
+    <p class="sec-sub">Tu veux échanger avec des gens du domaine pour « sortir du lot ». On m'a aussi soufflé l'idée d'une MedTech : voici les bonnes portes.</p>
+
+    <div class="grid g2">
+      <div class="dispo now">
+        <h4>🤝 Village by CA Aquitaine <span class="stars">★★★★<span class="off">★</span></span></h4>
+        <div class="who">Accélérateur · Bordeaux</div>
+        <ul>
+          <li><b>2 ans d'accompagnement gratuit</b>, réputé sans prise de capital</li>
+          <li>Réseau Crédit Agricole (prêt pro facilité) + grandes entreprises = clients potentiels</li>
+          <li>Candidatures à l'automne pour la promo suivante</li>
+        </ul>
+        <div class="foot"><span class="badge b-now">✓ Automne 2026</span></div>
+      </div>
+      <div class="dispo now">
+        <h4>🩺 GIP ESEA Nouvelle-Aquitaine <span class="stars">★★★★<span class="off">★</span></span></h4>
+        <div class="who">Opérateur régional e-santé</div>
+        <ul>
+          <li>Ta <b>porte d'entrée vers les praticiens libéraux</b> de la région (tes futurs utilisateurs)</li>
+          <li>Crédibilité institutionnelle pour tes dossiers + premiers bêta-testeurs</li>
+        </ul>
+        <div class="foot"><span class="badge b-now">✓ Maintenant</span></div>
+      </div>
+      <div class="dispo cond">
+        <h4>🎓 Programme HIIT <span class="stars">★★★★<span class="off">★</span></span></h4>
+        <div class="who">French Tech × AP-HP · national · gratuit</div>
+        <ul>
+          <li>Bootcamp santé : réglementaire, clinique, marché, financement — tout ce dont tu as besoin</li>
+          <li>Pensé pour le stade « pré-clinique » = ton stade bêta</li>
+          <li>Édition 2026 close → préparer <b>2027</b></li>
+        </ul>
+        <div class="foot"><span class="badge b-later">2027</span></div>
+      </div>
+      <div class="dispo later">
+        <h4>🌐 France Biotech &amp; Snitem <span class="stars">★★★<span class="off">★★</span></span></h4>
+        <div class="who">Réseaux MedTech nationaux</div>
+        <ul>
+          <li>Réseau, experts, visibilité investisseurs — webinaires gratuits dès maintenant</li>
+          <li><b>Snitem</b> : concours start-up DM — pertinent <b>une fois le marquage CE obtenu</b></li>
+        </ul>
+        <div class="foot"><span class="badge b-later">Après statut DM</span></div>
+      </div>
+    </div>
+
+    <div class="callout co-key" style="margin-top:18px">
+      <span class="ico">💎</span>
+      <div><b>Le combo gagnant pour « sortir du lot » :</b> un <b>pilote avec la Station e-Santé / un CHU</b> + un <b>partenariat avec le GIP ESEA</b> (accès aux praticiens). Ça transforme DIAGORIA d'un « logiciel d'un ostéo » en « solution testée en milieu hospitalier et soutenue par l'écosystème régional ». C'est exactement l'argument qui fait gagner les dossiers de financement.</div>
+    </div>
+  </section>
+
+  <!-- ===== 9. BONUS RURAL ===== -->
+  <section id="rural">
+    <div class="sec-head"><div class="sec-num">9</div><h2>Bonus zone rurale — ta carte « Confolens »</h2></div>
+    <p class="sec-sub">Habiter une zone rurale n'est pas un handicap pour le financement : c'est un avantage. Tu déclenches des dispositifs réservés.</p>
+
+    <div class="card">
+      <h3 style="font-size:19px;color:var(--teal-deep);margin-bottom:10px">🌾 La zone « France Ruralités Revitalisation » (FRR)</h3>
+      <p style="font-size:15px;color:#334155">La <b>FRR</b> (ex-ZRR, « Zone de Revitalisation Rurale ») est un classement de l'État pour les territoires ruraux fragiles. L'arrondissement de Confolens y était classé ; le dispositif a été reconduit jusqu'à fin 2029. <b>Confolens est très probablement classé</b> — c'est à confirmer en 2 minutes sur le simulateur officiel.</p>
+      <p style="font-size:15px;color:#334155;margin-top:10px">Ce que ça t'ouvre :</p>
+      <ul style="list-style:none;font-size:14.6px;display:flex;flex-direction:column;gap:8px;margin-top:8px;color:#334155">
+        <li>🟢 <b>Le critère d'éligibilité « rural » du French Tech Tremplin</b> (la bourse + l'incubateur du §5)</li>
+        <li>🟡 <b>Des exonérations fiscales</b> (impôt sur les bénéfices, CFE) — selon FRR « socle » ou FRR+ et selon ta structure</li>
+        <li>🟢 Une <b>histoire qui plaît</b> aux jurys : l'innovation santé qui vient d'un territoire rural, c'est un récit fort</li>
+      </ul>
+    </div>
+
+    <div class="callout co-warn" style="margin-top:16px">
+      <span class="ico">✅</span>
+      <div><b>Action 2 minutes (à faire par toi) :</b> tape « Confolens » sur le simulateur <a href="https://www.service-public.gouv.fr/simulateur/calcul/zonageFranceRuralitesRevitalisation" target="_blank" rel="noopener">service-public.gouv.fr — zonage FRR</a>. Note si c'est <b>« FRR »</b> ou <b>« FRR+ »</b> (le + ouvre plus d'exos). Dis-moi le résultat et j'ajuste toute la stratégie en conséquence.</div>
+    </div>
+  </section>
+
+  <!-- ===== 10. LE CAP DM ===== -->
+  <section id="dm">
+    <div class="sec-head"><div class="sec-num">10</div><h2>Le cap « Dispositif Médical » — ton objectif long terme</h2></div>
+    <p class="sec-sub">Tu veux viser le statut de Dispositif Médical (DM). Voici le chemin en clair, ce qui est gratuit, et ce qui coûte (= ce qu'on finance avec les aides).</p>
+
+    <div class="timeline" style="margin-top:6px">
+      <div class="tl-item">
+        <div class="tl-when">Étape 1 — Qualification (gratuit)</div>
+        <div class="tl-card">Demander à l'<b>ANSM</b> un avis : DIAGORIA relève-t-il du DM ? Aujourd'hui tu es volontairement positionné « aide à la réflexion » = <b>hors DM</b>. Le jour où tu ajoutes une finalité médicale (aide au diagnostic), tu bascules. <b>Gratuit.</b></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">Étape 2 — Classification</div>
+        <div class="tl-card">Un logiciel d'aide à la décision médicale est en général en <b>classe IIa</b>. À partir de IIa, un « organisme notifié » (auditeur agréé) devient obligatoire.</div>
+      </div>
+      <div class="tl-item amber">
+        <div class="tl-when">Étape 3 — Système qualité (coûteux 💶)</div>
+        <div class="tl-card">Mettre en place un système qualité <b>norme ISO 13485</b>. C'est l'investissement principal — plusieurs dizaines de k€ si externalisé. <b>= ce qu'on finance avec les subventions/CII.</b></div>
+      </div>
+      <div class="tl-item amber">
+        <div class="tl-when">Étape 4 — Dossier technique + évaluation clinique (coûteux 💶)</div>
+        <div class="tl-card">Prouver la sécurité et la performance cliniques. Documentation lourde.</div>
+      </div>
+      <div class="tl-item blue">
+        <div class="tl-when">Étape 5 — Marquage CE (coûteux 💶)</div>
+        <div class="tl-card">Audit par un organisme notifié (BSI, TÜV, LNE/G-MED…) → certificat <b>CE</b>. Budget total du parcours : <b>20 000 à 100 000 €+</b> selon la complexité.</div>
+      </div>
+    </div>
+
+    <div class="callout co-good" style="margin-top:14px">
+      <span class="ico">🆓</span>
+      <div><b>Tout l'amont est gratuit :</b> ANSM (qualification), G_NIUS (boussole), ANS (accompagnement), bootcamp HIIT (volet réglementaire). <b>Ne paie rien tant que tu n'es pas sûr du chemin.</b> Et garde en tête : passer DM = devenir éligible à des financements bien plus gros (France 2030 santé, Snitem, Prix Galien, voire remboursement Sécu).</div>
+    </div>
+  </section>
+
+  <!-- ===== 11. STRUCTURE ===== -->
+  <section id="structure">
+    <div class="sec-head"><div class="sec-num">11</div><h2>La décision clé : EI vs SASU vs EURL</h2></div>
+    <p class="sec-sub">C'est LA décision structurante. Comparatif honnête, puis recommandation claire. (À valider avec ton comptable du projet 01 et le référent légal avant de signer.)</p>
+
+    <div class="vs">
+      <div class="vs-col vs-ei">
+        <h4>EI / micro <span class="badge b-later" style="background:rgba(255,255,255,.25);color:#fff">Actuel</span></h4>
+        <ul>
+          <li class="m">Protège ton patrimoine… <b>en partie seulement</b></li>
+          <li class="n">Le fisc &amp; l'URSSAF peuvent quand même saisir tes biens perso</li>
+          <li class="n">Un emprunt pro = caution perso = patrimoine exposé</li>
+          <li class="n">Inéligible JEI, Bourse French Tech, CII, amorçage</li>
+          <li class="n">Impossible de faire entrer un investisseur</li>
+          <li class="y">Zéro coût, zéro gestion</li>
+        </ul>
+      </div>
+      <div class="vs-col vs-sasu">
+        <h4>SASU <span class="badge" style="background:rgba(255,255,255,.25);color:#fff">★ Recommandé</span></h4>
+        <ul>
+          <li class="y"><b>Protège ton patrimoine</b> (responsabilité limitée aux apports)</li>
+          <li class="y">Éligible à <b>tout</b> : JEI, Bourse French Tech, CII, amorçage, levée</li>
+          <li class="y">Véhicule naturel pour lever des fonds plus tard (actions, BSPCE)</li>
+          <li class="y">Dividendes en « flat tax » 30 % · 0 charge sociale si tu ne te verses pas de salaire</li>
+          <li class="m">Comptabilité complète (≈1 500–3 000 €/an d'expert-comptable)</li>
+          <li class="y">Création en 48–72 h, ≈250–400 €</li>
+        </ul>
+      </div>
+      <div class="vs-col vs-eurl">
+        <h4>EURL</h4>
+        <ul>
+          <li class="y">Protège aussi le patrimoine</li>
+          <li class="y">Éligible aux aides startup</li>
+          <li class="m">Moins adaptée à une levée de fonds (transformation en SAS souvent nécessaire)</li>
+          <li class="m">Dividendes soumis à cotisations au-delà d'un seuil</li>
+          <li class="m">Gérant = travailleur non-salarié</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout co-good" style="margin-top:18px">
+      <span class="ico">✅</span>
+      <div><b>Recommandation : créer une SASU « DIAGORIA », dédiée au logiciel,</b> avant de déposer ton premier dossier de financement structuré. Ton activité d'ostéo reste à 100 % séparée, sous ton EI actuelle. Capital conseillé : ~1 000 €. C'est l'acte qui <b>protège ton patrimoine ET débloque l'argent</b> — les deux d'un coup. <b>À confirmer</b> avec ton comptable (projet 01) sur l'impact fiscal précis, et avec le référent légal sur l'impact réglementaire (DM, marque).</div>
+    </div>
+  </section>
+
+  <!-- ===== 12. PLAN D'ACTION ===== -->
+  <section id="plan">
+    <div class="sec-head"><div class="sec-num">12</div><h2>Ton plan d'action chronologique</h2></div>
+    <p class="sec-sub">Du gratuit-immédiat au structurant. Rien ici ne te coûte de parts de ta boîte.</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-when">⚡ Cette semaine — gratuit, rapide</div>
+        <div class="tl-card">
+          <ul>
+            <li><b>Vérifier le statut FRR de Confolens</b> (toi, 2 min — simulateur officiel)</li>
+            <li><b>Contacter G_NIUS</b> (compte + email) → diagnostic réglementaire</li>
+            <li><b>Écrire à la Station e-Santé Bordeaux</b> → prochain appel à projets</li>
+            <li><b>Appeler Initiative Charente + BGE Confolens + ADI</b> (référent Charente-Limousin)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item amber">
+        <div class="tl-when">📅 Ce mois-ci</div>
+        <div class="tl-card">
+          <ul>
+            <li><b>Déposer la marque DIAGORIA à l'INPI</b> (~230 €)</li>
+            <li><b>Trancher la structure</b> : créer la SASU (avec comptable projet 01 + référent légal)</li>
+            <li>Si lien avec BGE : <b>concours Talents BGE</b> (deadline 30 juin)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item blue">
+        <div class="tl-when">🗓️ Ce trimestre</div>
+        <div class="tl-card">
+          <ul>
+            <li><b>Monter le dossier de prêt d'honneur</b> (business plan — je le rédige, tu valides)</li>
+            <li><b>Email Région N-A</b> : confirmer l'éligibilité « éditeur de logiciel » au Pass Start-Up</li>
+            <li><b>Préparer le dossier i-Lab</b> en vue de l'ouverture ~novembre</li>
+            <li>Activer le <b>Crédit d'Impôt Innovation</b> une fois la SASU créée</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item purple">
+        <div class="tl-when">🚀 Fin 2026 → 2027</div>
+        <div class="tl-card">
+          <ul>
+            <li><b>Bourse French Tech</b> (via l'incubateur)</li>
+            <li><b>i-Lab</b> (dépôt) · <b>French Tech Tremplin 2027</b> · <b>HIIT 2027</b></li>
+            <li><b>Prêt d'amorçage Bpifrance</b> (après la 1ʳᵉ aide innovation)</li>
+            <li>Engager le <b>parcours DM</b> si la stratégie est confirmée</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 13. TABLEAU RÉCAP ===== -->
+  <section id="recap">
+    <div class="sec-head"><div class="sec-num">13</div><h2>Tableau récapitulatif — tout d'un coup d'œil</h2></div>
+    <p class="sec-sub">Tous les dispositifs étudiés, triés par priorité. Couleur = accessibilité pour toi aujourd'hui.</p>
+
+    <div class="legend" style="margin-bottom:14px">
+      <span><span class="dot" style="background:var(--green)"></span> Accessible maintenant</span>
+      <span><span class="dot" style="background:var(--amber)"></span> Sous condition</span>
+      <span><span class="dot" style="background:#94a3b8"></span> Plus tard</span>
+    </div>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th>Dispositif</th><th>Type</th><th>Montant</th><th>Pour toi</th><th>Quand</th><th>⭐</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-now"><td><b>Prêt d'honneur Initiative Charente</b></td><td>Prêt 0 %</td><td>5–30 k€</td><td><span class="badge b-now">Maintenant</span></td><td>Au fil de l'eau</td><td class="stars">★★★★★</td></tr>
+          <tr class="row-now"><td><b>G_NIUS</b> (boussole DM)</td><td>Soutien gratuit</td><td>—</td><td><span class="badge b-now">Maintenant</span></td><td>Immédiat</td><td class="stars">★★★★★</td></tr>
+          <tr class="row-now"><td><b>Station [E]-Santé Bordeaux</b></td><td>Incubateur santé</td><td>Gratuit</td><td><span class="badge b-now">Maintenant</span></td><td>Prochain AAP</td><td class="stars">★★★★★</td></tr>
+          <tr class="row-now"><td><b>ADI N-A + BGE Confolens</b></td><td>Accompagnement</td><td>Gratuit</td><td><span class="badge b-now">Maintenant</span></td><td>Immédiat</td><td class="stars">★★★★★</td></tr>
+          <tr class="row-now"><td><b>French Tech Tremplin</b></td><td>Bourse + incubateur</td><td>~15 k€</td><td><span class="badge b-now">Si rural</span></td><td>Édition 2027</td><td class="stars">★★★★</td></tr>
+          <tr class="row-now"><td><b>INPI</b> (marque)</td><td>Protection</td><td>≈230 €</td><td><span class="badge b-now">Maintenant</span></td><td>Ce mois</td><td class="stars">★★★★</td></tr>
+          <tr class="row-now"><td><b>Village by CA Aquitaine</b></td><td>Accélérateur</td><td>Gratuit</td><td><span class="badge b-now">Maintenant</span></td><td>Automne 2026</td><td class="stars">★★★★</td></tr>
+          <tr class="row-now"><td><b>GIP ESEA N-A</b></td><td>Partenaire réseau</td><td>Gratuit</td><td><span class="badge b-now">Maintenant</span></td><td>Immédiat</td><td class="stars">★★★★</td></tr>
+          <tr class="row-cond"><td><b>Crédit d'Impôt Innovation</b></td><td>Crédit d'impôt</td><td>20 % dépenses</td><td><span class="badge b-cond">Société</span></td><td>Annuel</td><td class="stars">★★★★</td></tr>
+          <tr class="row-cond"><td><b>Bourse French Tech</b></td><td>Subvention</td><td>50 k€</td><td><span class="badge b-cond">Société+incub.</span></td><td>Au fil de l'eau</td><td class="stars">★★★★</td></tr>
+          <tr class="row-cond"><td><b>Concours i-Lab</b></td><td>Concours</td><td>≤ 600 k€</td><td><span class="badge b-cond">Société</span></td><td>~Nov. 2026</td><td class="stars">★★★★</td></tr>
+          <tr class="row-cond"><td><b>Garantie Bpifrance / France Active</b></td><td>Garantie prêt</td><td>60–80 %</td><td><span class="badge b-cond">Via SASU</span></td><td>Avec un prêt</td><td class="stars">★★★★</td></tr>
+          <tr class="row-cond"><td><b>Prêt d'amorçage Bpifrance</b></td><td>Prêt</td><td>50–100 k€</td><td><span class="badge b-cond">Après 1ʳᵉ aide</span></td><td>2027</td><td class="stars">★★★★</td></tr>
+          <tr class="row-cond"><td><b>Exonérations FRR</b></td><td>Exonération</td><td>Variable</td><td><span class="badge b-cond">Selon statut</span></td><td>À la création</td><td class="stars">★★★</td></tr>
+          <tr class="row-cond"><td><b>Pass Start-Up N-A</b></td><td>Subvention</td><td>50 k€</td><td><span class="badge b-cond">Société+fonds propres</span></td><td>Au fil de l'eau</td><td class="stars">★★★</td></tr>
+          <tr class="row-cond"><td><b>Statut JEI</b></td><td>Statut fiscal</td><td>Exos locales</td><td><span class="badge b-cond">Société</span></td><td>À la création</td><td class="stars">★★</td></tr>
+          <tr class="row-later"><td><b>France 2030 N-A</b></td><td>Subvention/avance</td><td>75–500 k€</td><td><span class="badge b-later">Ticket 150 k€ min</span></td><td>2027+</td><td class="stars">★★★</td></tr>
+          <tr class="row-later"><td><b>HIIT</b> (bootcamp santé)</td><td>Programme</td><td>Gratuit</td><td><span class="badge b-later">Pré-clinique</span></td><td>2027</td><td class="stars">★★★★</td></tr>
+          <tr class="row-later"><td><b>Réseau Entreprendre</b></td><td>Prêt d'honneur</td><td>15–90 k€</td><td><span class="badge b-later">Veut des embauches</span></td><td>Phase croissance</td><td class="stars">★★</td></tr>
+          <tr class="row-later"><td><b>Snitem / Prix Galien</b></td><td>Concours DM</td><td>Visibilité</td><td><span class="badge b-later">Après marquage CE</span></td><td>2–3 ans</td><td class="stars">★★★</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== 14. QUI FAIT QUOI ===== -->
+  <section id="quifaitquoi">
+    <div class="sec-head"><div class="sec-num">14</div><h2>Qui fait quoi — pour économiser ton temps</h2></div>
+    <p class="sec-sub">Le principe que tu as posé : je monte les dossiers au maximum, tu gardes les actions que toi seul peux faire.</p>
+
+    <div class="split">
+      <div class="card me">
+        <h3>🤖 Ce que je monte pour toi</h3>
+        <ul>
+          <li><b>Le business plan</b> &amp; le prévisionnel financier de DIAGORIA</li>
+          <li><b>Le pitch deck</b> (présentation investisseurs / jurys)</li>
+          <li><b>Les dossiers de candidature</b> : prêt d'honneur, Bourse French Tech, i-Lab, Pass Start-Up…</li>
+          <li>Les <b>emails de premier contact</b> (G_NIUS, Station e-Santé, Initiative Charente, Région…)</li>
+          <li>Le <b>script de ta vidéo de présentation</b> (1 min 30) + le storyboard</li>
+          <li>La <b>recherche d'antériorité</b> + le dossier de dépôt de marque INPI</li>
+          <li>Le <b>dossier de création de SASU</b> (statuts, formalités guichet unique)</li>
+          <li>Un <b>rétroplanning</b> par dispositif avec les pièces à réunir</li>
+        </ul>
+      </div>
+      <div class="card you">
+        <h3>👤 Ce qu'il me faut de toi</h3>
+        <ul>
+          <li><b>Vérifier le statut FRR de Confolens</b> (2 min, simulateur)</li>
+          <li><b>Trancher la structure</b> SASU (après avis comptable + légal)</li>
+          <li><b>Tourner la vidéo</b> de présentation (ton point fort !)</li>
+          <li>Les <b>rendez-vous téléphoniques</b> (Initiative Charente, BGE, ADI…)</li>
+          <li><b>Valider &amp; signer</b> les dossiers avant envoi</li>
+          <li>Fournir les <b>pièces administratives</b> (RIB, justificatifs, avis d'imposition)</li>
+          <li>Les <b>décisions stratégiques</b> : combien lever, quand viser le DM, quels partenaires</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout co-key" style="margin-top:18px">
+      <span class="ico">🎬</span>
+      <div><b>On commence par quoi ?</b> Dis-moi simplement <b>« on lance »</b> et je démarre par le <b>business plan + le dossier prêt d'honneur Initiative Charente</b> (ta cible n°1, accessible dès maintenant) et le <b>dépôt de marque INPI</b>. En parallèle, vérifie le FRR et je cale la suite.</div>
+    </div>
+  </section>
+
+  <!-- ===== GLOSSAIRE ===== -->
+  <section id="glossaire">
+    <div class="sec-head"><div class="sec-num">📖</div><h2>Glossaire — tous les sigles en clair</h2></div>
+    <div class="card">
+      <div class="glossary">
+        <p><b>SASU</b> — Société par Actions Simplifiée Unipersonnelle. Société à associé unique (toi), responsabilité limitée à ce que tu y mets.</p>
+        <p><b>EURL</b> — Entreprise Unipersonnelle à Responsabilité Limitée. Cousine de la SASU, gérant non-salarié.</p>
+        <p><b>EI</b> — Entreprise Individuelle (ton statut actuel d'ostéo, en micro).</p>
+        <p><b>FRR</b> — France Ruralités Revitalisation. Classement des zones rurales fragiles ouvrant des avantages (ex-ZRR).</p>
+        <p><b>CII</b> — Crédit d'Impôt Innovation. On te rembourse 20 % de tes dépenses de conception de produit nouveau.</p>
+        <p><b>CIR</b> — Crédit d'Impôt Recherche. Idem mais pour la R&amp;D « dure » (30 %).</p>
+        <p><b>JEI</b> — Jeune Entreprise Innovante. Statut donnant des exonérations (surtout locales depuis 2024).</p>
+        <p><b>DM</b> — Dispositif Médical. Statut réglementé pour un produit à finalité médicale (marquage CE obligatoire).</p>
+        <p><b>MDR</b> — Medical Device Regulation. Le règlement européen qui encadre les DM.</p>
+        <p><b>Marquage CE</b> — Certification européenne attestant qu'un produit (ici un DM) est conforme.</p>
+        <p><b>ISO 13485</b> — Norme du système qualité exigée pour fabriquer un DM.</p>
+        <p><b>Bpifrance</b> — La banque publique d'investissement (aides, prêts, garanties).</p>
+        <p><b>Bourse French Tech</b> — Subvention Bpifrance (jusqu'à 50 k€) pour amorcer un projet innovant.</p>
+        <p><b>i-Lab</b> — Concours national d'innovation (jusqu'à 600 k€).</p>
+        <p><b>Prêt d'honneur</b> — Prêt à 0 %, à la personne, sans garantie ni caution.</p>
+        <p><b>ADI N-A</b> — Agence de Développement et d'Innovation de Nouvelle-Aquitaine.</p>
+        <p><b>BGE</b> — Réseau d'accompagnement gratuit à la création d'entreprise.</p>
+        <p><b>G_NIUS</b> — Guichet National de l'Innovation et des Usages en e-santé (public, gratuit).</p>
+        <p><b>ANS</b> — Agence du Numérique en Santé. <b>ANSM</b> — Agence du Médicament et des produits de santé.</p>
+        <p><b>GIP ESEA</b> — Opérateur régional e-santé de Nouvelle-Aquitaine.</p>
+        <p><b>HIIT</b> — Health Innovation Intensive Training : bootcamp santé de la French Tech.</p>
+        <p><b>INPI</b> — Institut National de la Propriété Industrielle (dépôt de marque).</p>
+        <p><b>BSPCE</b> — Bons de souscription : outil pour intéresser un salarié clé au capital (réservé aux sociétés).</p>
+        <p><b>Dilution</b> — Le fait de céder des parts de ta société à un investisseur.</p>
+        <p><b>Traction</b> — La preuve que des clients utilisent (et paient) ton produit.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="grid g2" style="gap:30px">
+      <div>
+        <h4>🛡️ Rappel doctrine — protéger tes intérêts</h4>
+        <p>On épuise l'argent gratuit (barreaux 1–4) avant tout investisseur. Aucun document engageant (term sheet, pacte) n'est signé sans traduction en clair, validation du référent légal, et ton accord. Rester majoritaire, garder la marque, l'IP et les données DIAGORIA.</p>
+      </div>
+      <div>
+        <h4>📚 Méthode &amp; sources</h4>
+        <p class="src">Rapport bâti sur 4 recherches web croisées (national · régional Nouvelle-Aquitaine · santé/MedTech · juridique), juin 2026. Sources principales : bpifrance.fr, les-aides.nouvelle-aquitaine.fr, initiative-charente.com, lafrenchtech.gouv.fr, gnius.esante.gouv.fr, service-public.gouv.fr, adi-na.fr, station-e-sante.fr, urssaf.fr, inpi.fr.</p>
+        <p class="src" style="margin-top:10px">⚠️ Les montants, dates et critères d'éligibilité 2026 sont à reconfirmer auprès de chaque organisme avant dépôt. Plusieurs points (statut FRR exact, éligibilité « éditeur de logiciel ») nécessitent une vérification directe signalée dans le rapport.</p>
+      </div>
+    </div>
+    <div style="border-top:1px solid #1e293b;margin-top:26px;padding-top:18px;font-size:13px;color:#64748b">
+      DIAGORIA — Agent Financements &amp; Partenaires · Document de travail (version hub, données perso retirées) · 11 juin 2026
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
