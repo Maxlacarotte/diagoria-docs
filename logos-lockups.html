@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Logo + nom — DIAGORIA</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  /* --- Galerie lock-ups --- */
+  .logogrid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); margin: 22px 0; }
+  .logocard { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; transition: transform .15s ease, box-shadow .15s ease, border-color .15s; }
+  .logocard:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--teal); }
+  .stage { min-height: 150px; display: grid; place-items: center; padding: 18px 14px; background:
+      radial-gradient(120px 70px at 50% 0%, #eafafa 0, transparent 70%), #fbfdff; border-bottom: 1px solid var(--line); }
+  .stage.dark { background: linear-gradient(135deg, #0e2a3a, #0F172A); }
+  .stage svg { max-height: 120px; max-width: 100%; height: auto; }
+  .logocard .meta { padding: 14px 16px 16px; }
+  .logocard .num { font-family:'Fredoka'; font-weight:700; color: var(--teal-deep); font-size: .8rem; letter-spacing:.06em; }
+  .logocard .name { font-family:'Fredoka'; font-weight:600; font-size: 1.05rem; color: var(--ink); margin: 1px 0 7px; }
+  .logocard .intent { color: var(--ink-soft); font-size: .86rem; margin: 8px 0 0; line-height: 1.45; }
+  .famhead { display:flex; align-items:center; gap:12px; flex-wrap: wrap; margin: 2.8em 0 .4em; border-top: 2px solid var(--line); padding-top: 1.6em; }
+  .famhead h2 { margin: 0; }
+  .source-picto { font-size:.85rem; color: var(--ink-soft); margin: 0 0 .6em; font-style: italic; }
+
+  /* Matrice legend */
+  .matrix-legend { display:flex; flex-wrap:wrap; gap:10px; margin: 1em 0 1.6em; }
+  .matrix-legend .ml { background:#f1f5f9; border:1px solid #e2e8f0; border-radius:8px; padding:6px 12px; font-size:.83rem; color:#334155; }
+  .matrix-legend .ml strong { color: var(--teal-deep); font-family:'Fredoka'; font-weight:700; }
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="row">
+  <a class="brand" href="index.html"><span class="dot"></span> DIAGORIA</a>
+  <span class="spacer"></span>
+  <a class="back" href="index.html">← Centre de doc</a>
+</div></div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">IDENTITÉ DE MARQUE · ÉTAPE 2</div>
+    <h1>Logo + nom : 5 pistes × 5 lock-ups</h1>
+    <p>Tes 5 pictos favoris (#34, #19, #22, #16, #06) sont maintenant accompagnés du nom DIAGORIA. Pour chaque piste, 5 façons d'assembler le signe et le mot — de la plus classique à la plus créative.</p>
+  </div>
+
+  <div class="tldr">
+    <div class="lead">Comment lire cette galerie</div>
+    <p>Chaque picto est décliné en <strong>5 variantes</strong>, dans le même ordre :</p>
+    <div class="matrix-legend">
+      <div class="ml"><strong>A — Horizontal</strong> : picto gauche + nom droit. Le lock-up classique, usage en-tête de site ou facture.</div>
+      <div class="ml"><strong>B — Empilé (carré)</strong> : picto centré au-dessus, nom centré dessous. Pour app icon, avatar réseaux sociaux, format carré.</div>
+      <div class="ml"><strong>C — Avec signature</strong> : variante A + baseline « ASSISTANT CLINIQUE » sous le nom, filet teal fin. En-tête premium de document officiel.</div>
+      <div class="ml"><strong>D — Picto intégré</strong> : le symbole remplace une lettre dans le mot lui-même. Le signe et le nom ne font plus qu'un — la variante la plus singulière.</div>
+      <div class="ml"><strong>E — Version nuit</strong> : lock-up horizontal sur fond encre. Preuve de lisibilité en dark mode, slide sombre, app.</div>
+    </div>
+    <p>Pour choisir, dis-moi par exemple : <strong>« j'aime le #19 variante D »</strong> ou <strong>« #34-A + #16-E »</strong>. On fixe ensuite les couleurs exactes, le favicon et tous les formats exportés.</p>
+  </div>
+
+  <!-- ============================================================
+       PISTE #34 — ARCS RAYONNANTS
+       ============================================================ -->
+  <div class="famhead">
+    <h2>Piste #34 — Arcs rayonnants</h2>
+    <span class="pill gray">Abstrait / géométrique</span>
+  </div>
+  <p class="source-picto">Deux arcs qui rayonnent d'un point ambre : émission, signal, sérénité. Géométrie minimale.</p>
+
+  <div class="logogrid">
+
+    <!-- 34-A Horizontal -->
+    <div class="logocard">
+      <div class="stage">
+        <svg viewBox="0 0 260 100" role="img" aria-label="DIAGORIA arcs rayonnants horizontal">
+          <defs><linearGradient id="p34a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0EA5A6"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+          <g fill="none" stroke="url(#p34a)" stroke-width="8" stroke-linecap="round">
+            <path d="M14 72 a30 30 0 0 1 60 0"/>
+            <path d="M28 72 a16 16 0 0 1 32 0"/>
+          </g>
+          <circle cx="44" cy="72" r="6" fill="#F59E0B"/>
+          <text x="88" y="66" font-family="Fredoka, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#0F172A">DIAGORIA</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="num">#34 · A</div>
+        <div class="name">Horizontal</div>
+        <p class="intent">Lecture naturelle gauche-droite : le signal rayonne, le nom affirme. Usage en-tête de site ou facture.</p>
+      </div>
+    </div>
+
+    <!-- 34-B Empilé -->
+    <div class="logocard">
+      <div class="stage">
+        <svg viewBox="0 0 200 160" role="img" aria-label="DIAGORIA arcs rayonnants empilé">
+          <defs><linearGradient id="p34b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0EA5A6"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+          <g fill="none" stroke="url(#p34b)" stroke-width="8" stroke-linecap="round">
+            <path d="M70 82 a30 30 0 0 1 60 0"/>
+            <path d="M84 82 a16 16 0 0 1 32 0"/>
+          </g>
+          <circle cx="100" cy="82" r="6" fill="#F59E0B"/>
+          <text x="100" y="126" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="600" font-size="26" letter-spacing="1" fill="#0F172A">DIAGORIA</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="num">#34 · B</div>
+        <div class="name">Empilé (carré)</div>
+        <p class="intent">Le picto centré au-dessus, le nom dessous. Lisible en 32px pour app icon ou avatar carré.</p>
+      </div>
+    </div>
+
+    <!-- 34-C Avec signature -->
+    <div class="logocard">
+      <div class="stage">
+        <svg viewBox="0 0 260 110" role="img" aria-label="DIAGORIA arcs rayonnants avec signature">
+          <defs><linearGradient id="p34c" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0EA5A6"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+          <g fill="none" stroke="url(#p34c)" stroke-width="8" stroke-linecap="round">
+            <path d="M14 68 a30 30 0 0 1 60 0"/>
+            <path d="M28 68 a16 16 0 0 1 32 0"/>
+          </g>
+          <circle cx="44" cy="68" r="6" fill="#F59E0B"/>
+          <text x="88" y="62" font-family="Fredoka, sans-serif" font-weight="600" font-size="28" letter-spacing="1" fill="#0F172A">DIAGORIA</text>
+          <line x1="88" y1="70" x2="258" y2="70" stroke="#0EA5A6" stroke-width="1.2" opacity=".5"/>
+          <text x="88" y="85" font-family="Inter, sans-serif" font-weight="500" font-size="11" letter-spacing="2.5" fill="#64748B">ASSISTANT CLINIQUE</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="num">#34 · C</div>
+        <div class="name">Avec signature</div>
+        <p class="intent">Variante A augmentée du filet teal et de la baseline. En-tête premium de document ou ordonnance.</p>
+      </div>
+    </div>
+
+    <!-- 34-D Picto intégré — arcs remplacent le O de DIAGORIA -->
+    <div class="logocard">
+      <div class="stage">
+        <svg viewBox="0 0 260 100" role="img" aria-label="DIAGORIA arcs dans le O">
+          <defs><linearGradient id="p34d" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0EA5A6"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+          <!-- DIAG -->
+          <text x="12" y="70" font-family="Fredoka, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#0F172A">DIAG</text>
+          <!-- O remplacé par les 2 arcs rayonnants + point ambre, centré sur le slot du O (~x=118, y=70) -->
+          <g fill="none" stroke="url(#p34d)" stroke-width="7" stroke-linecap="round">
+            <path d="M100 70 a18 18 0 0 1 36 0"/>
+            <path d="M108 70 a10 10 0 0 1 20 0"/>
+          </g>
+          <circle cx="118" cy="70" r="4.5" fill="#F59E0B"/>
+          <!-- RIA -->
+          <text x="142" y="70" font-family="Fredoka, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#0F172A">RIA</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="num">#34 · D</div>
+        <div class="name">Picto intégré</div>
+        <p class="intent">Les arcs rayonnants + point ambre remplacent le « O » de DIAG●RIA. Le signal vit dans le mot.</p>
+      </div>
+    </div>
+
+    <!-- 34-E Version nuit -->
+    <div class="logocard">
+      <div class="stage dark">
+        <svg viewBox="0 0 260 100" role="img" aria-label="DIAGORIA arcs rayonnants version nuit">
+          <defs><linearGradient id="p34e" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#33d6d6"/><stop offset="1" stop-color="#7aa7ff"/></linearGradient></defs>
+          <g fill="none" stroke="url(#p34e)" stroke-width="8" stroke-linecap="round">
+            <path d="M14 72 a30 30 0 0 1 60 0"/>
+            <path d="M28 72 a16 16 0 0 1 32 0"/>
+          </g>
+          <circle cx="44" cy="72" r="6" fill="#F59E0B"/>
+          <text x="88" y="66" font-family="Fredoka, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#ffffff">DIAGORIA</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="num">#34 · E</div>
+        <div class="name">Version nuit</div>
+        <p class="intent">Fond encre, arcs en teal clair, nom blanc. Lisibilité confirmée en dark mode ou slide sombre.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============================================================
+       PISTE #19 — TUILE D
+       ============================================================ -->
+  <div class="famhead">
+    <h2>Piste #19 — Tuile D</h2>
+    <span class="pill">Monogramme D</span>
+  </div>
+  <p class="source-picto">D blanc sur tuile dégradée arrondie : app icon par excellence, ultra-lisible en 32 px.</p>
+
+  <div class="logogrid">
+
+    <!-- 19-A Horizontal -->
+    <div class="logocard">
+      <div class="stage">
+        <svg viewBox="0 0 260 100" role="img" aria-label="DIAGORIA tuile D horizontal">
+          <defs><linearGradient id="p19a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B6E72"/><stop offset=".5" stop-color="#0EA5A6"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+          <rect x="10" y="15" width="68" height="68" rx="18" fill="url(#p19a)"/>
+          <text x="44" y="67" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="700" font-size="50" fill="#ffffff">D</text>
+          <text x="94" y="60" font-family="Fredoka, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#0F172A">DIAGORIA</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="num">#19 · A</div>
+        <div class="name">Horizontal</div>
+        <p class="intent">La tuile app icon posée à gauche du nom. Autorité immédiate, reconnaissance forte à toute taille.</p>
+      </div>
+    </div>
+
+    <!-- 19-B Empilé -->
+    <div class="logocard">
+      <div class="stage">
+        <svg viewBox="0 0 200 160" role="img" aria-label="DIAGORIA tuile D empilé">
+          <defs><linearGradient id="p19b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B6E72"/><stop offset=".5" stop-color="#0EA5A6"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+          <rect x="66" y="12" width="68" height="68" rx="18" fill="url(#p19b)"/>
+          <text x="100" y="64" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="700" font-size="50" fill="#ffffff">D</text>
+          <text x="100" y="118" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="600" font-size="26" letter-spacing="1" fill="#0F172A">DIAGORIA</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="num">#19 · B</div>
+        <div class="name">Empilé (carré)</div>
+        <p class="intent">Tuile centrée, nom dessous. Format app store, badge ou avatar carré réseau professionnel.</p>
+      </div>
+    </div>
+
+    <!-- 19-C Avec signature -->
+    <div class="logocard">
+      <div class="stage">
+        <svg viewBox="0 0 260 110" role="img" aria-label="DIAGORIA tuile D avec signature">
+          <defs><linearGradient id="p19c" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B6E72"/><stop offset=".5" stop-color="#0EA5A6"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+          <rect x="10" y="14" width="68" height="68" rx="18" fill="url(#p19c)"/>
+          <text x="44" y="66" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="700" font-size="50" fill="#ffffff">D</text>
+          <text x="94" y="55" font-family="Fredoka, sans-serif" font-weight="600" font-size="28" letter-spacing="1" fill="#0F172A">DIAGORIA</text>
+          <line x1="94" y1="63" x2="258" y2="63" stroke="#0EA5A6" stroke-width="1.2" opacity=".5"/>
+          <text x="94" y="78" font-family="Inter, sans-serif" font-weight="500" font-size="11" letter-spacing="2.5" fill="#64748B">ASSISTANT CLINIQUE</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="num">#19 · C</div>
+        <div class="name">Avec signature</div>
+        <p class="intent">Version complète : tuile + nom + baseline + filet teal. L'en-tête officiel d'un document médical.</p>
+      </div>
+    </div>
+
+    <!-- 19-D Picto intégré — la tuile D remplace le D initial -->
+    <div class="logocard">
+      <div class="stage">
+        <svg viewBox="0 0 260 100" role="img" aria-label="DIAGORIA tuile D intégré dans le mot">
+          <defs><linearGradient id="p19d" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B6E72"/><stop offset=".5" stop-color="#0EA5A6"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+          <!-- La tuile EST le D initial, positionnée pour s'aligner avec le bas des lettres -->
+          <rect x="10" y="26" width="40" height="40" rx="11" fill="url(#p19d)"/>
+          <text x="30" y="58" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="700" font-size="30" fill="#ffffff">D</text>
+          <!-- IAGORIA suit immédiatement -->
+          <text x="56" y="66" font-family="Fredoka, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#0F172A">IAGORIA</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="num">#19 · D</div>
+        <div class="name">Picto intégré</div>
+        <p class="intent">La tuile dégradée EST la lettre D initiale : [tuile]IAGORIA. Monogramme et wordmark fusionnent.</p>
+      </div>
+    </div>
+
+    <!-- 19-E Version nuit -->
+    <div class="logocard">
+      <div class="stage dark">
+        <svg viewBox="0 0 260 100" role="img" aria-label="DIAGORIA tuile D version nuit">
+          <defs><linearGradient id="p19e" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#0B6E72"/><stop offset=".5" stop-color="#33d6d6"/><stop offset="1" stop-color="#7aa7ff"/></linearGradient></defs>
+          <rect x="10" y="15" width="68" height="68" rx="18" fill="url(#p19e)"/>
+          <text x="44" y="67" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="700" font-size="50" fill="#0F172A">D</text>
+          <text x="94" y="60" font-family="Fredoka, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#ffffff">DIAGORIA</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="num">#19 · E</div>
+        <div class="name">Version nuit</div>
+        <p class="intent">Fond encre, tuile en teal-bleu nuit, nom blanc. Le D encre sur la tuile claire crée un fort contraste.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============================================================
+       PISTE #22 — D-ÉCHO
+       ============================================================ -->
+  <div class="famhead">
+    <h2>Piste #22 — D-écho</h2>
+    <span class="pill">Monogramme D</span>
+  </div>
+  <p class="source-picto">Le « D » construit par arcs concentriques : à la fois l'initiale et une onde qui se propage.</p>
+
+  <div class="logogrid">
+
+    <!-- 22-A Horizontal -->
+    <div class="logocard">
+      <div class="stage">
+        <svg viewBox="0 0 260 100" role="img" aria-label="DIAGORIA D-écho horizontal">
+          <defs><linearGradient id="p22a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0EA5A6"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+          <g fill="none" stroke="url(#p22a)" stroke-width="8" stroke-linecap="round">
+            <path d="M18 14 V86"/>
+            <path d="M18 18 a34 34 0 0 1 0 64"/>
+            <path d="M18 32 a20 20 0 0 1 0 36" opacity=".7"/>
+            <path d="M18 44 a9 9 0 0 1 0 18" opacity=".45"/>
+          </g>
+          <text x="76" y="62" font-family="Fredoka, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#0F172A">DIAGORIA</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="num">#22 · A</div>
+        <div class="name">Horizontal</div>
+        <p class="intent">Les arcs-ondes en colonne à gauche, le nom respire à droite. Élégant, minimal, médical.</p>
+      </div>
+    </div>
+
+    <!-- 22-B Empilé -->
+    <div class="logocard">
+      <div class="stage">
+        <svg viewBox="0 0 200 160" role="img" aria-label="DIAGORIA D-écho empilé">
+          <defs><linearGradient id="p22b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0EA5A6"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+          <g fill="none" stroke="url(#p22b)" stroke-width="8" stroke-linecap="round">
+            <path d="M80 22 V82"/>
+            <path d="M80 26 a28 28 0 0 1 0 52"/>
+            <path d="M80 36 a17 17 0 0 1 0 32" opacity=".7"/>
+            <path d="M80 46 a8 8 0 0 1 0 16" opacity=".45"/>
+          </g>
+          <text x="100" y="122" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="600" font-size="24" letter-spacing="1" fill="#0F172A">DIAGORIA</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="num">#22 · B</div>
+        <div class="name">Empilé (carré)</div>
+        <p class="intent">Le D-écho centré au-dessus du nom. Silhouette originale qui se distingue en petit format.</p>
+      </div>
+    </div>
+
+    <!-- 22-C Avec signature -->
+    <div class="logocard">
+      <div class="stage">
+        <svg viewBox="0 0 260 110" role="img" aria-label="DIAGORIA D-écho avec signature">
+          <defs><linearGradient id="p22c" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0EA5A6"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+          <g fill="none" stroke="url(#p22c)" stroke-width="8" stroke-linecap="round">
+            <path d="M18 14 V86"/>
+            <path d="M18 18 a34 34 0 0 1 0 64"/>
+            <path d="M18 32 a20 20 0 0 1 0 36" opacity=".7"/>
+            <path d="M18 44 a9 9 0 0 1 0 18" opacity=".45"/>
+          </g>
+          <text x="76" y="55" font-family="Fredoka, sans-serif" font-weight="600" font-size="28" letter-spacing="1" fill="#0F172A">DIAGORIA</text>
+          <line x1="76" y1="63" x2="258" y2="63" stroke="#0EA5A6" stroke-width="1.2" opacity=".5"/>
+          <text x="76" y="78" font-family="Inter, sans-serif" font-weight="500" font-size="11" letter-spacing="2.5" fill="#64748B">ASSISTANT CLINIQUE</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="num">#22 · C</div>
+        <div class="name">Avec signature</div>
+        <p class="intent">Les ondes + nom + baseline + filet. Version institutionnelle : ordonnance, en-tête officiel.</p>
+      </div>
+    </div>
+
+    <!-- 22-D Picto intégré — D-écho remplace le D initial -->
+    <div class="logocard">
+      <div class="stage">
+        <svg viewBox="0 0 260 100" role="img" aria-label="DIAGORIA D-écho intégré dans le mot">
+          <defs><linearGradient id="p22d" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0EA5A6"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+          <!-- Le D-écho (réduit) remplace le D initial, aligné sur la ligne de base -->
+          <g fill="none" stroke="url(#p22d)" stroke-width="7" stroke-linecap="round">
+            <path d="M12 30 V80"/>
+            <path d="M12 33 a22 22 0 0 1 0 44"/>
+            <path d="M12 43 a13 13 0 0 1 0 24" opacity=".7"/>
+            <path d="M12 52 a6 6 0 0 1 0 12" opacity=".45"/>
+          </g>
+          <!-- IAGORIA suit le D-écho -->
+          <text x="48" y="74" font-family="Fredoka, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#0F172A">IAGORIA</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="num">#22 · D</div>
+        <div class="name">Picto intégré</div>
+        <p class="intent">Les arcs-ondes tiennent lieu de D : [écho]IAGORIA. L'onde est la première lettre. Très signataire.</p>
+      </div>
+    </div>
+
+    <!-- 22-E Version nuit -->
+    <div class="logocard">
+      <div class="stage dark">
+        <svg viewBox="0 0 260 100" role="img" aria-label="DIAGORIA D-écho version nuit">
+          <defs><linearGradient id="p22e" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#33d6d6"/><stop offset="1" stop-color="#7aa7ff"/></linearGradient></defs>
+          <g fill="none" stroke="url(#p22e)" stroke-width="8" stroke-linecap="round">
+            <path d="M18 14 V86"/>
+            <path d="M18 18 a34 34 0 0 1 0 64"/>
+            <path d="M18 32 a20 20 0 0 1 0 36" opacity=".7"/>
+            <path d="M18 44 a9 9 0 0 1 0 18" opacity=".45"/>
+          </g>
+          <text x="76" y="62" font-family="Fredoka, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#ffffff">DIAGORIA</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="num">#22 · E</div>
+        <div class="name">Version nuit</div>
+        <p class="intent">Arcs en teal-bleu lumineux, nom blanc sur fond encre. Silhouette très reconnaissable en sombre.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============================================================
+       PISTE #16 — ÉCHO RADAR
+       ============================================================ -->
+  <div class="famhead">
+    <h2>Piste #16 — Écho radar</h2>
+    <span class="pill amber">Cible / diagnostic</span>
+  </div>
+  <p class="source-picto">Ondes concentriques qui s'estompent vers l'extérieur : un radar / écho qui part du point central.</p>
+
+  <div class="logogrid">
+
+    <!-- 16-A Horizontal -->
+    <div class="logocard">
+      <div class="stage">
+        <svg viewBox="0 0 260 100" role="img" aria-label="DIAGORIA écho radar horizontal">
+          <circle cx="44" cy="50" r="36" fill="none" stroke="#0B6E72" stroke-width="5" opacity=".35"/>
+          <circle cx="44" cy="50" r="24" fill="none" stroke="#0EA5A6" stroke-width="5" opacity=".6"/>
+          <circle cx="44" cy="50" r="13" fill="none" stroke="#2563EB" stroke-width="5" opacity=".85"/>
+          <circle cx="44" cy="50" r="5" fill="#0F172A"/>
+          <text x="96" y="64" font-family="Fredoka, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#0F172A">DIAGORIA</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="num">#16 · A</div>
+        <div class="name">Horizontal</div>
+        <p class="intent">Le radar à gauche : les ondes se propagent vers le nom. Métaphore de l'écoute active du praticien.</p>
+      </div>
+    </div>
+
+    <!-- 16-B Empilé -->
+    <div class="logocard">
+      <div class="stage">
+        <svg viewBox="0 0 200 160" role="img" aria-label="DIAGORIA écho radar empilé">
+          <circle cx="100" cy="62" r="42" fill="none" stroke="#0B6E72" stroke-width="5" opacity=".35"/>
+          <circle cx="100" cy="62" r="28" fill="none" stroke="#0EA5A6" stroke-width="5" opacity=".6"/>
+          <circle cx="100" cy="62" r="15" fill="none" stroke="#2563EB" stroke-width="5" opacity=".85"/>
+          <circle cx="100" cy="62" r="6" fill="#0F172A"/>
+          <text x="100" y="130" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="600" font-size="26" letter-spacing="1" fill="#0F172A">DIAGORIA</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="num">#16 · B</div>
+        <div class="name">Empilé (carré)</div>
+        <p class="intent">Le radar pleine largeur centré — les ondes occupent toute la zone. Impact maximal, zen.</p>
+      </div>
+    </div>
+
+    <!-- 16-C Avec signature -->
+    <div class="logocard">
+      <div class="stage">
+        <svg viewBox="0 0 260 110" role="img" aria-label="DIAGORIA écho radar avec signature">
+          <circle cx="44" cy="48" r="34" fill="none" stroke="#0B6E72" stroke-width="5" opacity=".35"/>
+          <circle cx="44" cy="48" r="22" fill="none" stroke="#0EA5A6" stroke-width="5" opacity=".6"/>
+          <circle cx="44" cy="48" r="12" fill="none" stroke="#2563EB" stroke-width="5" opacity=".85"/>
+          <circle cx="44" cy="48" r="5" fill="#0F172A"/>
+          <text x="94" y="52" font-family="Fredoka, sans-serif" font-weight="600" font-size="28" letter-spacing="1" fill="#0F172A">DIAGORIA</text>
+          <line x1="94" y1="62" x2="258" y2="62" stroke="#0EA5A6" stroke-width="1.2" opacity=".5"/>
+          <text x="94" y="77" font-family="Inter, sans-serif" font-weight="500" font-size="11" letter-spacing="2.5" fill="#64748B">ASSISTANT CLINIQUE</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="num">#16 · C</div>
+        <div class="name">Avec signature</div>
+        <p class="intent">Radar + nom + baseline. Le filet teal relie le picto à la baseline. Version institutionnelle complète.</p>
+      </div>
+    </div>
+
+    <!-- 16-D Picto intégré — les cercles radar remplacent le O de DIAGORIA -->
+    <div class="logocard">
+      <div class="stage">
+        <svg viewBox="0 0 260 100" role="img" aria-label="DIAGORIA écho radar dans le O">
+          <!-- DIAG -->
+          <text x="12" y="70" font-family="Fredoka, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#0F172A">DIAG</text>
+          <!-- O remplacé par les cercles radar centrés sur ~x=122 y=56 -->
+          <circle cx="122" cy="56" r="16" fill="none" stroke="#0B6E72" stroke-width="4" opacity=".35"/>
+          <circle cx="122" cy="56" r="10" fill="none" stroke="#0EA5A6" stroke-width="4" opacity=".6"/>
+          <circle cx="122" cy="56" r="5" fill="none" stroke="#2563EB" stroke-width="4" opacity=".85"/>
+          <circle cx="122" cy="56" r="2.5" fill="#0F172A"/>
+          <!-- RIA -->
+          <text x="146" y="70" font-family="Fredoka, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#0F172A">RIA</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="num">#16 · D</div>
+        <div class="name">Picto intégré</div>
+        <p class="intent">Les cercles radar deviennent le « O » de DIAG●RIA. L'écho pulse au cœur du nom.</p>
+      </div>
+    </div>
+
+    <!-- 16-E Version nuit -->
+    <div class="logocard">
+      <div class="stage dark">
+        <svg viewBox="0 0 260 100" role="img" aria-label="DIAGORIA écho radar version nuit">
+          <circle cx="44" cy="50" r="36" fill="none" stroke="#33d6d6" stroke-width="5" opacity=".35"/>
+          <circle cx="44" cy="50" r="24" fill="none" stroke="#33d6d6" stroke-width="5" opacity=".6"/>
+          <circle cx="44" cy="50" r="13" fill="none" stroke="#7aa7ff" stroke-width="5" opacity=".85"/>
+          <circle cx="44" cy="50" r="5" fill="#F59E0B"/>
+          <text x="96" y="64" font-family="Fredoka, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#ffffff">DIAGORIA</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="num">#16 · E</div>
+        <div class="name">Version nuit</div>
+        <p class="intent">Anneaux teal clair et bleu clair, cœur ambre sur fond encre. Palette froide-chaude très graphique.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============================================================
+       PISTE #06 — SPECTRE
+       ============================================================ -->
+  <div class="famhead">
+    <h2>Piste #06 — Spectre</h2>
+    <span class="pill blue">Onde sonore</span>
+  </div>
+  <p class="source-picto">Deux ondes miroir au-dessus du wordmark espacé : un spectre audio élégant, signature large.</p>
+
+  <div class="logogrid">
+
+    <!-- 06-A Horizontal -->
+    <div class="logocard">
+      <div class="stage">
+        <svg viewBox="0 0 260 100" role="img" aria-label="DIAGORIA spectre horizontal">
+          <!-- Ondes au-dessus du nom, recadrées pour s'adapter à une largeur 260 -->
+          <g fill="none" stroke-linecap="round">
+            <path d="M12 44 q7 -22 14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0" stroke="#0EA5A6" stroke-width="5" opacity=".4"/>
+            <path d="M12 44 q7  22 14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0" stroke="#2563EB" stroke-width="5" opacity=".35"/>
+          </g>
+          <text x="14" y="84" font-family="Fredoka, sans-serif" font-weight="600" font-size="28" letter-spacing="4" fill="#0F172A">DIAGORIA</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="num">#06 · A</div>
+        <div class="name">Horizontal</div>
+        <p class="intent">Spectre full-width : les deux ondes se déploient sur toute la longueur du nom large. Signature d'en-tête.</p>
+      </div>
+    </div>
+
+    <!-- 06-B Empilé -->
+    <div class="logocard">
+      <div class="stage">
+        <svg viewBox="0 0 200 160" role="img" aria-label="DIAGORIA spectre empilé">
+          <g fill="none" stroke-linecap="round">
+            <path d="M10 68 q9 -28 18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0" stroke="#0EA5A6" stroke-width="5" opacity=".4"/>
+            <path d="M10 68 q9  28 18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0" stroke="#2563EB" stroke-width="5" opacity=".35"/>
+          </g>
+          <text x="100" y="124" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="600" font-size="26" letter-spacing="2" fill="#0F172A">DIAGORIA</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="num">#06 · B</div>
+        <div class="name">Empilé (carré)</div>
+        <p class="intent">Les ondes en miroir occupent la hauteur, le nom espacé dessous. Carré apaisé, presque zen.</p>
+      </div>
+    </div>
+
+    <!-- 06-C Avec signature -->
+    <div class="logocard">
+      <div class="stage">
+        <svg viewBox="0 0 260 110" role="img" aria-label="DIAGORIA spectre avec signature">
+          <g fill="none" stroke-linecap="round">
+            <path d="M12 40 q7 -20 14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0" stroke="#0EA5A6" stroke-width="5" opacity=".4"/>
+            <path d="M12 40 q7  20 14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0" stroke="#2563EB" stroke-width="5" opacity=".35"/>
+          </g>
+          <text x="14" y="76" font-family="Fredoka, sans-serif" font-weight="600" font-size="26" letter-spacing="3.5" fill="#0F172A">DIAGORIA</text>
+          <line x1="14" y1="84" x2="246" y2="84" stroke="#0EA5A6" stroke-width="1.2" opacity=".5"/>
+          <text x="14" y="99" font-family="Inter, sans-serif" font-weight="500" font-size="11" letter-spacing="2.5" fill="#64748B">ASSISTANT CLINIQUE</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="num">#06 · C</div>
+        <div class="name">Avec signature</div>
+        <p class="intent">Spectre + nom large + filet + baseline. Composition très aérée, idéale en-tête de rapport.</p>
+      </div>
+    </div>
+
+    <!-- 06-D Picto intégré — mini-onde-spectre remplace le O -->
+    <div class="logocard">
+      <div class="stage">
+        <svg viewBox="0 0 260 100" role="img" aria-label="DIAGORIA spectre dans le O">
+          <!-- DIAG -->
+          <text x="12" y="70" font-family="Fredoka, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#0F172A">DIAG</text>
+          <!-- Mini spectre logé dans le slot du O : ondes de part et d'autre d'un axe central ~x=118-138 y=55 -->
+          <g fill="none" stroke-linecap="round">
+            <path d="M102 57 q5 -14 10 0 t10 0 t10 0" stroke="#0EA5A6" stroke-width="4.5" opacity=".5"/>
+            <path d="M102 57 q5  14 10 0 t10 0 t10 0" stroke="#2563EB" stroke-width="4.5" opacity=".45"/>
+          </g>
+          <!-- RIA -->
+          <text x="142" y="70" font-family="Fredoka, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#0F172A">RIA</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="num">#06 · D</div>
+        <div class="name">Picto intégré</div>
+        <p class="intent">Une mini-onde-spectre se loge à la place du « O » : DIAG~RIA. L'audio pulse dans le mot.</p>
+      </div>
+    </div>
+
+    <!-- 06-E Version nuit -->
+    <div class="logocard">
+      <div class="stage dark">
+        <svg viewBox="0 0 260 100" role="img" aria-label="DIAGORIA spectre version nuit">
+          <g fill="none" stroke-linecap="round">
+            <path d="M12 44 q7 -22 14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0" stroke="#33d6d6" stroke-width="5" opacity=".55"/>
+            <path d="M12 44 q7  22 14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0" stroke="#7aa7ff" stroke-width="5" opacity=".5"/>
+          </g>
+          <text x="14" y="84" font-family="Fredoka, sans-serif" font-weight="600" font-size="28" letter-spacing="4" fill="#ffffff">DIAGORIA</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <div class="num">#06 · E</div>
+        <div class="name">Version nuit</div>
+        <p class="intent">Ondes teal et bleu clair sur fond encre, nom blanc large. La signature la plus planante de la galerie.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============================================================
+       VERDICT DESIGNER
+       ============================================================ -->
+  <div class="verdict win" style="margin-top:2.4em">
+    <div class="lead">Ma reco designer — quel logo pousser ?</div>
+    <p><strong>Piste #19-D (Tuile intégrée)</strong> est l'option la plus puissante pour une marque SaaS médical : le bloc dégradé tient lieu de lettre D, on lit instantanément le rapport entre l'icône app et le nom — un seul signe. Elle décline en favicon, app store et en-tête sans aucune adaptation. Couplée à la variante C (+signature), elle couvre tous les usages formels. En second choix, <strong>#22-D ou #22-A</strong> : les arcs-ondes sont à la fois l'initiale et une métaphore sonore forte, ce qui raconte le produit dès le premier regard. C'est la direction la plus distinctive visuellement.</p>
+    <p>Pour choisir, dis-moi simplement le numéro + la lettre que tu préfères — par exemple <strong>« #19-D »</strong> ou <strong>« #22-A + #19-E pour la nuit »</strong>. On fige ensuite les couleurs exactes, le favicon 32 px et tous les formats SVG exportés.</p>
+  </div>
+
+  <div class="footer">
+    DIAGORIA / Kalos santé · Identité de marque · galerie générée le 22/06/2026 ·
+    <a href="logos.html">← Galerie des 50 logos</a> ·
+    <a href="index.html">Centre de doc</a>
+  </div>
+
+</div>
+</body>
+</html>
