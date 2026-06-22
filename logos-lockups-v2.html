@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Logo #34 — Droit vs 45° — DIAGORIA</title>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* --- Date badge (repris depuis index.html) --- */
+  .date {
+    display: inline-block; font-size: 12px; font-weight: 600; color: #64748b;
+    background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 999px;
+    padding: 2px 10px; margin: 4px 0 6px;
+  }
+
+  /* --- Section d'intro --- */
+  .intro-grid {
+    display: grid; gap: 16px;
+    grid-template-columns: 1fr 1fr;
+    margin: 24px 0 36px;
+  }
+  @media (max-width: 640px) { .intro-grid { grid-template-columns: 1fr; } }
+  .intro-card {
+    background: #fff; border: 1px solid var(--line); border-radius: 14px;
+    padding: 18px 20px; box-shadow: var(--shadow-sm);
+  }
+  .intro-card h3 { margin: 0 0 6px; font-size: 1.05rem; }
+  .intro-card p { font-size: .9rem; color: var(--ink-soft); margin: 0; }
+
+  /* --- Bloc de comparaison (section par bloc) --- */
+  .compare-section {
+    margin: 2.8em 0 .4em;
+    border-top: 2px solid var(--line);
+    padding-top: 1.6em;
+  }
+  .compare-section h2 {
+    font-size: 1.35rem; margin: 0 0 4px;
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  }
+
+  /* --- Grille côte à côte --- */
+  .duo {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+    margin: 14px 0 28px;
+  }
+  @media (max-width: 680px) { .duo { grid-template-columns: 1fr; } }
+
+  .duo-col { display: flex; flex-direction: column; gap: 14px; }
+
+  .orient-label {
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: .82rem; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--teal-deep);
+    padding: 5px 12px; background: #eafafa; border-radius: 999px;
+    display: inline-block; margin-bottom: 2px;
+  }
+  .orient-label.tilt { background: #fef3c8; color: #92660a; }
+
+  .logocard {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius); overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    display: flex; flex-direction: column;
+    transition: transform .15s ease, box-shadow .15s ease, border-color .15s;
+  }
+  .logocard:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--teal); }
+
+  /* Stage sur fond clair */
+  .stage {
+    min-height: 150px; display: grid; place-items: center;
+    padding: 22px 18px;
+    background: radial-gradient(120px 70px at 50% 0%, #eafafa 0, transparent 70%), #fbfdff;
+    border-bottom: 1px solid var(--line);
+  }
+  /* Stage sur fond sombre */
+  .stage.dark {
+    background: linear-gradient(135deg, #0e2a3a, #0F172A);
+    border-bottom: 1px solid #1e3a5f;
+  }
+
+  /* Container d'un stage avec son label fond */
+  .stage-wrap { display: flex; flex-direction: column; gap: 0; }
+  .stage-label {
+    font-size: .75rem; font-weight: 600; color: var(--muted);
+    padding: 5px 14px; background: #f8fafc; border-bottom: 1px solid var(--line);
+    letter-spacing: .04em; text-transform: uppercase;
+  }
+  .stage-label.dark-lbl {
+    background: #1e2d3a; color: #94a3b8; border-bottom: 1px solid #1e3a5f;
+  }
+
+  /* Taille normale logo dans les stages */
+  .stage svg { max-height: 110px; max-width: 100%; height: auto; }
+
+  /* Stage favicon 32 px */
+  .stage.favicon { min-height: 80px; padding: 14px 10px; }
+  .stage.favicon svg { width: 32px; height: 32px; }
+  .stage.favicon.dark { background: #0F172A; }
+
+  .logocard .meta { padding: 12px 16px 14px; }
+  .logocard .card-title {
+    font-family: 'Fredoka', sans-serif; font-weight: 600;
+    font-size: .97rem; color: var(--ink); margin: 0 0 5px;
+  }
+  .logocard .descriptor {
+    color: var(--ink-soft); font-size: .84rem; font-style: italic;
+    margin: 0; line-height: 1.4;
+  }
+
+  /* Séparateur entre fond clair + fond sombre */
+  .double-stage { display: flex; flex-direction: column; }
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="row">
+  <a class="brand" href="index.html"><span class="dot"></span> DIAGORIA</a>
+  <span class="spacer"></span>
+  <a class="back" href="index.html">← Centre de doc</a>
+</div></div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">IDENTITE DE MARQUE · LOGO OFFICIEL #34</div>
+    <h1>Droit vs 45° — Comparer les orientations du picto</h1>
+    <p>Chaque bloc montre le picto <strong>Droit (actuel)</strong> et le picto <strong>Incline a 45° horaire</strong> cote a cote — en grand, en favicon 32 px, sur fond clair et fond sombre. Le texte n'est jamais tourne.</p>
+    <div class="date">2026-06-22</div>
+  </div>
+
+  <!-- Intro : ce que l'on compare -->
+  <div class="callout note" style="margin-top:24px">
+    <p class="lead">Comment lire cette page</p>
+    <p>Chaque section (Picto seul, Lock-up horizontal 34-A, Lock-up signature 34-C) montre <strong>Droit</strong> a gauche et <strong>45° horaire</strong> a droite. Chaque colonne contient : fond clair + fond sombre + favicon 32 px. Sous chaque carte : 2-3 mots de caracterisation neutre.</p>
+  </div>
+
+  <div class="intro-grid">
+    <div class="intro-card">
+      <h3>Droit <span class="pill" style="font-size:.72rem">actuel</span></h3>
+      <p>Les deux arcs forment un dome symetrique centre sur le point ambre. Lecture frontale, sereine, institutionnelle.</p>
+    </div>
+    <div class="intro-card">
+      <h3>45° horaire <span class="pill amber" style="font-size:.72rem">variante</span></h3>
+      <p>Les arcs rayonnent vers le haut-droite. Le point ambre devient l'origine basse-gauche du signal. Lecture dynamique, directionelle, moderne.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       BLOC 1 — PICTO SEUL
+       ============================================================ -->
+  <div class="compare-section">
+    <h2>Bloc 1 — Picto seul <span class="pill gray" style="font-size:.75rem">grand + 32 px</span></h2>
+    <p style="color:var(--ink-soft);font-size:.9rem;margin:.3em 0 1em">Le picto tel quel, sans texte. Test de lecture isolee, d'icone d'app et de favicon.</p>
+  </div>
+
+  <div class="duo">
+    <!-- DROIT -->
+    <div class="duo-col">
+      <span class="orient-label">Droit — actuel</span>
+
+      <!-- Grand, fond clair -->
+      <div class="logocard">
+        <div class="stage-wrap">
+          <div class="stage-label">Fond clair</div>
+          <div class="stage">
+            <svg viewBox="0 0 88 88" role="img" aria-label="DIAGORIA picto arcs rayonnants droit">
+              <title>DIAGORIA — picto arcs rayonnants (droit)</title>
+              <defs>
+                <linearGradient id="gd1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#0EA5A6"/>
+                  <stop offset="1" stop-color="#2563EB"/>
+                </linearGradient>
+              </defs>
+              <g fill="none" stroke="url(#gd1)" stroke-width="8" stroke-linecap="round">
+                <path d="M14 72 a30 30 0 0 1 60 0"/>
+                <path d="M28 72 a16 16 0 0 1 32 0"/>
+              </g>
+              <circle cx="44" cy="72" r="6" fill="#F59E0B"/>
+            </svg>
+          </div>
+          <div class="stage-label dark-lbl">Fond sombre</div>
+          <div class="stage dark">
+            <svg viewBox="0 0 88 88" role="img" aria-label="DIAGORIA picto arcs rayonnants droit fond sombre">
+              <title>DIAGORIA — picto arcs rayonnants (droit, fond sombre)</title>
+              <defs>
+                <linearGradient id="gd1d" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#0EA5A6"/>
+                  <stop offset="1" stop-color="#2563EB"/>
+                </linearGradient>
+              </defs>
+              <g fill="none" stroke="url(#gd1d)" stroke-width="8" stroke-linecap="round">
+                <path d="M14 72 a30 30 0 0 1 60 0"/>
+                <path d="M28 72 a16 16 0 0 1 32 0"/>
+              </g>
+              <circle cx="44" cy="72" r="6" fill="#F59E0B"/>
+            </svg>
+          </div>
+        </div>
+        <div class="meta">
+          <div class="card-title">Picto droit — Grand</div>
+          <p class="descriptor">symetrique · serein · dome</p>
+        </div>
+      </div>
+
+      <!-- Favicon 32 px -->
+      <div class="logocard">
+        <div class="stage-wrap">
+          <div class="stage-label">32 px — fond clair</div>
+          <div class="stage favicon">
+            <svg viewBox="0 0 88 88" role="img" aria-label="DIAGORIA picto favicon droit clair">
+              <title>DIAGORIA favicon droit (fond clair)</title>
+              <defs>
+                <linearGradient id="gd1fav" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#0EA5A6"/>
+                  <stop offset="1" stop-color="#2563EB"/>
+                </linearGradient>
+              </defs>
+              <g fill="none" stroke="url(#gd1fav)" stroke-width="8" stroke-linecap="round">
+                <path d="M14 72 a30 30 0 0 1 60 0"/>
+                <path d="M28 72 a16 16 0 0 1 32 0"/>
+              </g>
+              <circle cx="44" cy="72" r="6" fill="#F59E0B"/>
+            </svg>
+          </div>
+          <div class="stage-label dark-lbl">32 px — fond sombre</div>
+          <div class="stage favicon dark">
+            <svg viewBox="0 0 88 88" role="img" aria-label="DIAGORIA picto favicon droit sombre">
+              <title>DIAGORIA favicon droit (fond sombre)</title>
+              <defs>
+                <linearGradient id="gd1favd" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#0EA5A6"/>
+                  <stop offset="1" stop-color="#2563EB"/>
+                </linearGradient>
+              </defs>
+              <g fill="none" stroke="url(#gd1favd)" stroke-width="8" stroke-linecap="round">
+                <path d="M14 72 a30 30 0 0 1 60 0"/>
+                <path d="M28 72 a16 16 0 0 1 32 0"/>
+              </g>
+              <circle cx="44" cy="72" r="6" fill="#F59E0B"/>
+            </svg>
+          </div>
+        </div>
+        <div class="meta">
+          <div class="card-title">Picto droit — 32 px</div>
+          <p class="descriptor">lisible · equilibre · centree</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 45 DEGRES -->
+    <div class="duo-col">
+      <span class="orient-label tilt">45° horaire — variante</span>
+
+      <!-- Grand, fond clair + sombre -->
+      <div class="logocard">
+        <div class="stage-wrap">
+          <div class="stage-label">Fond clair</div>
+          <div class="stage">
+            <!-- viewBox elargi pour absorber la rotation sans coupure -->
+            <svg viewBox="-4 4 96 88" role="img" aria-label="DIAGORIA picto arcs rayonnants incline 45 degres">
+              <title>DIAGORIA — picto arcs rayonnants (45° horaire)</title>
+              <defs>
+                <linearGradient id="gt1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#0EA5A6"/>
+                  <stop offset="1" stop-color="#2563EB"/>
+                </linearGradient>
+              </defs>
+              <!-- Rotation 45° autour du point ambre cx=44 cy=72 -->
+              <g transform="rotate(45 44 72)">
+                <g fill="none" stroke="url(#gt1)" stroke-width="8" stroke-linecap="round">
+                  <path d="M14 72 a30 30 0 0 1 60 0"/>
+                  <path d="M28 72 a16 16 0 0 1 32 0"/>
+                </g>
+                <circle cx="44" cy="72" r="6" fill="#F59E0B"/>
+              </g>
+            </svg>
+          </div>
+          <div class="stage-label dark-lbl">Fond sombre</div>
+          <div class="stage dark">
+            <svg viewBox="-4 4 96 88" role="img" aria-label="DIAGORIA picto arcs rayonnants incline 45 degres fond sombre">
+              <title>DIAGORIA — picto arcs rayonnants (45° horaire, fond sombre)</title>
+              <defs>
+                <linearGradient id="gt1d" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#0EA5A6"/>
+                  <stop offset="1" stop-color="#2563EB"/>
+                </linearGradient>
+              </defs>
+              <g transform="rotate(45 44 72)">
+                <g fill="none" stroke="url(#gt1d)" stroke-width="8" stroke-linecap="round">
+                  <path d="M14 72 a30 30 0 0 1 60 0"/>
+                  <path d="M28 72 a16 16 0 0 1 32 0"/>
+                </g>
+                <circle cx="44" cy="72" r="6" fill="#F59E0B"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="meta">
+          <div class="card-title">Picto 45° — Grand</div>
+          <p class="descriptor">dynamique · signal · directionnel</p>
+        </div>
+      </div>
+
+      <!-- Favicon 32 px -->
+      <div class="logocard">
+        <div class="stage-wrap">
+          <div class="stage-label">32 px — fond clair</div>
+          <div class="stage favicon">
+            <svg viewBox="-4 4 96 88" role="img" aria-label="DIAGORIA picto favicon incline 45 degres clair">
+              <title>DIAGORIA favicon 45° (fond clair)</title>
+              <defs>
+                <linearGradient id="gt1fav" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#0EA5A6"/>
+                  <stop offset="1" stop-color="#2563EB"/>
+                </linearGradient>
+              </defs>
+              <g transform="rotate(45 44 72)">
+                <g fill="none" stroke="url(#gt1fav)" stroke-width="8" stroke-linecap="round">
+                  <path d="M14 72 a30 30 0 0 1 60 0"/>
+                  <path d="M28 72 a16 16 0 0 1 32 0"/>
+                </g>
+                <circle cx="44" cy="72" r="6" fill="#F59E0B"/>
+              </g>
+            </svg>
+          </div>
+          <div class="stage-label dark-lbl">32 px — fond sombre</div>
+          <div class="stage favicon dark">
+            <svg viewBox="-4 4 96 88" role="img" aria-label="DIAGORIA picto favicon incline 45 degres sombre">
+              <title>DIAGORIA favicon 45° (fond sombre)</title>
+              <defs>
+                <linearGradient id="gt1favd" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#0EA5A6"/>
+                  <stop offset="1" stop-color="#2563EB"/>
+                </linearGradient>
+              </defs>
+              <g transform="rotate(45 44 72)">
+                <g fill="none" stroke="url(#gt1favd)" stroke-width="8" stroke-linecap="round">
+                  <path d="M14 72 a30 30 0 0 1 60 0"/>
+                  <path d="M28 72 a16 16 0 0 1 32 0"/>
+                </g>
+                <circle cx="44" cy="72" r="6" fill="#F59E0B"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="meta">
+          <div class="card-title">Picto 45° — 32 px</div>
+          <p class="descriptor">incisif · compact · Wi-Fi energy</p>
+        </div>
+      </div>
+    </div>
+  </div><!-- /duo bloc 1 -->
+
+  <!-- ============================================================
+       BLOC 2 — LOCK-UP HORIZONTAL 34-A
+       ============================================================ -->
+  <div class="compare-section">
+    <h2>Bloc 2 — Lock-up horizontal 34-A <span class="pill gray" style="font-size:.75rem">picto + DIAGORIA</span></h2>
+    <p style="color:var(--ink-soft);font-size:.9rem;margin:.3em 0 1em">Le lock-up classique : picto a gauche, wordmark Fredoka a droite. Fond clair et fond sombre.</p>
+  </div>
+
+  <div class="duo">
+    <!-- DROIT -->
+    <div class="duo-col">
+      <span class="orient-label">Droit — actuel</span>
+
+      <div class="logocard">
+        <div class="stage-wrap">
+          <div class="stage-label">Fond clair</div>
+          <div class="stage">
+            <svg viewBox="0 0 260 100" role="img" aria-label="DIAGORIA logo horizontal droit">
+              <title>DIAGORIA — logo horizontal 34-A (droit)</title>
+              <defs>
+                <linearGradient id="gd2" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#0EA5A6"/>
+                  <stop offset="1" stop-color="#2563EB"/>
+                </linearGradient>
+              </defs>
+              <g fill="none" stroke="url(#gd2)" stroke-width="8" stroke-linecap="round">
+                <path d="M14 72 a30 30 0 0 1 60 0"/>
+                <path d="M28 72 a16 16 0 0 1 32 0"/>
+              </g>
+              <circle cx="44" cy="72" r="6" fill="#F59E0B"/>
+              <text x="88" y="66" font-family="Fredoka, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#0F172A">DIAGORIA</text>
+            </svg>
+          </div>
+          <div class="stage-label dark-lbl">Fond sombre</div>
+          <div class="stage dark">
+            <svg viewBox="0 0 260 100" role="img" aria-label="DIAGORIA logo horizontal droit fond sombre">
+              <title>DIAGORIA — logo horizontal 34-A (droit, fond sombre)</title>
+              <defs>
+                <linearGradient id="gd2d" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#0EA5A6"/>
+                  <stop offset="1" stop-color="#2563EB"/>
+                </linearGradient>
+              </defs>
+              <g fill="none" stroke="url(#gd2d)" stroke-width="8" stroke-linecap="round">
+                <path d="M14 72 a30 30 0 0 1 60 0"/>
+                <path d="M28 72 a16 16 0 0 1 32 0"/>
+              </g>
+              <circle cx="44" cy="72" r="6" fill="#F59E0B"/>
+              <text x="88" y="66" font-family="Fredoka, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#FFFFFF">DIAGORIA</text>
+            </svg>
+          </div>
+        </div>
+        <div class="meta">
+          <div class="card-title">34-A Droit — horizontal</div>
+          <p class="descriptor">stable · equilibre · classique</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 45 DEGRES -->
+    <div class="duo-col">
+      <span class="orient-label tilt">45° horaire — variante</span>
+
+      <div class="logocard">
+        <div class="stage-wrap">
+          <div class="stage-label">Fond clair</div>
+          <div class="stage">
+            <!--
+              Le picto fait 88 × 88 dans l'espace original.
+              Point ambre : cx=44 cy=68 (conforme logo-horizontal.svg).
+              Rotation 45° → l'arc monte en haut à droite, déborde vers le bas à gauche.
+              On redéfinit le viewBox pour loger picto incliné (≈ 88 × 88 devenu ~110 × 80)
+              + wordmark à droite. On place le bloc texte à x=106 pour donner de l'air.
+              Le viewBox : x=-10 y=10 w=280 h=90 absorbe le débordement sans couper.
+            -->
+            <svg viewBox="-10 10 280 90" role="img" aria-label="DIAGORIA logo horizontal 45 degres">
+              <title>DIAGORIA — logo horizontal 34-A (45° horaire)</title>
+              <defs>
+                <linearGradient id="gt2" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#0EA5A6"/>
+                  <stop offset="1" stop-color="#2563EB"/>
+                </linearGradient>
+              </defs>
+              <!-- Picto incliné — rotation autour du point ambre cx=44 cy=68 -->
+              <g transform="rotate(45 44 68)">
+                <g fill="none" stroke="url(#gt2)" stroke-width="8" stroke-linecap="round">
+                  <path d="M14 68 a30 30 0 0 1 60 0"/>
+                  <path d="M28 68 a16 16 0 0 1 32 0"/>
+                </g>
+                <circle cx="44" cy="68" r="6" fill="#F59E0B"/>
+              </g>
+              <!-- Wordmark — non tourné, repositionné pour s'aligner au centre optique du picto -->
+              <text x="96" y="66" font-family="Fredoka, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#0F172A">DIAGORIA</text>
+            </svg>
+          </div>
+          <div class="stage-label dark-lbl">Fond sombre</div>
+          <div class="stage dark">
+            <svg viewBox="-10 10 280 90" role="img" aria-label="DIAGORIA logo horizontal 45 degres fond sombre">
+              <title>DIAGORIA — logo horizontal 34-A (45° horaire, fond sombre)</title>
+              <defs>
+                <linearGradient id="gt2d" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#0EA5A6"/>
+                  <stop offset="1" stop-color="#2563EB"/>
+                </linearGradient>
+              </defs>
+              <g transform="rotate(45 44 68)">
+                <g fill="none" stroke="url(#gt2d)" stroke-width="8" stroke-linecap="round">
+                  <path d="M14 68 a30 30 0 0 1 60 0"/>
+                  <path d="M28 68 a16 16 0 0 1 32 0"/>
+                </g>
+                <circle cx="44" cy="68" r="6" fill="#F59E0B"/>
+              </g>
+              <text x="96" y="66" font-family="Fredoka, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#FFFFFF">DIAGORIA</text>
+            </svg>
+          </div>
+        </div>
+        <div class="meta">
+          <div class="card-title">34-A 45° — horizontal</div>
+          <p class="descriptor">moderne · tension · signal emis</p>
+        </div>
+      </div>
+    </div>
+  </div><!-- /duo bloc 2 -->
+
+  <!-- ============================================================
+       BLOC 3 — LOCK-UP SIGNATURE 34-C
+       ============================================================ -->
+  <div class="compare-section">
+    <h2>Bloc 3 — Lock-up signature 34-C <span class="pill gray" style="font-size:.75rem">picto + DIAGORIA + ASSISTANT CLINIQUE</span></h2>
+    <p style="color:var(--ink-soft);font-size:.9rem;margin:.3em 0 1em">Variante premium : wordmark + baseline Inter + filet teal. En-tete de document officiel.</p>
+  </div>
+
+  <div class="duo">
+    <!-- DROIT -->
+    <div class="duo-col">
+      <span class="orient-label">Droit — actuel</span>
+
+      <div class="logocard">
+        <div class="stage-wrap">
+          <div class="stage-label">Fond clair</div>
+          <div class="stage">
+            <svg viewBox="0 0 260 110" role="img" aria-label="DIAGORIA logo signature droit">
+              <title>DIAGORIA — logo signature 34-C (droit)</title>
+              <defs>
+                <linearGradient id="gd3" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#0EA5A6"/>
+                  <stop offset="1" stop-color="#2563EB"/>
+                </linearGradient>
+              </defs>
+              <g fill="none" stroke="url(#gd3)" stroke-width="8" stroke-linecap="round">
+                <path d="M14 68 a30 30 0 0 1 60 0"/>
+                <path d="M28 68 a16 16 0 0 1 32 0"/>
+              </g>
+              <circle cx="44" cy="68" r="6" fill="#F59E0B"/>
+              <text x="88" y="62" font-family="Fredoka, sans-serif" font-weight="600" font-size="28" letter-spacing="1" fill="#0F172A">DIAGORIA</text>
+              <line x1="88" y1="70" x2="258" y2="70" stroke="#0EA5A6" stroke-width="1.2" opacity=".5"/>
+              <text x="88" y="85" font-family="Inter, sans-serif" font-weight="500" font-size="11" letter-spacing="2.5" fill="#64748B">ASSISTANT CLINIQUE</text>
+            </svg>
+          </div>
+          <div class="stage-label dark-lbl">Fond sombre</div>
+          <div class="stage dark">
+            <svg viewBox="0 0 260 110" role="img" aria-label="DIAGORIA logo signature droit fond sombre">
+              <title>DIAGORIA — logo signature 34-C (droit, fond sombre)</title>
+              <defs>
+                <linearGradient id="gd3d" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#0EA5A6"/>
+                  <stop offset="1" stop-color="#2563EB"/>
+                </linearGradient>
+              </defs>
+              <g fill="none" stroke="url(#gd3d)" stroke-width="8" stroke-linecap="round">
+                <path d="M14 68 a30 30 0 0 1 60 0"/>
+                <path d="M28 68 a16 16 0 0 1 32 0"/>
+              </g>
+              <circle cx="44" cy="68" r="6" fill="#F59E0B"/>
+              <text x="88" y="62" font-family="Fredoka, sans-serif" font-weight="600" font-size="28" letter-spacing="1" fill="#FFFFFF">DIAGORIA</text>
+              <line x1="88" y1="70" x2="258" y2="70" stroke="#0EA5A6" stroke-width="1.2" opacity=".6"/>
+              <text x="88" y="85" font-family="Inter, sans-serif" font-weight="500" font-size="11" letter-spacing="2.5" fill="#94A3B8">ASSISTANT CLINIQUE</text>
+            </svg>
+          </div>
+        </div>
+        <div class="meta">
+          <div class="card-title">34-C Droit — signature</div>
+          <p class="descriptor">officiel · premium · institutionnel</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 45 DEGRES -->
+    <div class="duo-col">
+      <span class="orient-label tilt">45° horaire — variante</span>
+
+      <div class="logocard">
+        <div class="stage-wrap">
+          <div class="stage-label">Fond clair</div>
+          <div class="stage">
+            <!--
+              34-C signature : point ambre cx=44 cy=68.
+              Rotation 45° autour de ce point.
+              viewBox elargi : x=-10 y=8 w=280 h=100 pour absorber le debordement
+              + garder de la place pour la signature sous le wordmark.
+              Wordmark repositionne a x=98 pour donner de l'air au picto incline.
+            -->
+            <svg viewBox="-10 8 280 105" role="img" aria-label="DIAGORIA logo signature 45 degres">
+              <title>DIAGORIA — logo signature 34-C (45° horaire)</title>
+              <defs>
+                <linearGradient id="gt3" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#0EA5A6"/>
+                  <stop offset="1" stop-color="#2563EB"/>
+                </linearGradient>
+              </defs>
+              <!-- Picto incliné -->
+              <g transform="rotate(45 44 68)">
+                <g fill="none" stroke="url(#gt3)" stroke-width="8" stroke-linecap="round">
+                  <path d="M14 68 a30 30 0 0 1 60 0"/>
+                  <path d="M28 68 a16 16 0 0 1 32 0"/>
+                </g>
+                <circle cx="44" cy="68" r="6" fill="#F59E0B"/>
+              </g>
+              <!-- Bloc texte — non tourné -->
+              <text x="98" y="62" font-family="Fredoka, sans-serif" font-weight="600" font-size="28" letter-spacing="1" fill="#0F172A">DIAGORIA</text>
+              <line x1="98" y1="70" x2="265" y2="70" stroke="#0EA5A6" stroke-width="1.2" opacity=".5"/>
+              <text x="98" y="85" font-family="Inter, sans-serif" font-weight="500" font-size="11" letter-spacing="2.5" fill="#64748B">ASSISTANT CLINIQUE</text>
+            </svg>
+          </div>
+          <div class="stage-label dark-lbl">Fond sombre</div>
+          <div class="stage dark">
+            <svg viewBox="-10 8 280 105" role="img" aria-label="DIAGORIA logo signature 45 degres fond sombre">
+              <title>DIAGORIA — logo signature 34-C (45° horaire, fond sombre)</title>
+              <defs>
+                <linearGradient id="gt3d" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#0EA5A6"/>
+                  <stop offset="1" stop-color="#2563EB"/>
+                </linearGradient>
+              </defs>
+              <g transform="rotate(45 44 68)">
+                <g fill="none" stroke="url(#gt3d)" stroke-width="8" stroke-linecap="round">
+                  <path d="M14 68 a30 30 0 0 1 60 0"/>
+                  <path d="M28 68 a16 16 0 0 1 32 0"/>
+                </g>
+                <circle cx="44" cy="68" r="6" fill="#F59E0B"/>
+              </g>
+              <text x="98" y="62" font-family="Fredoka, sans-serif" font-weight="600" font-size="28" letter-spacing="1" fill="#FFFFFF">DIAGORIA</text>
+              <line x1="98" y1="70" x2="265" y2="70" stroke="#0EA5A6" stroke-width="1.2" opacity=".6"/>
+              <text x="98" y="85" font-family="Inter, sans-serif" font-weight="500" font-size="11" letter-spacing="2.5" fill="#94A3B8">ASSISTANT CLINIQUE</text>
+            </svg>
+          </div>
+        </div>
+        <div class="meta">
+          <div class="card-title">34-C 45° — signature</div>
+          <p class="descriptor">affirme · lance · forward-looking</p>
+        </div>
+      </div>
+    </div>
+  </div><!-- /duo bloc 3 -->
+
+  <!-- ============================================================
+       AIDE A LA DECISION
+       ============================================================ -->
+  <div class="callout warn" style="margin-top:2.5em">
+    <p class="lead">Pour choisir</p>
+    <p>Dis-moi <strong>« Droit »</strong> ou <strong>« 45° »</strong> (ou les deux selon le support). Si le 45° te plait, je génère les assets SVG finaux avec ce pivot et je mets a jour logo-picto.svg, logo-horizontal.svg, logo-signature.svg.</p>
+  </div>
+
+  <div class="footer">
+    DIAGORIA / Kalos sante · Centre de documentation interne · pages en <strong>noindex</strong>
+    (invisibles sur Google). Document V2 — comparaison d'orientation picto #34.
+  </div>
+
+</div><!-- /wrap -->
+</body>
+</html>
