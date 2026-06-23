@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Kit de marque — DIAGORIA</title>
+<title>Kit de marque — DIAGORIA (v. définitive 2026-06-23)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --teal:      #0EA5A6;
-  --teal-deep: #0B6E72;
-  --blue:      #2563EB;
+  --marine:    #1e3a5f;
+  --blue-mid:  #2c5282;
   --ink:       #0F172A;
   --ink-soft:  #334155;
   --muted:     #64748B;
@@ -21,7 +21,7 @@
   --card:      #FFFFFF;
   --amber:     #F59E0B;
   --radius:    16px;
-  --shadow:    0 10px 30px -12px rgba(13,110,114,.22);
+  --shadow:    0 10px 30px -12px rgba(30,58,95,.22);
   --shadow-sm: 0 4px 14px -8px rgba(15,23,42,.18);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -30,17 +30,17 @@ body {
   font-family: 'Inter', system-ui, sans-serif;
   color: var(--ink);
   background: radial-gradient(1200px 500px at 100% -10%, #d8f3f3 0, transparent 60%),
-              radial-gradient(900px 400px at -10% 10%, #e7efff 0, transparent 55%),
+              radial-gradient(900px 400px at -10% 10%, #dde8f5 0, transparent 55%),
               var(--bg);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
-h1,h2,h3,h4 { font-family: 'Fredoka', sans-serif; color: var(--ink); line-height: 1.2; }
+h1,h2,h3,h4 { font-family: 'Outfit', sans-serif; color: var(--ink); line-height: 1.2; }
 h1 { font-size: clamp(1.9rem,4vw,2.8rem); margin-bottom:.3em; }
 h2 { font-size: clamp(1.3rem,2.4vw,1.75rem); margin: 2em 0 .7em; padding-bottom:.4em; border-bottom: 2px solid var(--line); }
 h3 { font-size: 1rem; margin: .8em 0 .3em; color: var(--ink-soft); }
 p  { margin: .6em 0; }
-a  { color: var(--blue); text-decoration: none; }
+a  { color: var(--teal); text-decoration: none; }
 
 .wrap { max-width: 1060px; margin: 0 auto; padding: 0 20px 90px; }
 
@@ -55,8 +55,8 @@ a  { color: var(--blue); text-decoration: none; }
   max-width: 1060px; margin: 0 auto; padding: 12px 20px;
   display: flex; align-items: center; gap: 14px;
 }
-.brand { display:flex; align-items:center; gap:10px; font-family:'Fredoka'; font-weight:600; font-size:1.1rem; color:var(--teal-deep); text-decoration:none; }
-.dot-brand { width:26px; height:26px; border-radius:8px; background:linear-gradient(135deg,var(--teal),var(--blue)); display:inline-block; }
+.brand { display:flex; align-items:center; gap:10px; font-family:'Outfit'; font-weight:700; font-size:1.05rem; letter-spacing:.06em; color:var(--marine); text-decoration:none; }
+.dot-brand { width:26px; height:26px; border-radius:8px; background:linear-gradient(135deg,var(--teal),var(--blue-mid),var(--marine)); display:inline-block; }
 .spacer { flex:1; }
 .back { font-size:.9rem; color:var(--ink-soft); font-weight:500; padding:6px 12px; border-radius:999px; border:1px solid var(--line); background:#fff; text-decoration:none; }
 
@@ -64,11 +64,16 @@ a  { color: var(--blue); text-decoration: none; }
 .hero {
   margin: 28px 0 10px; padding: 36px 34px;
   border-radius: 26px; color:#fff;
-  background: linear-gradient(135deg, var(--teal-deep), var(--teal) 55%, var(--blue));
+  background: linear-gradient(135deg, var(--teal) 0%, var(--blue-mid) 50%, var(--marine) 100%);
   box-shadow: var(--shadow);
 }
 .eyebrow { font-size:.75rem; font-weight:700; letter-spacing:.12em; opacity:.75; margin-bottom:.5em; font-family:'Inter'; }
 .hero p { opacity:.9; max-width:640px; margin-top:.5em; font-size:.95rem; }
+.badge-definitif {
+  display:inline-block; margin-top:14px; padding:4px 14px;
+  border-radius:999px; background:rgba(255,255,255,.18);
+  font-size:.75rem; font-weight:700; letter-spacing:.08em; font-family:'Inter';
+}
 
 /* Usage nav */
 .usage-nav {
@@ -79,7 +84,7 @@ a  { color: var(--blue); text-decoration: none; }
   border:1px solid var(--line); background:#fff; color:var(--ink-soft);
   font-size:.82rem; font-weight:600; transition:all .15s;
 }
-.usage-nav a:hover { border-color:var(--teal); color:var(--teal-deep); background:#f0fdfd; }
+.usage-nav a:hover { border-color:var(--teal); color:var(--marine); background:#f0fdfd; }
 
 /* Asset grid */
 .asset-grid {
@@ -104,21 +109,23 @@ a  { color: var(--blue); text-decoration: none; }
 
 /* Stage backgrounds */
 .stage         { min-height: 140px; display:flex; align-items:center; justify-content:center; padding:24px 18px; background: radial-gradient(120px 70px at 50% 0%,#eafafa 0,transparent 70%),#fbfdff; border-bottom:1px solid var(--line); }
-.stage.dark    { background: linear-gradient(135deg,#0e2a3a,#0F172A); border-bottom-color:#1e2d42; }
-.stage.color   { background: linear-gradient(135deg,var(--teal-deep),var(--teal) 55%,var(--blue)); border-bottom-color:rgba(255,255,255,.15); }
+.stage.dark    { background: linear-gradient(135deg,#0e2233,var(--marine)); border-bottom-color:#1e2d42; }
+.stage.color   { background: linear-gradient(135deg,var(--teal) 0%,var(--blue-mid) 50%,var(--marine) 100%); border-bottom-color:rgba(255,255,255,.15); }
 .stage.neutral { background: #f1f5f9; border-bottom-color:#dde3ed; }
 .stage.white   { background: #ffffff; border-bottom-color:#e2e8f0; }
+.stage.marine  { background: var(--marine); border-bottom-color:#0f2540; }
 .stage svg     { max-height:100px; max-width:100%; height:auto; }
 
 /* Card body */
 .card-body { padding:14px 16px 16px; flex:1; display:flex; flex-direction:column; gap:10px; }
-.card-name { font-family:'Fredoka'; font-weight:600; font-size:1rem; color:var(--ink); }
+.card-name { font-family:'Outfit'; font-weight:600; font-size:1rem; color:var(--ink); }
 .card-meta { font-size:.78rem; color:var(--muted); line-height:1.45; }
 .card-tag  { display:inline-block; font-size:.68rem; font-weight:700; padding:2px 8px; border-radius:999px; letter-spacing:.04em; }
-.tag-clair  { background:#e0f7f7; color:var(--teal-deep); }
+.tag-clair  { background:#e0f7f7; color:#0b6e72; }
 .tag-sombre { background:#1e293b; color:#94a3b8; }
 .tag-mono   { background:#f1f5f9; color:#475569; }
-.tag-couleur{ background:linear-gradient(90deg,#0EA5A6,#2563EB); color:#fff; }
+.tag-couleur{ background:linear-gradient(90deg,#0EA5A6,#2c5282,#1e3a5f); color:#fff; }
+.tag-favicon{ background:#1e3a5f; color:#93c5fd; }
 
 /* Snippet block */
 .snippet-wrap { margin-top:auto; }
@@ -131,7 +138,7 @@ a  { color: var(--blue); text-decoration: none; }
 .copy-btn {
   font-size:.7rem; font-weight:600; padding:3px 10px;
   border-radius:999px; border:1px solid var(--line);
-  background:#fff; color:var(--teal-deep); cursor:pointer;
+  background:#fff; color:var(--marine); cursor:pointer;
   transition: background .1s, color .1s;
 }
 .copy-btn:hover { background:var(--teal); color:#fff; border-color:var(--teal); }
@@ -146,7 +153,7 @@ pre {
 .dl-btn {
   display:block; text-align:center; padding:8px 14px;
   border-radius:8px; border:1.5px solid var(--teal);
-  color:var(--teal-deep); font-weight:600; font-size:.82rem;
+  color:var(--marine); font-weight:600; font-size:.82rem;
   background:#f0fdfd; transition:all .15s; text-decoration:none;
   margin-top:8px;
 }
@@ -161,16 +168,29 @@ pre {
   font-size:.72rem; font-weight:700; padding:3px 12px;
   border-radius:999px; letter-spacing:.05em;
 }
-.pill-clair  { background:#e0f7f7; color:var(--teal-deep); }
+.pill-clair  { background:#e0f7f7; color:#0b6e72; }
 .pill-sombre { background:#1e293b; color:#7aa7ff; }
 .pill-mono   { background:#f1f5f9; color:#475569; }
-.pill-couleur{ background:linear-gradient(90deg,#0EA5A6,#2563EB); color:#fff; }
+.pill-couleur{ background:linear-gradient(90deg,#0EA5A6,#2c5282,#1e3a5f); color:#fff; }
+.pill-favicon{ background:#1e3a5f; color:#93c5fd; }
 
 /* TL;DR */
 .tldr { background:#fff; border:1.5px solid var(--teal); border-radius:14px; padding:18px 22px; margin:16px 0; }
-.tldr .lead { font-family:'Fredoka'; font-size:1rem; color:var(--teal-deep); font-weight:600; margin-bottom:6px; }
+.tldr .lead { font-family:'Outfit'; font-size:1rem; color:var(--marine); font-weight:700; margin-bottom:6px; }
 .tldr ul { padding-left:18px; font-size:.88rem; color:var(--ink-soft); }
 .tldr ul li { margin-bottom:4px; }
+
+/* Hover pivot */
+.pivot-container {
+  display:flex; align-items:center; justify-content:center;
+  padding:28px; min-height:140px;
+  background: var(--marine); border-bottom:1px solid #0f2540;
+}
+.pivot-icon {
+  transition: transform .4s ease;
+  cursor:pointer;
+}
+.pivot-icon:hover { transform: rotate(90deg); }
 
 /* Footer */
 .footer { margin-top:60px; padding-top:24px; border-top:1px solid var(--line); font-size:.82rem; color:var(--muted); text-align:center; }
@@ -189,7 +209,8 @@ pre {
   <div class="hero">
     <div class="eyebrow">IDENTITE DE MARQUE · KIT ASSETS</div>
     <h1>Kit de marque DIAGORIA</h1>
-    <p>Tous les assets SVG du logo officiel (#34 Arcs rayonnants), rangés par usage et par fond. Pour chaque variante : apercu rendu, nom du fichier, snippet inline copiable et bouton de téléchargement.</p>
+    <p>Version définitive. Dégradé Essai B (<code>#0EA5A6 → #2c5282 → #1e3a5f</code>), wordmark Outfit 700, variante favicon « D » pivot 90°. Tous les SVG sont prêts à l'usage.</p>
+    <div class="badge-definitif">VERSION FIGEE · 2026-06-23</div>
   </div>
 
   <div class="tldr">
@@ -198,8 +219,8 @@ pre {
       <li><strong>En-tête site / app fond clair</strong> → <code>logo-horizontal.svg</code></li>
       <li><strong>En-tête document officiel / mail</strong> → <code>logo-signature.svg</code></li>
       <li><strong>Dark mode / interface sombre</strong> → <code>logo-horizontal-nuit.svg</code></li>
-      <li><strong>App icon / avatar carré</strong> → <code>logo-empile.svg</code> ou <code>favicon.svg</code></li>
-      <li><strong>Favicon navigateur</strong> → <code>favicon.svg</code></li>
+      <li><strong>App icon / avatar carré</strong> → <code>logo-empile.svg</code></li>
+      <li><strong>Favicon navigateur / icône app</strong> → <code>favicon.svg</code> (tuile marine, pivot 90°)</li>
       <li><strong>Impression monochrome / fax</strong> → <code>logo-picto-mono.svg</code> + texte encre</li>
       <li><strong>Fond coloré dégradé</strong> → <code>logo-horizontal-blanc.svg</code></li>
       <li><strong>Variante créative (wordmark fusionné)</strong> → <code>logo-integre.svg</code></li>
@@ -212,12 +233,10 @@ pre {
     <a href="#signature">Avec signature</a>
     <a href="#empile">Empilé</a>
     <a href="#integre">Picto intégré</a>
-    <a href="#favicon">Favicon</a>
+    <a href="#favicon">Favicon « D »</a>
   </div>
 
-  <!-- ======================================================
-       SECTION PICTO SEUL
-       ====================================================== -->
+  <!-- ====================================================== PICTO SEUL -->
   <div class="section-label" id="picto">
     <h2>Picto seul</h2>
     <span class="pill pill-clair">3 variantes</span>
@@ -226,11 +245,14 @@ pre {
 
   <div class="asset-grid">
 
-    <!-- Picto couleur -->
     <div class="asset-card">
       <div class="stage">
         <svg viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg" width="88" height="88" id="svg-picto">
-          <defs><linearGradient id="pc1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0EA5A6"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+          <defs><linearGradient id="pc1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#0EA5A6"/>
+            <stop offset="0.5" stop-color="#2c5282"/>
+            <stop offset="1" stop-color="#1e3a5f"/>
+          </linearGradient></defs>
           <g fill="none" stroke="url(#pc1)" stroke-width="8" stroke-linecap="round">
             <path d="M14 72 a30 30 0 0 1 60 0"/>
             <path d="M28 72 a16 16 0 0 1 32 0"/>
@@ -240,16 +262,14 @@ pre {
       </div>
       <div class="card-body">
         <div class="card-name">Picto couleur <span class="card-tag tag-clair">fond clair</span></div>
-        <div class="card-meta">Dégradé teal→bleu + point ambre. Usage principal sur fond blanc ou brume.</div>
+        <div class="card-meta">Dégradé teal → bleu-mid → marine + point ambre. Usage principal sur fond blanc ou brume.</div>
         <div class="snippet-wrap">
-          <div class="snippet-head">
-            <span>SNIPPET INLINE</span>
-            <button class="copy-btn" onclick="copySnippet(this)">Copier</button>
-          </div>
+          <div class="snippet-head"><span>SNIPPET INLINE</span><button class="copy-btn" onclick="copySnippet(this)">Copier</button></div>
           <pre>&lt;svg viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg"&gt;
   &lt;defs&gt;&lt;linearGradient id="grad" x1="0" y1="0" x2="1" y2="1"&gt;
     &lt;stop offset="0" stop-color="#0EA5A6"/&gt;
-    &lt;stop offset="1" stop-color="#2563EB"/&gt;
+    &lt;stop offset="0.5" stop-color="#2c5282"/&gt;
+    &lt;stop offset="1" stop-color="#1e3a5f"/&gt;
   &lt;/linearGradient&gt;&lt;/defs&gt;
   &lt;g fill="none" stroke="url(#grad)"
      stroke-width="8" stroke-linecap="round"&gt;
@@ -258,44 +278,11 @@ pre {
   &lt;/g&gt;
   &lt;circle cx="44" cy="72" r="6" fill="#F59E0B"/&gt;
 &lt;/svg&gt;</pre>
-          <a class="dl-btn" href="assets/logo-picto.svg" download>Télécharger logo-picto.svg</a>
         </div>
+        <a class="dl-btn" href="assets/logo-picto.svg" download>Telecharger logo-picto.svg</a>
       </div>
     </div>
 
-    <!-- Picto mono -->
-    <div class="asset-card">
-      <div class="stage neutral">
-        <svg viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg" width="88" height="88">
-          <g fill="none" stroke="#0F172A" stroke-width="8" stroke-linecap="round">
-            <path d="M14 72 a30 30 0 0 1 60 0"/>
-            <path d="M28 72 a16 16 0 0 1 32 0"/>
-          </g>
-          <circle cx="44" cy="72" r="6" fill="#0F172A"/>
-        </svg>
-      </div>
-      <div class="card-body">
-        <div class="card-name">Picto monochrome <span class="card-tag tag-mono">mono</span></div>
-        <div class="card-meta">Encre pure #0F172A. Pour impression monochrome, tampon, broderie, gravure.</div>
-        <div class="snippet-wrap">
-          <div class="snippet-head">
-            <span>SNIPPET INLINE</span>
-            <button class="copy-btn" onclick="copySnippet(this)">Copier</button>
-          </div>
-          <pre>&lt;svg viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg"&gt;
-  &lt;g fill="none" stroke="#0F172A"
-     stroke-width="8" stroke-linecap="round"&gt;
-    &lt;path d="M14 72 a30 30 0 0 1 60 0"/&gt;
-    &lt;path d="M28 72 a16 16 0 0 1 32 0"/&gt;
-  &lt;/g&gt;
-  &lt;circle cx="44" cy="72" r="6" fill="#0F172A"/&gt;
-&lt;/svg&gt;</pre>
-          <a class="dl-btn" href="assets/logo-picto-mono.svg" download>Télécharger logo-picto-mono.svg</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Picto blanc -->
     <div class="asset-card">
       <div class="stage dark">
         <svg viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg" width="88" height="88">
@@ -308,60 +295,65 @@ pre {
       </div>
       <div class="card-body">
         <div class="card-name">Picto blanc <span class="card-tag tag-sombre">fond sombre</span></div>
-        <div class="card-meta">Arcs blancs + point ambre. Sur fond encre, couleur foncée, photo sombre.</div>
-        <div class="snippet-wrap">
-          <div class="snippet-head">
-            <span>SNIPPET INLINE</span>
-            <button class="copy-btn" onclick="copySnippet(this)">Copier</button>
-          </div>
-          <pre>&lt;svg viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg"&gt;
-  &lt;g fill="none" stroke="#FFFFFF"
-     stroke-width="8" stroke-linecap="round"&gt;
-    &lt;path d="M14 72 a30 30 0 0 1 60 0"/&gt;
-    &lt;path d="M28 72 a16 16 0 0 1 32 0"/&gt;
-  &lt;/g&gt;
-  &lt;circle cx="44" cy="72" r="6" fill="#F59E0B"/&gt;
-&lt;/svg&gt;</pre>
-          <a class="dl-btn" href="assets/logo-picto-blanc.svg" download>Télécharger logo-picto-blanc.svg</a>
-        </div>
+        <div class="card-meta">Arcs blancs + point ambre. Pour dark mode, fonds marines, photos sombres.</div>
+        <a class="dl-btn" href="assets/logo-picto-blanc.svg" download>Telecharger logo-picto-blanc.svg</a>
       </div>
     </div>
 
-  </div><!-- /asset-grid picto -->
+    <div class="asset-card">
+      <div class="stage neutral">
+        <svg viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg" width="88" height="88">
+          <g fill="none" stroke="#0F172A" stroke-width="8" stroke-linecap="round">
+            <path d="M14 72 a30 30 0 0 1 60 0"/>
+            <path d="M28 72 a16 16 0 0 1 32 0"/>
+          </g>
+          <circle cx="44" cy="72" r="6" fill="#0F172A"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Picto monochrome <span class="card-tag tag-mono">impression</span></div>
+        <div class="card-meta">Encre pure <code>#0F172A</code>. Fax, tampons, impression noir et blanc.</div>
+        <a class="dl-btn" href="assets/logo-picto-mono.svg" download>Telecharger logo-picto-mono.svg</a>
+      </div>
+    </div>
 
-  <!-- ======================================================
-       SECTION HORIZONTAL
-       ====================================================== -->
-  <div class="section-label" id="horizontal">
-    <h2>Logo + DIAGORIA · Horizontal</h2>
-    <span class="pill pill-clair">3 variantes</span>
   </div>
-  <p>Le lock-up principal. Picto à gauche, nom à droite. Usage en-tête de site, barre de navigation, facture, carte de visite.</p>
+
+  <!-- ====================================================== HORIZONTAL -->
+  <div class="section-label" id="horizontal">
+    <h2>Lock-up horizontal</h2>
+    <span class="pill pill-couleur">2 variantes</span>
+  </div>
+  <p>Usage principal : en-tête site, app, email, print. Picto à gauche, wordmark Outfit 700 à droite.</p>
 
   <div class="asset-grid">
 
-    <!-- Horizontal fond clair -->
     <div class="asset-card">
       <div class="stage">
         <svg viewBox="0 0 260 100" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="h1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0EA5A6"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
-          <g fill="none" stroke="url(#h1)" stroke-width="8" stroke-linecap="round">
+          <defs><linearGradient id="hc1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#0EA5A6"/>
+            <stop offset="0.5" stop-color="#2c5282"/>
+            <stop offset="1" stop-color="#1e3a5f"/>
+          </linearGradient></defs>
+          <g fill="none" stroke="url(#hc1)" stroke-width="8" stroke-linecap="round">
             <path d="M14 72 a30 30 0 0 1 60 0"/>
             <path d="M28 72 a16 16 0 0 1 32 0"/>
           </g>
           <circle cx="44" cy="72" r="6" fill="#F59E0B"/>
-          <text x="88" y="66" font-family="Fredoka, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#0F172A">DIAGORIA</text>
+          <text x="88" y="68" font-family="Outfit, sans-serif" font-weight="700" font-size="30" letter-spacing="2.4" fill="#0F172A">DIAGORIA</text>
         </svg>
       </div>
       <div class="card-body">
-        <div class="card-name">Horizontal · fond clair <span class="card-tag tag-clair">34-A</span></div>
-        <div class="card-meta">Version principale. En-tête site, nav, facture. Fredoka 600 encre sur fond blanc/brume.</div>
+        <div class="card-name">Horizontal couleur <span class="card-tag tag-clair">fond clair</span></div>
+        <div class="card-meta">Dégradé Essai B sur le picto, wordmark encre. L'usage le plus fréquent.</div>
         <div class="snippet-wrap">
-          <div class="snippet-head"><span>SNIPPET</span><button class="copy-btn" onclick="copySnippet(this)">Copier</button></div>
+          <div class="snippet-head"><span>SNIPPET INLINE</span><button class="copy-btn" onclick="copySnippet(this)">Copier</button></div>
           <pre>&lt;svg viewBox="0 0 260 100" xmlns="http://www.w3.org/2000/svg"&gt;
   &lt;defs&gt;&lt;linearGradient id="grad" x1="0" y1="0" x2="1" y2="1"&gt;
     &lt;stop offset="0" stop-color="#0EA5A6"/&gt;
-    &lt;stop offset="1" stop-color="#2563EB"/&gt;
+    &lt;stop offset="0.5" stop-color="#2c5282"/&gt;
+    &lt;stop offset="1" stop-color="#1e3a5f"/&gt;
   &lt;/linearGradient&gt;&lt;/defs&gt;
   &lt;g fill="none" stroke="url(#grad)"
      stroke-width="8" stroke-linecap="round"&gt;
@@ -369,421 +361,270 @@ pre {
     &lt;path d="M28 72 a16 16 0 0 1 32 0"/&gt;
   &lt;/g&gt;
   &lt;circle cx="44" cy="72" r="6" fill="#F59E0B"/&gt;
-  &lt;text x="88" y="66" font-family="Fredoka, sans-serif"
-    font-weight="600" font-size="30" letter-spacing="1"
-    fill="#0F172A"&gt;DIAGORIA&lt;/text&gt;
+  &lt;text x="88" y="68"
+    font-family="Outfit, sans-serif"
+    font-weight="700" font-size="30"
+    letter-spacing="2.4" fill="#0F172A"&gt;DIAGORIA&lt;/text&gt;
 &lt;/svg&gt;</pre>
-          <a class="dl-btn" href="assets/logo-horizontal.svg" download>Télécharger logo-horizontal.svg</a>
         </div>
+        <a class="dl-btn" href="assets/logo-horizontal.svg" download>Telecharger logo-horizontal.svg</a>
       </div>
     </div>
 
-    <!-- Horizontal texte blanc -->
-    <div class="asset-card">
-      <div class="stage color">
-        <svg viewBox="0 0 260 100" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="h2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0EA5A6"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
-          <g fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round">
-            <path d="M14 72 a30 30 0 0 1 60 0"/>
-            <path d="M28 72 a16 16 0 0 1 32 0"/>
-          </g>
-          <circle cx="44" cy="72" r="6" fill="#F59E0B"/>
-          <text x="88" y="66" font-family="Fredoka, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#FFFFFF">DIAGORIA</text>
-        </svg>
-      </div>
-      <div class="card-body">
-        <div class="card-name">Horizontal · texte blanc <span class="card-tag tag-couleur">fond coloré</span></div>
-        <div class="card-meta">Arcs blancs + nom blanc. Sur fond dégradé teal→bleu, bannière colorée, hero section.</div>
-        <div class="snippet-wrap">
-          <div class="snippet-head"><span>SNIPPET</span><button class="copy-btn" onclick="copySnippet(this)">Copier</button></div>
-          <pre>&lt;svg viewBox="0 0 260 100" xmlns="http://www.w3.org/2000/svg"&gt;
-  &lt;g fill="none" stroke="#FFFFFF"
-     stroke-width="8" stroke-linecap="round"&gt;
-    &lt;path d="M14 72 a30 30 0 0 1 60 0"/&gt;
-    &lt;path d="M28 72 a16 16 0 0 1 32 0"/&gt;
-  &lt;/g&gt;
-  &lt;circle cx="44" cy="72" r="6" fill="#F59E0B"/&gt;
-  &lt;text x="88" y="66" font-family="Fredoka, sans-serif"
-    font-weight="600" font-size="30" letter-spacing="1"
-    fill="#FFFFFF"&gt;DIAGORIA&lt;/text&gt;
-&lt;/svg&gt;</pre>
-          <a class="dl-btn" href="assets/logo-horizontal-blanc.svg" download>Télécharger logo-horizontal-blanc.svg</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Horizontal nuit -->
     <div class="asset-card">
       <div class="stage dark">
         <svg viewBox="0 0 260 100" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="h3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#33d6d6"/><stop offset="1" stop-color="#7aa7ff"/></linearGradient></defs>
-          <g fill="none" stroke="url(#h3)" stroke-width="8" stroke-linecap="round">
+          <defs><linearGradient id="hc2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#22d3d4"/>
+            <stop offset="0.5" stop-color="#5b8bd4"/>
+            <stop offset="1" stop-color="#7aa7ff"/>
+          </linearGradient></defs>
+          <g fill="none" stroke="url(#hc2)" stroke-width="8" stroke-linecap="round">
             <path d="M14 72 a30 30 0 0 1 60 0"/>
             <path d="M28 72 a16 16 0 0 1 32 0"/>
           </g>
           <circle cx="44" cy="72" r="6" fill="#F59E0B"/>
-          <text x="88" y="66" font-family="Fredoka, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#ffffff">DIAGORIA</text>
+          <text x="88" y="68" font-family="Outfit, sans-serif" font-weight="700" font-size="30" letter-spacing="2.4" fill="#FFFFFF">DIAGORIA</text>
         </svg>
       </div>
       <div class="card-body">
-        <div class="card-name">Horizontal · version nuit <span class="card-tag tag-sombre">34-E</span></div>
-        <div class="card-meta">Fond encre inclus. Arcs en teal clair #33d6d6→bleu clair #7aa7ff. Dark mode, slide sombre.</div>
-        <div class="snippet-wrap">
-          <div class="snippet-head"><span>SNIPPET</span><button class="copy-btn" onclick="copySnippet(this)">Copier</button></div>
-          <pre>&lt;svg viewBox="0 0 260 100" xmlns="http://www.w3.org/2000/svg"&gt;
-  &lt;rect width="260" height="100" fill="#0F172A"/&gt;
-  &lt;defs&gt;&lt;linearGradient id="grad" x1="0" y1="0" x2="1" y2="1"&gt;
-    &lt;stop offset="0" stop-color="#33d6d6"/&gt;
-    &lt;stop offset="1" stop-color="#7aa7ff"/&gt;
-  &lt;/linearGradient&gt;&lt;/defs&gt;
-  &lt;g fill="none" stroke="url(#grad)"
-     stroke-width="8" stroke-linecap="round"&gt;
-    &lt;path d="M14 72 a30 30 0 0 1 60 0"/&gt;
-    &lt;path d="M28 72 a16 16 0 0 1 32 0"/&gt;
-  &lt;/g&gt;
-  &lt;circle cx="44" cy="72" r="6" fill="#F59E0B"/&gt;
-  &lt;text x="88" y="66" font-family="Fredoka, sans-serif"
-    font-weight="600" font-size="30" letter-spacing="1"
-    fill="#FFFFFF"&gt;DIAGORIA&lt;/text&gt;
-&lt;/svg&gt;</pre>
-          <a class="dl-btn" href="assets/logo-horizontal-nuit.svg" download>Télécharger logo-horizontal-nuit.svg</a>
-        </div>
+        <div class="card-name">Horizontal nuit <span class="card-tag tag-sombre">fond sombre</span></div>
+        <div class="card-meta">Version éclaircic du dégradé (teal clair → bleu moyen → bleu clair), wordmark blanc.</div>
+        <a class="dl-btn" href="assets/logo-horizontal-nuit.svg" download>Telecharger logo-horizontal-nuit.svg</a>
       </div>
     </div>
 
-  </div><!-- /horizontal -->
+    <div class="asset-card">
+      <div class="stage color">
+        <svg viewBox="0 0 260 100" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="hc3" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#0EA5A6"/>
+            <stop offset="0.5" stop-color="#2c5282"/>
+            <stop offset="1" stop-color="#1e3a5f"/>
+          </linearGradient></defs>
+          <g fill="none" stroke="url(#hc3)" stroke-width="8" stroke-linecap="round">
+            <path d="M14 72 a30 30 0 0 1 60 0"/>
+            <path d="M28 72 a16 16 0 0 1 32 0"/>
+          </g>
+          <circle cx="44" cy="72" r="6" fill="#F59E0B"/>
+          <text x="88" y="68" font-family="Outfit, sans-serif" font-weight="700" font-size="30" letter-spacing="2.4" fill="#FFFFFF">DIAGORIA</text>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Horizontal blanc <span class="card-tag tag-couleur">fond dégradé</span></div>
+        <div class="card-meta">Wordmark blanc. Pour bannières dégradées, fonds photographiques sombres.</div>
+        <a class="dl-btn" href="assets/logo-horizontal-blanc.svg" download>Telecharger logo-horizontal-blanc.svg</a>
+      </div>
+    </div>
 
-  <!-- ======================================================
-       SECTION SIGNATURE
-       ====================================================== -->
+  </div>
+
+  <!-- ====================================================== SIGNATURE -->
   <div class="section-label" id="signature">
-    <h2>Logo + DIAGORIA + Assistant clinique · Signature</h2>
+    <h2>Avec signature</h2>
     <span class="pill pill-clair">2 variantes</span>
   </div>
-  <p>La version la plus complète. Idéale pour les en-têtes de documents officiels : comptes-rendus, ordonnances, PDF envoyés aux patients.</p>
+  <p>Baseline « ASSISTANT CLINIQUE » en Inter 500, letter-spacing 2.5 px. Pour en-têtes de documents officiels, emails professionnels.</p>
 
   <div class="asset-grid">
 
-    <!-- Signature fond clair -->
     <div class="asset-card">
-      <div class="stage white" style="min-height:160px;">
+      <div class="stage">
         <svg viewBox="0 0 260 110" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="s1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0EA5A6"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
-          <g fill="none" stroke="url(#s1)" stroke-width="8" stroke-linecap="round">
+          <defs><linearGradient id="sc1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#0EA5A6"/>
+            <stop offset="0.5" stop-color="#2c5282"/>
+            <stop offset="1" stop-color="#1e3a5f"/>
+          </linearGradient></defs>
+          <g fill="none" stroke="url(#sc1)" stroke-width="8" stroke-linecap="round">
             <path d="M14 68 a30 30 0 0 1 60 0"/>
             <path d="M28 68 a16 16 0 0 1 32 0"/>
           </g>
           <circle cx="44" cy="68" r="6" fill="#F59E0B"/>
-          <text x="88" y="62" font-family="Fredoka, sans-serif" font-weight="600" font-size="28" letter-spacing="1" fill="#0F172A">DIAGORIA</text>
-          <line x1="88" y1="70" x2="258" y2="70" stroke="#0EA5A6" stroke-width="1.2" opacity=".5"/>
-          <text x="88" y="85" font-family="Inter, sans-serif" font-weight="500" font-size="11" letter-spacing="2.5" fill="#64748B">ASSISTANT CLINIQUE</text>
+          <text x="88" y="64" font-family="Outfit, sans-serif" font-weight="700" font-size="28" letter-spacing="2.2" fill="#0F172A">DIAGORIA</text>
+          <line x1="88" y1="72" x2="258" y2="72" stroke="#0EA5A6" stroke-width="1.2" opacity=".5"/>
+          <text x="88" y="87" font-family="Inter, sans-serif" font-weight="500" font-size="11" letter-spacing="2.5" fill="#64748B">ASSISTANT CLINIQUE</text>
         </svg>
       </div>
       <div class="card-body">
-        <div class="card-name">Avec signature · fond clair <span class="card-tag tag-clair">34-C</span></div>
-        <div class="card-meta">Picto + DIAGORIA + filet teal + ASSISTANT CLINIQUE. En-tête premium document médical.</div>
-        <div class="snippet-wrap">
-          <div class="snippet-head"><span>SNIPPET</span><button class="copy-btn" onclick="copySnippet(this)">Copier</button></div>
-          <pre>&lt;svg viewBox="0 0 260 110" xmlns="http://www.w3.org/2000/svg"&gt;
-  &lt;defs&gt;&lt;linearGradient id="grad" x1="0" y1="0" x2="1" y2="1"&gt;
-    &lt;stop offset="0" stop-color="#0EA5A6"/&gt;
-    &lt;stop offset="1" stop-color="#2563EB"/&gt;
-  &lt;/linearGradient&gt;&lt;/defs&gt;
-  &lt;g fill="none" stroke="url(#grad)"
-     stroke-width="8" stroke-linecap="round"&gt;
-    &lt;path d="M14 68 a30 30 0 0 1 60 0"/&gt;
-    &lt;path d="M28 68 a16 16 0 0 1 32 0"/&gt;
-  &lt;/g&gt;
-  &lt;circle cx="44" cy="68" r="6" fill="#F59E0B"/&gt;
-  &lt;text x="88" y="62" font-family="Fredoka, sans-serif"
-    font-weight="600" font-size="28" letter-spacing="1"
-    fill="#0F172A"&gt;DIAGORIA&lt;/text&gt;
-  &lt;line x1="88" y1="70" x2="258" y2="70"
-    stroke="#0EA5A6" stroke-width="1.2" opacity=".5"/&gt;
-  &lt;text x="88" y="85" font-family="Inter, sans-serif"
-    font-weight="500" font-size="11" letter-spacing="2.5"
-    fill="#64748B"&gt;ASSISTANT CLINIQUE&lt;/text&gt;
-&lt;/svg&gt;</pre>
-          <a class="dl-btn" href="assets/logo-signature.svg" download>Télécharger logo-signature.svg</a>
-        </div>
+        <div class="card-name">Signature couleur <span class="card-tag tag-clair">fond clair</span></div>
+        <div class="card-meta">Version complète avec baseline. En-têtes documents, mails, print.</div>
+        <a class="dl-btn" href="assets/logo-signature.svg" download>Telecharger logo-signature.svg</a>
       </div>
     </div>
 
-    <!-- Signature nuit -->
     <div class="asset-card">
-      <div class="stage dark" style="min-height:160px;">
+      <div class="stage dark">
         <svg viewBox="0 0 260 110" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="s2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#33d6d6"/><stop offset="1" stop-color="#7aa7ff"/></linearGradient></defs>
-          <g fill="none" stroke="url(#s2)" stroke-width="8" stroke-linecap="round">
+          <defs><linearGradient id="sc2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#22d3d4"/>
+            <stop offset="0.5" stop-color="#5b8bd4"/>
+            <stop offset="1" stop-color="#7aa7ff"/>
+          </linearGradient></defs>
+          <g fill="none" stroke="url(#sc2)" stroke-width="8" stroke-linecap="round">
             <path d="M14 68 a30 30 0 0 1 60 0"/>
             <path d="M28 68 a16 16 0 0 1 32 0"/>
           </g>
           <circle cx="44" cy="68" r="6" fill="#F59E0B"/>
-          <text x="88" y="62" font-family="Fredoka, sans-serif" font-weight="600" font-size="28" letter-spacing="1" fill="#FFFFFF">DIAGORIA</text>
-          <line x1="88" y1="70" x2="258" y2="70" stroke="#33d6d6" stroke-width="1.2" opacity=".5"/>
-          <text x="88" y="85" font-family="Inter, sans-serif" font-weight="500" font-size="11" letter-spacing="2.5" fill="#94A3B8">ASSISTANT CLINIQUE</text>
+          <text x="88" y="64" font-family="Outfit, sans-serif" font-weight="700" font-size="28" letter-spacing="2.2" fill="#FFFFFF">DIAGORIA</text>
+          <line x1="88" y1="72" x2="258" y2="72" stroke="#22d3d4" stroke-width="1.2" opacity=".5"/>
+          <text x="88" y="87" font-family="Inter, sans-serif" font-weight="500" font-size="11" letter-spacing="2.5" fill="#94A3B8">ASSISTANT CLINIQUE</text>
         </svg>
       </div>
       <div class="card-body">
-        <div class="card-name">Avec signature · version nuit <span class="card-tag tag-sombre">nuit</span></div>
-        <div class="card-meta">Fond encre inclus. Arcs teal clair, nom blanc, baseline gris clair. Slide sombre, app dark.</div>
-        <div class="snippet-wrap">
-          <div class="snippet-head"><span>SNIPPET</span><button class="copy-btn" onclick="copySnippet(this)">Copier</button></div>
-          <pre>&lt;svg viewBox="0 0 260 110" xmlns="http://www.w3.org/2000/svg"&gt;
-  &lt;rect width="260" height="110" fill="#0F172A"/&gt;
-  &lt;defs&gt;&lt;linearGradient id="grad" x1="0" y1="0" x2="1" y2="1"&gt;
-    &lt;stop offset="0" stop-color="#33d6d6"/&gt;
-    &lt;stop offset="1" stop-color="#7aa7ff"/&gt;
-  &lt;/linearGradient&gt;&lt;/defs&gt;
-  &lt;g fill="none" stroke="url(#grad)"
-     stroke-width="8" stroke-linecap="round"&gt;
-    &lt;path d="M14 68 a30 30 0 0 1 60 0"/&gt;
-    &lt;path d="M28 68 a16 16 0 0 1 32 0"/&gt;
-  &lt;/g&gt;
-  &lt;circle cx="44" cy="68" r="6" fill="#F59E0B"/&gt;
-  &lt;text x="88" y="62" font-family="Fredoka, sans-serif"
-    font-weight="600" font-size="28" letter-spacing="1"
-    fill="#FFFFFF"&gt;DIAGORIA&lt;/text&gt;
-  &lt;line x1="88" y1="70" x2="258" y2="70"
-    stroke="#33d6d6" stroke-width="1.2" opacity=".5"/&gt;
-  &lt;text x="88" y="85" font-family="Inter, sans-serif"
-    font-weight="500" font-size="11" letter-spacing="2.5"
-    fill="#94A3B8"&gt;ASSISTANT CLINIQUE&lt;/text&gt;
-&lt;/svg&gt;</pre>
-          <a class="dl-btn" href="assets/logo-signature-nuit.svg" download>Télécharger logo-signature-nuit.svg</a>
-        </div>
+        <div class="card-name">Signature nuit <span class="card-tag tag-sombre">fond sombre</span></div>
+        <div class="card-meta">Dark mode avec baseline. Interface sombre, présentations.</div>
+        <a class="dl-btn" href="assets/logo-signature-nuit.svg" download>Telecharger logo-signature-nuit.svg</a>
       </div>
     </div>
 
-  </div><!-- /signature -->
+  </div>
 
-  <!-- ======================================================
-       SECTION EMPILÉ
-       ====================================================== -->
+  <!-- ====================================================== EMPILE -->
   <div class="section-label" id="empile">
-    <h2>Logo empilé</h2>
+    <h2>Empilé</h2>
     <span class="pill pill-clair">1 variante</span>
   </div>
-  <p>Format carré : picto centré au-dessus, nom centré dessous. App icon, avatar réseau social, badge de profil.</p>
+  <p>Picto centré au-dessus du wordmark. Pour avatars carrés, profils réseaux sociaux, vignettes.</p>
 
   <div class="asset-grid">
     <div class="asset-card">
-      <div class="stage neutral" style="min-height:180px;">
-        <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" width="160" height="128">
-          <defs><linearGradient id="e1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0EA5A6"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
-          <g fill="none" stroke="url(#e1)" stroke-width="8" stroke-linecap="round">
+      <div class="stage neutral">
+        <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" style="max-height:130px;">
+          <defs><linearGradient id="ec1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#0EA5A6"/>
+            <stop offset="0.5" stop-color="#2c5282"/>
+            <stop offset="1" stop-color="#1e3a5f"/>
+          </linearGradient></defs>
+          <g fill="none" stroke="url(#ec1)" stroke-width="8" stroke-linecap="round">
             <path d="M70 82 a30 30 0 0 1 60 0"/>
             <path d="M84 82 a16 16 0 0 1 32 0"/>
           </g>
           <circle cx="100" cy="82" r="6" fill="#F59E0B"/>
-          <text x="100" y="126" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="600" font-size="26" letter-spacing="1" fill="#0F172A">DIAGORIA</text>
+          <text x="100" y="128" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="26" letter-spacing="2" fill="#0F172A">DIAGORIA</text>
         </svg>
       </div>
       <div class="card-body">
-        <div class="card-name">Empilé carré <span class="card-tag tag-clair">34-B</span></div>
-        <div class="card-meta">Picto centré au-dessus, nom dessous. Format app store, badge LinkedIn, avatar carré.</div>
-        <div class="snippet-wrap">
-          <div class="snippet-head"><span>SNIPPET</span><button class="copy-btn" onclick="copySnippet(this)">Copier</button></div>
-          <pre>&lt;svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg"&gt;
-  &lt;defs&gt;&lt;linearGradient id="grad" x1="0" y1="0" x2="1" y2="1"&gt;
-    &lt;stop offset="0" stop-color="#0EA5A6"/&gt;
-    &lt;stop offset="1" stop-color="#2563EB"/&gt;
-  &lt;/linearGradient&gt;&lt;/defs&gt;
-  &lt;g fill="none" stroke="url(#grad)"
-     stroke-width="8" stroke-linecap="round"&gt;
-    &lt;path d="M70 82 a30 30 0 0 1 60 0"/&gt;
-    &lt;path d="M84 82 a16 16 0 0 1 32 0"/&gt;
-  &lt;/g&gt;
-  &lt;circle cx="100" cy="82" r="6" fill="#F59E0B"/&gt;
-  &lt;text x="100" y="126" text-anchor="middle"
-    font-family="Fredoka, sans-serif"
-    font-weight="600" font-size="26" letter-spacing="1"
-    fill="#0F172A"&gt;DIAGORIA&lt;/text&gt;
-&lt;/svg&gt;</pre>
-          <a class="dl-btn" href="assets/logo-empile.svg" download>Télécharger logo-empile.svg</a>
-        </div>
+        <div class="card-name">Empilé couleur <span class="card-tag tag-clair">fond clair</span></div>
+        <div class="card-meta">Composition verticale. Pour les espaces carrés sans le favicon.</div>
+        <a class="dl-btn" href="assets/logo-empile.svg" download>Telecharger logo-empile.svg</a>
       </div>
     </div>
-  </div><!-- /empile -->
-
-  <!-- ======================================================
-       SECTION INTÉGRÉ
-       ====================================================== -->
-  <div class="section-label" id="integre">
-    <h2>Picto intégré dans le mot</h2>
-    <span class="pill pill-clair">1 variante</span>
   </div>
-  <p>Les arcs rayonnants remplacent le « O » de DIAG●RIA. Le signal vit dans le mot lui-même. Variante créative, usage rédactionnel, titres, couvertures.</p>
+
+  <!-- ====================================================== INTEGRE -->
+  <div class="section-label" id="integre">
+    <h2>Picto intégré dans le wordmark</h2>
+    <span class="pill pill-couleur">1 variante</span>
+  </div>
+  <p>Le « O » de DIAGORIA est remplacé par le picto (2 arcs + point ambre). Variante créative pour usages distinctifs.</p>
 
   <div class="asset-grid">
     <div class="asset-card">
       <div class="stage">
         <svg viewBox="0 0 260 100" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="i1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0EA5A6"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
-          <text x="12" y="70" font-family="Fredoka, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#0F172A">DIAG</text>
-          <g fill="none" stroke="url(#i1)" stroke-width="7" stroke-linecap="round">
+          <defs><linearGradient id="ic1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#0EA5A6"/>
+            <stop offset="0.5" stop-color="#2c5282"/>
+            <stop offset="1" stop-color="#1e3a5f"/>
+          </linearGradient></defs>
+          <text x="12" y="70" font-family="Outfit, sans-serif" font-weight="700" font-size="30" letter-spacing="1" fill="#0F172A">DIAG</text>
+          <g fill="none" stroke="url(#ic1)" stroke-width="7" stroke-linecap="round">
             <path d="M100 70 a18 18 0 0 1 36 0"/>
             <path d="M108 70 a10 10 0 0 1 20 0"/>
           </g>
           <circle cx="118" cy="70" r="4.5" fill="#F59E0B"/>
-          <text x="142" y="70" font-family="Fredoka, sans-serif" font-weight="600" font-size="30" letter-spacing="1" fill="#0F172A">RIA</text>
+          <text x="142" y="70" font-family="Outfit, sans-serif" font-weight="700" font-size="30" letter-spacing="1" fill="#0F172A">RIA</text>
         </svg>
       </div>
       <div class="card-body">
-        <div class="card-name">Picto intégré <span class="card-tag tag-clair">34-D</span></div>
-        <div class="card-meta">Les arcs + point ambre remplacent le « O ». Wordmark et symbole fusionnent. Variante créative.</div>
-        <div class="snippet-wrap">
-          <div class="snippet-head"><span>SNIPPET</span><button class="copy-btn" onclick="copySnippet(this)">Copier</button></div>
-          <pre>&lt;svg viewBox="0 0 260 100" xmlns="http://www.w3.org/2000/svg"&gt;
-  &lt;defs&gt;&lt;linearGradient id="grad" x1="0" y1="0" x2="1" y2="1"&gt;
-    &lt;stop offset="0" stop-color="#0EA5A6"/&gt;
-    &lt;stop offset="1" stop-color="#2563EB"/&gt;
-  &lt;/linearGradient&gt;&lt;/defs&gt;
-  &lt;text x="12" y="70" font-family="Fredoka, sans-serif"
-    font-weight="600" font-size="30" letter-spacing="1"
-    fill="#0F172A"&gt;DIAG&lt;/text&gt;
-  &lt;g fill="none" stroke="url(#grad)"
-     stroke-width="7" stroke-linecap="round"&gt;
-    &lt;path d="M100 70 a18 18 0 0 1 36 0"/&gt;
-    &lt;path d="M108 70 a10 10 0 0 1 20 0"/&gt;
-  &lt;/g&gt;
-  &lt;circle cx="118" cy="70" r="4.5" fill="#F59E0B"/&gt;
-  &lt;text x="142" y="70" font-family="Fredoka, sans-serif"
-    font-weight="600" font-size="30" letter-spacing="1"
-    fill="#0F172A"&gt;RIA&lt;/text&gt;
-&lt;/svg&gt;</pre>
-          <a class="dl-btn" href="assets/logo-integre.svg" download>Télécharger logo-integre.svg</a>
-        </div>
+        <div class="card-name">Picto intégré <span class="card-tag tag-couleur">créatif</span></div>
+        <div class="card-meta">Le « O » devient le picto. Pour les usages créatifs : t-shirt, badges, visuels distinctifs.</div>
+        <a class="dl-btn" href="assets/logo-integre.svg" download>Telecharger logo-integre.svg</a>
       </div>
     </div>
-  </div><!-- /integre -->
-
-  <!-- ======================================================
-       SECTION FAVICON
-       ====================================================== -->
-  <div class="section-label" id="favicon">
-    <h2>Favicon</h2>
-    <span class="pill pill-clair">1 variante</span>
   </div>
-  <p>Tuile carrée arrondie avec le dégradé encre→bleu en fond, arcs teal clair + point ambre. Lisible dès 16 px — test ci-dessous.</p>
+
+  <!-- ====================================================== FAVICON -->
+  <div class="section-label" id="favicon">
+    <h2>Favicon / icône app — variante « D »</h2>
+    <span class="pill pill-favicon">pivot 90°</span>
+  </div>
+  <p>Le picto basculé à 90° autour du point ambre forme la lettre <strong>D</strong>. Tuile bleu marine <code>#1e3a5f</code>, arcs blancs, point ambre. Au survol (web) : rotation 90° via CSS.</p>
 
   <div class="asset-grid">
     <div class="asset-card">
-      <div class="stage neutral" style="gap:20px;flex-wrap:wrap;">
-        <!-- 3 tailles de démonstration -->
-        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
-          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="64" height="64">
-            <rect width="32" height="32" rx="7" fill="url(#fvg1)"/>
-            <defs>
-              <linearGradient id="fvg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B6E72"/><stop offset="1" stop-color="#2563EB"/></linearGradient>
-              <linearGradient id="fva1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#33d6d6"/><stop offset="1" stop-color="#7aa7ff"/></linearGradient>
-            </defs>
-            <g fill="none" stroke="url(#fva1)" stroke-width="2.8" stroke-linecap="round">
-              <path d="M5 24 a11 11 0 0 1 22 0"/>
-              <path d="M10 24 a6 6 0 0 1 12 0"/>
+      <div class="pivot-container">
+        <svg class="pivot-icon" viewBox="8 22 100 100" xmlns="http://www.w3.org/2000/svg" width="80" height="80" title="Survolez pour voir la rotation">
+          <rect x="8" y="22" width="100" height="100" rx="20" fill="#1e3a5f"/>
+          <g transform="translate(4.5,0)">
+            <g transform="rotate(90 44 72)" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round">
+              <path d="M14 72 a30 30 0 0 1 60 0"/>
+              <path d="M28 72 a16 16 0 0 1 32 0"/>
             </g>
-            <circle cx="16" cy="24" r="2.2" fill="#F59E0B"/>
-          </svg>
-          <span style="font-size:.7rem;color:var(--muted);">64 px</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
-          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
-            <rect width="32" height="32" rx="7" fill="url(#fvg2)"/>
-            <defs>
-              <linearGradient id="fvg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B6E72"/><stop offset="1" stop-color="#2563EB"/></linearGradient>
-              <linearGradient id="fva2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#33d6d6"/><stop offset="1" stop-color="#7aa7ff"/></linearGradient>
-            </defs>
-            <g fill="none" stroke="url(#fva2)" stroke-width="2.8" stroke-linecap="round">
-              <path d="M5 24 a11 11 0 0 1 22 0"/>
-              <path d="M10 24 a6 6 0 0 1 12 0"/>
-            </g>
-            <circle cx="16" cy="24" r="2.2" fill="#F59E0B"/>
-          </svg>
-          <span style="font-size:.7rem;color:var(--muted);">32 px</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
-          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-            <rect width="32" height="32" rx="7" fill="url(#fvg3)"/>
-            <defs>
-              <linearGradient id="fvg3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B6E72"/><stop offset="1" stop-color="#2563EB"/></linearGradient>
-              <linearGradient id="fva3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#33d6d6"/><stop offset="1" stop-color="#7aa7ff"/></linearGradient>
-            </defs>
-            <g fill="none" stroke="url(#fva3)" stroke-width="2.8" stroke-linecap="round">
-              <path d="M5 24 a11 11 0 0 1 22 0"/>
-              <path d="M10 24 a6 6 0 0 1 12 0"/>
-            </g>
-            <circle cx="16" cy="24" r="2.2" fill="#F59E0B"/>
-          </svg>
-          <span style="font-size:.7rem;color:var(--muted);">16 px</span>
-        </div>
+            <circle cx="44" cy="72" r="6.5" fill="#F59E0B"/>
+          </g>
+        </svg>
       </div>
       <div class="card-body">
-        <div class="card-name">Favicon SVG <span class="card-tag tag-sombre">tuile 32×32</span></div>
-        <div class="card-meta">Tuile dégradé encre→bleu, arcs teal clair lumineux. Lisible de 16 à 512 px. A placer dans <code>&lt;link rel="icon"&gt;</code>.</div>
+        <div class="card-name">Favicon « D » <span class="card-tag tag-favicon">tuile marine</span></div>
+        <div class="card-meta">Tuile <code>#1e3a5f</code> + arcs blancs pivotés à 90° + point ambre <code>#F59E0B</code>. Survolez pour voir l'animation de la rotation (pivot CSS).</div>
         <div class="snippet-wrap">
-          <div class="snippet-head"><span>SNIPPET</span><button class="copy-btn" onclick="copySnippet(this)">Copier</button></div>
-          <pre>&lt;!-- Dans &lt;head&gt; : --&gt;
-&lt;link rel="icon" href="assets/favicon.svg" type="image/svg+xml"&gt;
-
-&lt;!-- Le SVG source : --&gt;
-&lt;svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"&gt;
-  &lt;rect width="32" height="32" rx="7" fill="url(#tile)"/&gt;
-  &lt;defs&gt;
-    &lt;linearGradient id="tile" x1="0" y1="0" x2="1" y2="1"&gt;
-      &lt;stop offset="0" stop-color="#0B6E72"/&gt;
-      &lt;stop offset="1" stop-color="#2563EB"/&gt;
-    &lt;/linearGradient&gt;
-    &lt;linearGradient id="arcs" x1="0" y1="0" x2="1" y2="0"&gt;
-      &lt;stop offset="0" stop-color="#33d6d6"/&gt;
-      &lt;stop offset="1" stop-color="#7aa7ff"/&gt;
-    &lt;/linearGradient&gt;
-  &lt;/defs&gt;
-  &lt;g fill="none" stroke="url(#arcs)"
-     stroke-width="2.8" stroke-linecap="round"&gt;
-    &lt;path d="M5 24 a11 11 0 0 1 22 0"/&gt;
-    &lt;path d="M10 24 a6 6 0 0 1 12 0"/&gt;
-  &lt;/g&gt;
-  &lt;circle cx="16" cy="24" r="2.2" fill="#F59E0B"/&gt;
-&lt;/svg&gt;</pre>
-          <a class="dl-btn" href="assets/favicon.svg" download>Télécharger favicon.svg</a>
+          <div class="snippet-head"><span>CSS PIVOT (survol)</span><button class="copy-btn" onclick="copySnippet(this)">Copier</button></div>
+          <pre>.logo-icon {
+  transition: transform .4s ease;
+}
+.logo-icon:hover {
+  transform: rotate(90deg);
+}</pre>
         </div>
+        <a class="dl-btn" href="assets/favicon.svg" download>Telecharger favicon.svg</a>
       </div>
     </div>
-  </div><!-- /favicon -->
 
-  <!-- ======================================================
-       TABLEAU RÉCAPITULATIF
-       ====================================================== -->
-  <h2>Récapitulatif de tous les assets</h2>
+    <div class="asset-card">
+      <div class="stage marine" style="gap:16px; flex-wrap:wrap;">
+        <svg viewBox="8 22 100 100" xmlns="http://www.w3.org/2000/svg" width="64" height="64">
+          <rect x="8" y="22" width="100" height="100" rx="20" fill="#1e3a5f"/>
+          <g transform="translate(4.5,0)">
+            <g transform="rotate(90 44 72)" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round">
+              <path d="M14 72 a30 30 0 0 1 60 0"/>
+              <path d="M28 72 a16 16 0 0 1 32 0"/>
+            </g>
+            <circle cx="44" cy="72" r="6.5" fill="#F59E0B"/>
+          </g>
+        </svg>
+        <svg viewBox="8 22 100 100" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+          <rect x="8" y="22" width="100" height="100" rx="20" fill="#1e3a5f"/>
+          <g transform="translate(4.5,0)">
+            <g transform="rotate(90 44 72)" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round">
+              <path d="M14 72 a30 30 0 0 1 60 0"/>
+              <path d="M28 72 a16 16 0 0 1 32 0"/>
+            </g>
+            <circle cx="44" cy="72" r="6.5" fill="#F59E0B"/>
+          </g>
+        </svg>
+        <svg viewBox="8 22 100 100" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+          <rect x="8" y="22" width="100" height="100" rx="20" fill="#1e3a5f"/>
+          <g transform="translate(4.5,0)">
+            <g transform="rotate(90 44 72)" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round">
+              <path d="M14 72 a30 30 0 0 1 60 0"/>
+              <path d="M28 72 a16 16 0 0 1 32 0"/>
+            </g>
+            <circle cx="44" cy="72" r="6.5" fill="#F59E0B"/>
+          </g>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Lisibilite favicon</div>
+        <div class="card-meta">64 px · 32 px · 16 px. Le « D » reste lisible grâce à la tuile marine et au contraste blanc + ambre.</div>
+      </div>
+    </div>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Fichier</th>
-        <th>Lock-up</th>
-        <th>Fond recommandé</th>
-        <th>Usage principal</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td><code>logo-picto.svg</code></td><td>Picto seul</td><td>Clair / brume</td><td>Icon contextuel, espace contraint</td></tr>
-      <tr><td><code>logo-picto-mono.svg</code></td><td>Picto seul monochrome</td><td>Blanc / gris</td><td>Impression, tampon, gravure</td></tr>
-      <tr><td><code>logo-picto-blanc.svg</code></td><td>Picto seul blanc</td><td>Sombre / coloré</td><td>Fond foncé, photo, bannière</td></tr>
-      <tr><td><code>logo-horizontal.svg</code></td><td>34-A Horizontal</td><td>Clair</td><td>En-tête site, nav, facture</td></tr>
-      <tr><td><code>logo-horizontal-blanc.svg</code></td><td>34-A Horizontal blanc</td><td>Coloré / dégradé</td><td>Bannière hero, fond teal/bleu</td></tr>
-      <tr><td><code>logo-horizontal-nuit.svg</code></td><td>34-E Nuit</td><td>Encre (inclus)</td><td>Dark mode, slide sombre</td></tr>
-      <tr><td><code>logo-signature.svg</code></td><td>34-C Signature</td><td>Blanc / clair</td><td>En-tête document, ordonnance, mail</td></tr>
-      <tr><td><code>logo-signature-nuit.svg</code></td><td>34-C Signature nuit</td><td>Encre (inclus)</td><td>Document dark, slide pro</td></tr>
-      <tr><td><code>logo-empile.svg</code></td><td>34-B Empilé</td><td>Neutre / blanc</td><td>App icon, avatar carré</td></tr>
-      <tr><td><code>logo-integre.svg</code></td><td>34-D Picto intégré</td><td>Clair</td><td>Titre créatif, couverture</td></tr>
-      <tr><td><code>favicon.svg</code></td><td>Tuile 32×32</td><td>Tuile (inclus)</td><td>Favicon navigateur, app icon</td></tr>
-    </tbody>
-  </table>
+  </div>
 
   <div class="footer">
-    DIAGORIA · Kit de marque · Version 1.0 · 22 juin 2026 ·
-    <a href="charte-graphique.html">Charte graphique</a> ·
-    <a href="index.html">retour au hub</a>
+    Kit de marque DIAGORIA · Version définitive 2026-06-23 · Kalos santé
   </div>
 
 </div>
@@ -791,16 +632,9 @@ pre {
 <script>
 function copySnippet(btn) {
   const pre = btn.closest('.snippet-head').nextElementSibling;
-  navigator.clipboard.writeText(pre.textContent.trim()).then(() => {
-    const orig = btn.textContent;
-    btn.textContent = 'Copié !';
-    btn.style.background = '#0EA5A6';
-    btn.style.color = '#fff';
-    setTimeout(() => {
-      btn.textContent = orig;
-      btn.style.background = '';
-      btn.style.color = '';
-    }, 1800);
+  navigator.clipboard.writeText(pre.textContent).then(() => {
+    btn.textContent = 'Copie !';
+    setTimeout(() => btn.textContent = 'Copier', 1800);
   });
 }
 </script>
