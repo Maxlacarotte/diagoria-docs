@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<title>DIAGORIA — Essai B + logo en « D » + favicon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{--bg:#faf8f5;--paper:#fff;--ink:#0f1419;--ink-soft:#3d4751;--ink-mute:#7a8290;--rule:#e5dccc;--primary:#1e3a5f;--primary-soft:#2c5282;--accent:#F59E0B;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Outfit',sans-serif;line-height:1.6}
+  .wrap{max-width:1000px;margin:0 auto;padding:48px 28px 80px}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+  h1{font-weight:700;font-size:clamp(1.7rem,3.4vw,2.4rem);letter-spacing:-.02em;margin:10px 0 0}
+  h2{font-weight:600;font-size:1.3rem;margin:46px 0 4px}
+  .lead{color:var(--ink-soft);font-size:1.02rem;max-width:46em;margin:8px 0 0}
+  .card{background:var(--paper);border:1px solid var(--rule);border-radius:18px;padding:26px;margin-top:18px}
+  .row{display:flex;gap:30px;align-items:center;flex-wrap:wrap;justify-content:center}
+  .wm{font-family:'Outfit',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.2em;font-size:1.5rem;color:var(--primary)}
+  .lockup{display:flex;align-items:center;gap:16px}
+  .cap{font-size:.86rem;color:var(--ink-mute);text-align:center;margin-top:10px;font-family:'JetBrains Mono',monospace}
+  .arrow{font-size:2rem;color:var(--ink-mute)}
+  .tilewrap{display:flex;flex-direction:column;align-items:center;gap:12px}
+  .tile{position:relative;border-radius:24%;overflow:visible;box-shadow:0 12px 26px -14px rgba(15,20,25,.5)}
+  .badge{position:absolute;left:-8px;bottom:-8px;display:flex;align-items:center;gap:4px;background:#27c06b;color:#063a1e;font-family:'Outfit';font-weight:700;font-size:11px;letter-spacing:.06em;padding:4px 9px 4px 6px;border-radius:999px;box-shadow:0 4px 10px -3px rgba(0,0,0,.4)}
+  .badge .ck{display:inline-flex;width:14px;height:14px;border-radius:50%;background:#fff;color:#27c06b;align-items:center;justify-content:center;font-size:9px}
+  .sizes{display:flex;align-items:center;gap:16px;margin-top:6px}
+  .note{background:#fff7e8;border:1px solid #f3d9a4;border-radius:12px;padding:12px 16px;font-size:.92rem;color:#7a5410;margin-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Identité · exploration</div>
+  <h1>Essai B, logo en « D », et favicon</h1>
+  <p class="lead">Tout en police <strong>Outfit</strong>, dégradé <strong>Essai B</strong> (turquoise → bleu <code>#2c5282</code> → marine <code>#1e3a5f</code>), point ambre conservé.</p>
+
+  <h2>1 · Rappel — Essai B (le dégradé riche)</h2>
+  <div class="card">
+    <div class="row">
+      <div class="lockup">
+        <svg viewBox="-4 10 96 96" width="74" height="74" aria-label="Picto Essai B"><defs><linearGradient id="gb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0EA5A6"/><stop offset=".5" stop-color="#2c5282"/><stop offset="1" stop-color="#1e3a5f"/></linearGradient></defs><g fill="none" stroke="url(#gb)" stroke-width="8" stroke-linecap="round"><path d="M14 72 a30 30 0 0 1 60 0"/><path d="M28 72 a16 16 0 0 1 32 0"/></g><circle cx="44" cy="72" r="6" fill="#F59E0B"/></svg>
+        <span class="wm">Diagoria</span>
+      </div>
+    </div>
+    <div class="cap">Lock-up horizontal — orientation normale (dôme)</div>
+  </div>
+
+  <h2>2 · Le picto basculé à la verticale = un « D »</h2>
+  <p class="lead">On fait pivoter le picto de 90° autour du point ambre : les arcs deviennent le ventre d'un D, et le point ambre se pose au milieu de la « colonne ».</p>
+  <div class="card">
+    <div class="row">
+      <div class="tilewrap">
+        <svg viewBox="-4 10 96 96" width="120" height="120" aria-label="Picto dôme"><defs><linearGradient id="gd1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0EA5A6"/><stop offset=".5" stop-color="#2c5282"/><stop offset="1" stop-color="#1e3a5f"/></linearGradient></defs><g fill="none" stroke="url(#gd1)" stroke-width="8" stroke-linecap="round"><path d="M14 72 a30 30 0 0 1 60 0"/><path d="M28 72 a16 16 0 0 1 32 0"/></g><circle cx="44" cy="72" r="6" fill="#F59E0B"/></svg>
+        <div class="cap">Dôme (0°)</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="tilewrap">
+        <svg viewBox="34 30 56 84" width="90" height="135" aria-label="Picto vertical sans hampe"><defs><linearGradient id="gd2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0EA5A6"/><stop offset=".5" stop-color="#2c5282"/><stop offset="1" stop-color="#1e3a5f"/></linearGradient></defs><g transform="rotate(90 44 72)"><g fill="none" stroke="url(#gd2)" stroke-width="8" stroke-linecap="round"><path d="M14 72 a30 30 0 0 1 60 0"/><path d="M28 72 a16 16 0 0 1 32 0"/></g><circle cx="44" cy="72" r="6" fill="#F59E0B"/></g></svg>
+        <div class="cap">Vertical (90°) — « D » sans hampe</div>
+      </div>
+      <div class="tilewrap">
+        <svg viewBox="34 30 56 84" width="90" height="135" aria-label="Picto vertical avec hampe"><defs><linearGradient id="gd3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0EA5A6"/><stop offset=".5" stop-color="#2c5282"/><stop offset="1" stop-color="#1e3a5f"/></linearGradient></defs><line x1="44" y1="40" x2="44" y2="104" stroke="url(#gd3)" stroke-width="8" stroke-linecap="round"/><g transform="rotate(90 44 72)"><g fill="none" stroke="url(#gd3)" stroke-width="8" stroke-linecap="round"><path d="M14 72 a30 30 0 0 1 60 0"/><path d="M28 72 a16 16 0 0 1 32 0"/></g></g><circle cx="44" cy="72" r="6" fill="#F59E0B"/></svg>
+        <div class="cap">Vertical + hampe — « D » net</div>
+      </div>
+    </div>
+    <div class="note">À la verticale, le dégradé va de haut (turquoise) en bas (marine). La « hampe » (le trait vertical) rend le D beaucoup plus lisible — surtout en petit.</div>
+  </div>
+
+  <h2>3 · En favicon (tuile bleu marine, comme la tienne)</h2>
+  <p class="lead">On remplace le « D » blanc actuel par le logo vertical. Sur fond marine, le picto passe en blanc ou en bleu clair pour contraster.</p>
+  <div class="card">
+    <div class="row" style="gap:42px">
+
+      <div class="tilewrap">
+        <div class="tile" style="width:132px;height:132px;background:#1e3a5f">
+          <svg viewBox="8 22 100 100" width="132" height="132" aria-label="Favicon D blanc avec hampe"><g transform="rotate(90 44 72)"><g fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"><path d="M14 72 a30 30 0 0 1 60 0"/><path d="M28 72 a16 16 0 0 1 32 0"/></g></g><line x1="44" y1="40" x2="44" y2="104" stroke="#fff" stroke-width="9" stroke-linecap="round"/><circle cx="44" cy="72" r="6.5" fill="#F59E0B"/></svg>
+          <div class="badge"><span class="ck">&#10003;</span>LOCAL</div>
+        </div>
+        <div class="sizes">
+          <div class="tile" style="width:44px;height:44px;background:#1e3a5f"><svg viewBox="8 22 100 100" width="44" height="44" aria-hidden="true"><g transform="rotate(90 44 72)"><g fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"><path d="M14 72 a30 30 0 0 1 60 0"/><path d="M28 72 a16 16 0 0 1 32 0"/></g></g><line x1="44" y1="40" x2="44" y2="104" stroke="#fff" stroke-width="9" stroke-linecap="round"/><circle cx="44" cy="72" r="6.5" fill="#F59E0B"/></svg></div>
+          <div class="cap" style="margin:0">44 px</div>
+        </div>
+        <div class="cap">A · D blanc + hampe (comme l'actuel)</div>
+      </div>
+
+      <div class="tilewrap">
+        <div class="tile" style="width:132px;height:132px;background:#1e3a5f">
+          <svg viewBox="8 22 100 100" width="132" height="132" aria-label="Favicon D dégradé clair"><defs><linearGradient id="gf2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#33d6d6"/><stop offset="1" stop-color="#7aa7ff"/></linearGradient></defs><g transform="rotate(90 44 72)"><g fill="none" stroke="url(#gf2)" stroke-width="9" stroke-linecap="round"><path d="M14 72 a30 30 0 0 1 60 0"/><path d="M28 72 a16 16 0 0 1 32 0"/></g></g><line x1="44" y1="40" x2="44" y2="104" stroke="url(#gf2)" stroke-width="9" stroke-linecap="round"/><circle cx="44" cy="72" r="6.5" fill="#F59E0B"/></svg>
+        </div>
+        <div class="sizes">
+          <div class="tile" style="width:44px;height:44px;background:#1e3a5f"><svg viewBox="8 22 100 100" width="44" height="44" aria-hidden="true"><defs><linearGradient id="gf2b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#33d6d6"/><stop offset="1" stop-color="#7aa7ff"/></linearGradient></defs><g transform="rotate(90 44 72)"><g fill="none" stroke="url(#gf2b)" stroke-width="9" stroke-linecap="round"><path d="M14 72 a30 30 0 0 1 60 0"/><path d="M28 72 a16 16 0 0 1 32 0"/></g></g><line x1="44" y1="40" x2="44" y2="104" stroke="url(#gf2b)" stroke-width="9" stroke-linecap="round"/><circle cx="44" cy="72" r="6.5" fill="#F59E0B"/></svg></div>
+          <div class="cap" style="margin:0">44 px</div>
+        </div>
+        <div class="cap">B · D bleu clair + hampe</div>
+      </div>
+
+      <div class="tilewrap">
+        <div class="tile" style="width:132px;height:132px;background:#1e3a5f">
+          <svg viewBox="8 22 100 100" width="132" height="132" aria-label="Favicon D blanc sans hampe"><g transform="rotate(90 44 72)"><g fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"><path d="M14 72 a30 30 0 0 1 60 0"/><path d="M28 72 a16 16 0 0 1 32 0"/></g><circle cx="44" cy="72" r="6.5" fill="#F59E0B"/></g></svg>
+        </div>
+        <div class="sizes">
+          <div class="tile" style="width:44px;height:44px;background:#1e3a5f"><svg viewBox="8 22 100 100" width="44" height="44" aria-hidden="true"><g transform="rotate(90 44 72)"><g fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"><path d="M14 72 a30 30 0 0 1 60 0"/><path d="M28 72 a16 16 0 0 1 32 0"/></g><circle cx="44" cy="72" r="6.5" fill="#F59E0B"/></g></svg></div>
+          <div class="cap" style="margin:0">44 px</div>
+        </div>
+        <div class="cap">C · D blanc sans hampe (logo pur)</div>
+      </div>
+
+    </div>
+  </div>
+
+  <p class="lead" style="margin-top:26px">Mon avis : la <strong>hampe</strong> (A ou B) fait un D lisible et carré, idéal en favicon ; <strong>sans hampe</strong> (C) on reste fidèle au logo mais ça lit plutôt « ) » que « D » en petit. Le point ambre <span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:#F59E0B;vertical-align:-1px"></span> reste le détail signature au centre.</p>
+</div>
+</body>
+</html>
