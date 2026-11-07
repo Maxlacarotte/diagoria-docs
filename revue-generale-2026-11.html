@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Revue générale — novembre 2026 — DIAGORIA</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .table-wrap { overflow-x: auto; }
+  .table-wrap table { min-width: 620px; }
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="row">
+  <a class="brand" href="index.html"><span class="dot"></span> DIAGORIA</a>
+  <span class="spacer"></span>
+  <a class="back" href="index.html">← Centre de doc</a>
+</div></div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">Produit &amp; technique</div>
+    <h1>Revue générale : le bilan de santé de DIAGORIA</h1>
+    <p>Sécurité, risques de casse, obsolescences, idées de fonctionnalités, et ce qu'il faudrait changer pour proposer DIAGORIA à des collègues à 40&nbsp;€/mois.</p>
+  </div>
+
+  <div class="confidential">🔒 Version hub : les détails techniques des points de sécurité sont retirés. La version complète reste dans le projet (<code>REVUES/2026-11-07-revue-generale.html</code>).</div>
+
+  <div class="tldr">
+    <div class="lead">⚡ En 30 secondes</div>
+    <p><strong>DIAGORIA est solide.</strong> Aucune faille critique dans l'outil utilisé au quotidien. Le serveur est bien protégé et les sauvegardes fonctionnent. <strong>18 correctifs</strong> de sécurité et de robustesse sont prêts et testés, en attente de mise en ligne.</p>
+    <p><strong>Une casse certaine à anticiper : les reçus du 1ᵉʳ janvier 2027.</strong> L'année 2026 est écrite en dur dans la chaîne des reçus.</p>
+    <p><strong>Vendre à 40&nbsp;€/mois</strong> est faisable en 6 à 8 semaines, pour 2 à 6&nbsp;k€ au départ. La forme : un logiciel téléchargeable, présenté comme « outil de documentation » sans aide au diagnostic chiffrée, avec une IA européenne sous contrat et les dossiers sur le PC du praticien.</p>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="num">0</div><div class="lbl">faille critique dans l'outil du quotidien</div></div>
+    <div class="kpi"><div class="num">18</div><div class="lbl">correctifs préparés et testés</div></div>
+    <div class="kpi"><div class="num">364</div><div class="lbl">tests automatiques réussis</div></div>
+    <div class="kpi"><div class="num">01/01</div><div class="lbl">2027 : date de casse des reçus, à traiter avant le 15/12</div></div>
+  </div>
+
+  <h2>✅ Ce qui est solide</h2>
+  <div class="grid">
+    <div class="card"><h3>🔐 Connexion</h3><p>Le code n'est jamais stocké en clair. Un code à usage unique est demandé pour tout nouvel appareil, les cookies sont protégés et aucun secret n'apparaît dans les journaux.</p></div>
+    <div class="card"><h3>💾 Sauvegardes</h3><p>Une archive vérifiée chaque nuit, gardée 30 jours, et une copie synchronisée sur le PC toutes les 30 minutes.</p></div>
+    <div class="card"><h3>🔁 Synchronisation</h3><p>Rien n'est jamais supprimé. Si une consultation est modifiée des deux côtés, les deux versions sont gardées. Un fichier n'est jamais écrit à moitié.</p></div>
+    <div class="card"><h3>🧪 Tests</h3><p>Trois batteries de tests font tourner de vraies instances de l'app sur des données fictives. Après correctifs : 206/206, 98/98, 60/60.</p></div>
+  </div>
+
+  <h2>⏳ Ce qui peut casser — à anticiper</h2>
+  <div class="table-wrap"><table>
+    <tr><th>Quand</th><th>Risque</th><th>Statut</th></tr>
+    <tr><td><span class="pill red">01/01/2027</span></td><td>Tous les reçus de 2027 refusés : l'année 2026 est écrite en dur.</td><td>À faire avant le 15/12</td></tr>
+    <tr><td>PC éteint</td><td>Deux consultations recevaient le même numéro de reçu.</td><td><span class="pill green">corrigé</span></td></tr>
+    <tr><td>Crédit IA épuisé</td><td>Message trompeur « Vérifie ta connexion ».</td><td><span class="pill green">corrigé</span></td></tr>
+    <tr><td>Onglet ouvert la nuit</td><td>La première consultation du matin était datée de la veille.</td><td><span class="pill green">corrigé</span></td></tr>
+    <tr><td>Erreur sur un dossier</td><td>La synchronisation des dossiers suivants s'arrêtait.</td><td><span class="pill green">corrigé</span></td></tr>
+    <tr><td>Coupure réseau</td><td>Reçu envoyé deux fois, enregistrement en double, statut de reçu perdu à la synchro, phrases perdues pendant la dictée.</td><td><span class="pill blue">lot 2</span></td></tr>
+    <tr><td>Hors ligne</td><td>Mise en page et icônes chargées depuis Internet.</td><td>Mieux en cache ; à héberger localement</td></tr>
+    <tr><td>Quelques mois</td><td>Noms des modèles IA qui changent, services WhatsApp non officiels, jetons Google.</td><td>Surveillance et solutions de secours</td></tr>
+  </table></div>
+
+  <h2>💡 Idées de fonctionnalités</h2>
+  <div class="table-wrap"><table>
+    <tr><th>Idée</th><th>Valeur</th><th>Effort</th></tr>
+    <tr><td><strong>Panneau « État du système »</strong> : worker, WhatsApp, crédit IA, synchro, sauvegarde, disque, avec alerte</td><td><span class="pill green">très forte</span></td><td>moyen</td></tr>
+    <tr><td><strong>Liste « À faire »</strong> : reçus non générés ou non envoyés, exercices annoncés mais pas envoyés, travaux en échec</td><td><span class="pill green">très forte</span></td><td>petit</td></tr>
+    <tr><td><strong>Codes de secours</strong> papier pour se connecter si WhatsApp est en panne</td><td><span class="pill green">forte</span></td><td>petit</td></tr>
+    <tr><td><strong>Démarrer depuis le rendez-vous</strong> de l'agenda (bon nom, bon dossier, bonne date)</td><td><span class="pill green">forte</span></td><td>moyen</td></tr>
+    <tr><td><strong>Résumé du patient</strong> avant la séance : dernier motif, conseils, allergies bien visibles</td><td><span class="pill green">forte</span></td><td>petit</td></tr>
+    <tr><td><strong>Récapitulatif des encaissements</strong> par mois et par mode de règlement</td><td><span class="pill amber">moyenne</span></td><td>petit</td></tr>
+    <tr><td><strong>Photos réduites</strong> avant l'envoi, <strong>export mensuel chiffré</strong>, <strong>message de nouvelles à J+7</strong></td><td><span class="pill amber">moyenne</span></td><td>petit à moyen</td></tr>
+  </table></div>
+
+  <h2>🚀 Proposer DIAGORIA à des collègues à 40&nbsp;€/mois</h2>
+  <div class="callout warn"><strong>Faisable, mais pas en l'état.</strong> La base vendable est le logiciel téléchargeable, avec les dossiers sur le PC du praticien. À ce prix, la seule voie qui tient est un <strong>outil de documentation qui ne fait pas de diagnostic</strong>, c'est-à-dire hors dispositif médical. La transcription, le dossier structuré et les documents gardent l'essentiel de la valeur.</div>
+
+  <h3>Ce que la version vendue doit garantir</h3>
+  <ul class="clean">
+    <li><strong>Pas d'aide au diagnostic chiffrée</strong> : ni probabilité, ni classement, ni examen ou traitement suggéré, sinon c'est un dispositif médical (règlement européen MDR, règle 11). Le marquage CE coûterait 50 à 200&nbsp;k€ et prendrait 1 à 2 ans.</li>
+    <li><strong>IA et transcription dans l'Union européenne, sous contrat</strong> : offre payante, accord de sous-traitance (DPA) signé, aucune conservation des données, refus d'entraînement.</li>
+    <li><strong>Dossiers sur le seul PC du praticien</strong>, ou chez un hébergeur certifié données de santé (HDS) en Europe, et jamais sur un serveur ordinaire.</li>
+    <li><strong>Chiffrement réel des dossiers</strong> s'il est annoncé ; export complet possible à tout moment.</li>
+    <li><strong>Logiciel signé</strong>, mises à jour vérifiées, aucun déverrouillage de secours, envois par des canaux officiels.</li>
+    <li><strong>Rien de propre à un seul praticien</strong> : chaque utilisateur saisit son identité (nom, adresse, n° ADELI, signature, cachet) ; reçus et documents sont fabriqués dans le logiciel.</li>
+  </ul>
+
+  <h3>La liste, par ordre d'obligation</h3>
+  <div class="table-wrap"><table>
+    <tr><th>Niveau</th><th>Quoi</th><th>Coût</th></tr>
+    <tr><td rowspan="5"><span class="pill red">Avant le 1ᵉʳ client</span></td><td>Version conforme (voir ci-dessus) ; mention « généré par IA » à l'écran et dans les exports (règlement européen sur l'IA, art. 50, depuis le 02/08/2026) ; procédure d'alerte sous 24 h en cas de faille exploitée (règlement européen sur la cybersécurité des produits, CRA, depuis le 11/09/2026)</td><td>0&nbsp;€ (temps de développement)</td></tr>
+    <tr><td>Contrats : conditions d'utilisation (CGU) et de vente (CGV), accord de sous-traitance pour chaque praticien, politique de confidentialité, mentions légales à jour</td><td>0&nbsp;€ (brouillons existants)</td></tr>
+    <tr><td>Relecture par un avocat santé et numérique</td><td>1,5-4&nbsp;k€ HT</td></tr>
+    <tr><td>RGPD : registre, analyse d'impact (AIPD) de base, notice pour les patients, procédure en cas de fuite</td><td>0&nbsp;€</td></tr>
+    <tr><td>Déclarer l'activité « édition de logiciels », factures conformes, IA payante</td><td>8-20&nbsp;€/praticien/mois d'IA</td></tr>
+    <tr><td rowspan="3"><span class="pill amber">Peut suivre</span></td><td>Facture électronique (réception depuis le 01/09/2026, émission au 01/09/2027)</td><td>0-30&nbsp;€/mois</td></tr>
+    <tr><td>Délégué à la protection des données externalisé, vers 20 cabinets ; CRA complet au 11/12/2027</td><td>1-3&nbsp;k€/an</td></tr>
+    <tr><td>Seuil de franchise de TVA : 37&nbsp;500&nbsp;€, soit environ 78 abonnés à 40&nbsp;€</td><td>—</td></tr>
+    <tr><td rowspan="3"><span class="pill blue">Conseillé</span></td><td>Société dédiée (SASU ou EURL) créée avant le premier contrat</td><td>0,5-1,5&nbsp;k€ + comptable</td></tr>
+    <tr><td>Assurance RC d'éditeur de logiciel + assurance cyber</td><td>0,8-3&nbsp;k€/an</td></tr>
+    <tr><td>Marque à l'INPI, preuve de date du code, inventaire des licences</td><td>≈ 250-550&nbsp;€</td></tr>
+    <tr><td><span class="pill gray">Facultatif</span></td><td>Marque européenne ; marquage CE pour garder l'aide au diagnostic</td><td>850&nbsp;€ ; 50-200&nbsp;k€</td></tr>
+  </table></div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="num">20-32&nbsp;€</div><div class="lbl">marge par praticien et par mois, une fois l'IA payée</div></div>
+    <div class="kpi"><div class="num">10-25</div><div class="lbl">abonnés pour couvrir les frais fixes</div></div>
+    <div class="kpi"><div class="num">2-6&nbsp;k€</div><div class="lbl">mise de départ (avocat, société, marque)</div></div>
+  </div>
+
+  <h3>Ordre de marche</h3>
+  <ol class="steps">
+    <li><h3>Choisir la voie « outil de documentation »</h3>La décision de Maximilien.</li>
+    <li><h3>Semaines 1 à 3</h3>La version vendable : conformité du produit, coût nul.</li>
+    <li><h3>Semaines 2 à 4</h3>Contrats, registre RGPD, déclaration de l'activité, et la question de la société tranchée avant le premier contrat.</li>
+    <li><h3>Semaines 4 à 6</h3>Avocat, assurance, marque.</li>
+    <li><h3>Ensuite</h3>2 ou 3 collègues payants pour commencer, puis montée en charge.</li>
+  </ol>
+  <div class="callout danger"><strong>Ligne rouge</strong> : aucune version en ligne, synchronisation ou sauvegarde des dossiers des collègues sans hébergeur HDS en Europe et sans avis d'avocat.</div>
+  <p class="src">État du droit au 07/11/2026.</p>
+  <ul class="clean src">
+    <li><strong>Adoptés</strong> : règlement IA modifié (2026/1744), CRA, facture électronique, seuils 2026, référentiel HDS 2024.</li>
+    <li><strong>Seulement proposés</strong> : révision du MDR (logiciel en classe I par défaut), omnibus numérique sur les données et le RGPD.</li>
+  </ul>
+  <p class="src">Avis interne, qui ne remplace pas un avocat.</p>
+
+  <h2>🔎 Méthode</h2>
+  <ul class="clean">
+    <li>Quatre analyses en parallèle par les agents du projet : deux de sécurité, une de robustesse et d'obsolescence, une de volet légal.</li>
+    <li>Une inspection en lecture seule du serveur et du poste.</li>
+    <li>Aucune donnée patient ouverte, aucune attaque menée contre la production. Les failles ont été reproduites sur des copies avec des données fictives.</li>
+    <li>Une vérification en navigateur réel des correctifs.</li>
+  </ul>
+
+  <div class="footer">
+    DIAGORIA · Centre de documentation · revue générale du 07/11/2026 ·
+    <a href="index.html">retour au sommaire</a>
+  </div>
+</div>
+</body>
+</html>
